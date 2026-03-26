@@ -66,7 +66,7 @@ export const siteCopy = {
         `当前展示 ${items} 条训练口令。每条口令都提供 ${variants} 个声音版本，并会按当前语言切换对应音频。`
     },
     home: {
-      badge: "PetPulse · 宠物声音与养宠知识站",
+      badge: "PetChat · 宠物声音与养宠知识站",
       titlePrefix: "一个更好看、也更好用的",
       titleAccent: "猫狗内容官网",
       description: "把猫狗叫声、逗宠互动声音、养宠常识、风险提醒和成长阶段知识，整理成更容易查找、浏览和继续扩充的内容网站。",
@@ -133,8 +133,8 @@ export const siteCopy = {
       description: "按阶段划分内容，更适合覆盖搜索意图，也更方便你继续扩展专题。"
     },
     about: {
-      title: "关于 PetPulse",
-      description: "PetPulse 不是单纯展示公司信息的落地页，而是一个围绕猫狗声音与养宠内容构建的宠物知识官网。",
+      title: "关于 PetChat",
+      description: "PetChat 不是单纯展示公司信息的落地页，而是一个围绕猫狗声音与养宠内容构建的宠物知识官网。",
       expandTitle: "适合继续扩充的内容方向",
       expandItems: [
         "增加更多猫狗叫声类型，并接入真实音频文件。",
@@ -169,7 +169,7 @@ export const siteCopy = {
     },
     privacy: {
       title: "隐私政策",
-      description: "PetPulse 当前为内容展示型网站，隐私政策重点说明访问数据、联系方式和第三方托管服务。",
+      description: "PetChat 当前为内容展示型网站，隐私政策重点说明访问数据、联系方式和第三方托管服务。",
       infoTitle: "我们可能收集的信息",
       infoBody: "当前站点不提供账号注册、评论和表单提交等复杂功能。若你通过邮箱联系站点，可能会提供你的邮箱地址、昵称和消息内容；此外，Cloudflare 等托管服务可能会生成基础访问日志和匿名统计数据。",
       usageTitle: "这些信息如何被使用",
@@ -183,7 +183,7 @@ export const siteCopy = {
     },
     disclaimer: {
       title: "免责声明",
-      description: "PetPulse 提供的是宠物声音和养宠内容参考，不构成医疗、诊断或其他专业结论。",
+      description: "PetChat 提供的是宠物声音和养宠内容参考，不构成医疗、诊断或其他专业结论。",
       referenceTitle: "内容参考性质",
       referenceBody: "站内关于猫狗叫声、训练口令、养宠常识、成长阶段和注意事项的内容，仅用于一般信息参考和日常养宠辅助，不替代兽医诊断、线下检查、行为评估或法律建议。",
       audioTitle: "音频使用提醒",
@@ -256,7 +256,7 @@ export const siteCopy = {
         `Showing ${items} commands. Each command includes ${variants} voice variants and switches to the matching audio language.`
     },
     home: {
-      badge: "PetPulse · Pet sounds and care knowledge",
+      badge: "PetChat · Pet sounds and care knowledge",
       titlePrefix: "A better-looking, easier-to-use",
       titleAccent: "pet content website",
       description: "Organize cat and dog sounds, teaser audio, care basics, risk reminders, and life-stage knowledge into a content site that is easier to browse, search, and keep expanding.",
@@ -323,8 +323,8 @@ export const siteCopy = {
       description: "Organizing by stage covers search intent more clearly and makes future expansion easier."
     },
     about: {
-      title: "About PetPulse",
-      description: "PetPulse is not just a generic company landing page. It is a pet knowledge website built around cat and dog sounds plus practical care content.",
+      title: "About PetChat",
+      description: "PetChat is not just a generic company landing page. It is a pet knowledge website built around cat and dog sounds plus practical care content.",
       expandTitle: "Content directions worth expanding",
       expandItems: [
         "Add more cat and dog sound types and wire them to real audio files.",
@@ -359,7 +359,7 @@ export const siteCopy = {
     },
     privacy: {
       title: "Privacy policy",
-      description: "PetPulse is currently a content website. This policy explains access data, contact information, and third-party hosting.",
+      description: "PetChat is currently a content website. This policy explains access data, contact information, and third-party hosting.",
       infoTitle: "What we may collect",
       infoBody: "The site does not currently provide user accounts, comments, or complex forms. If you contact the site by email, you may provide an email address, nickname, and message content. Cloudflare and similar hosting services may also generate basic access logs and anonymous statistics.",
       usageTitle: "How the information is used",
@@ -373,7 +373,7 @@ export const siteCopy = {
     },
     disclaimer: {
       title: "Disclaimer",
-      description: "PetPulse provides pet sound and care reference content. It does not constitute medical, diagnostic, or other professional conclusions.",
+      description: "PetChat provides pet sound and care reference content. It does not constitute medical, diagnostic, or other professional conclusions.",
       referenceTitle: "Reference-only content",
       referenceBody: "Cat and dog sounds, training commands, care basics, stage guides, and safety notes on this site are for general information and daily pet-care support only. They do not replace veterinary diagnosis, in-person evaluation, behavioral assessment, or legal advice.",
       audioTitle: "Audio-use reminders",

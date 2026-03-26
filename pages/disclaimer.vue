@@ -5,8 +5,8 @@ useSeoMeta(() => ({
   title: copy.value.disclaimer.title,
   description:
     locale.value === "zh"
-      ? "查看 PetPulse 的内容使用边界、责任说明与风险提示。"
-      : "Review PetPulse's content boundaries, liability notes, and risk reminders."
+      ? "查看 PetChat 的内容使用边界、责任说明与风险提示。"
+      : "Review PetChat's content boundaries, liability notes, and risk reminders."
 }));
 </script>
 

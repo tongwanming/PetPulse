@@ -16,14 +16,14 @@ defineProps<{
 </script>
 
 <template>
-  <article class="card-lift rounded-blob border border-pine/10 bg-white p-6 shadow-float">
+  <article class="card-lift rounded-blob border border-pine/10 bg-white p-5 shadow-float sm:p-6">
     <div class="flex items-center justify-between gap-3">
       <span class="rounded-full bg-peach px-3 py-1 text-xs font-semibold text-pine">{{ item.category }}</span>
       <span class="text-xs text-ink/50">{{ item.readTime }}</span>
     </div>
-    <h3 class="mt-4 text-xl font-semibold text-pine">{{ item.title }}</h3>
-    <p class="mt-3 text-sm leading-6 text-ink/70">{{ item.summary }}</p>
-    <p v-if="item.intro" class="mt-3 text-sm leading-6 text-ink/60">
+    <h3 class="mt-4 text-lg font-semibold text-pine sm:text-xl">{{ item.title }}</h3>
+    <p class="mt-3 line-clamp-3 text-sm leading-6 text-ink/70">{{ item.summary }}</p>
+    <p v-if="item.intro" class="mt-3 hidden text-sm leading-6 text-ink/60 sm:block">
       {{ item.intro }}
     </p>
     <p class="mt-4 text-sm text-ink/60">{{ copy.common.audience }}: {{ item.audience }}</p>

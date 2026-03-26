@@ -6,7 +6,7 @@ const { copy } = useSiteLocale();
   <footer class="relative z-10 border-t border-pine/10">
     <div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-5 py-8 text-sm text-ink/70 sm:px-8 md:flex-row md:items-start md:justify-between">
       <div class="max-w-md">
-        <p class="font-semibold text-pine">PetPulse</p>
+        <p class="font-semibold text-pine">PetChat</p>
         <p>{{ copy.footer.description }}</p>
       </div>
       <div class="flex flex-wrap gap-4">

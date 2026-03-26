@@ -5,8 +5,8 @@ useSeoMeta(() => ({
   title: copy.value.privacy.title,
   description:
     locale.value === "zh"
-      ? "查看 PetPulse 对访问数据、联系信息和第三方托管服务的说明。"
-      : "Review PetPulse's explanation of access data, contact information, and third-party hosting."
+      ? "查看 PetChat 对访问数据、联系信息和第三方托管服务的说明。"
+      : "Review PetChat's explanation of access data, contact information, and third-party hosting."
 }));
 </script>
 

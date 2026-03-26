@@ -32,6 +32,13 @@ button {
   box-shadow: 0 26px 50px rgba(34, 55, 67, 0.14);
 }
 
+@media (max-width: 767px) {
+  .card-lift:hover {
+    transform: none;
+    box-shadow: 0 18px 34px rgba(34, 55, 67, 0.1);
+  }
+}
+
 ::selection {
   background: #f78f6b;
   color: white;

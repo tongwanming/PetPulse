@@ -6,14 +6,14 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   app: {
     head: {
-      titleTemplate: "%s | PetPulse",
+      titleTemplate: "%s | PetChat",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "description",
           content:
-            "PetPulse 提供猫狗叫声、逗宠声音、养宠常识、成长阶段知识与注意事项。"
+            "PetChat 提供猫狗叫声、逗宠声音、养宠常识、成长阶段知识与注意事项。"
         }
       ],
       link: [
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      siteName: "PetPulse",
+      siteName: "PetChat",
       siteUrl: "https://pet-pulse.lovecqming.workers.dev"
     }
   },

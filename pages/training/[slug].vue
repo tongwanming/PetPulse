@@ -40,6 +40,17 @@ const localizedNextItem = computed(() => ({
   summary: getLocalizedText(nextItem.value.summary, locale.value)
 }));
 
+const activeVariantIndex = ref(0);
+
+watch(
+  () => route.params.slug,
+  () => {
+    activeVariantIndex.value = 0;
+  }
+);
+
+const activeVariant = computed(() => localizedItem.value.variants[activeVariantIndex.value] ?? localizedItem.value.variants[0]);
+
 useSeoMeta(() => ({
   title:
     locale.value === "zh"
@@ -50,19 +61,19 @@ useSeoMeta(() => ({
 </script>
 
 <template>
-  <article class="mx-auto max-w-5xl space-y-8">
+  <article class="mx-auto max-w-5xl space-y-6 sm:space-y-8">
     <NuxtLink to="/training" class="inline-flex rounded-full border border-pine/15 bg-white px-4 py-2 text-sm font-semibold text-pine">
       {{ copy.common.backToTraining }}
     </NuxtLink>
 
-    <section class="rounded-[2rem] bg-white p-8 shadow-float">
+    <section class="rounded-[2rem] bg-white p-6 shadow-float sm:p-8">
       <div class="flex flex-wrap items-center gap-3">
         <span class="rounded-full bg-peach px-3 py-1 text-xs font-semibold text-pine">{{ copy.common.training }}</span>
         <span class="rounded-full bg-mint px-3 py-1 text-xs font-semibold text-pine">{{ localizedItem.variants.length }} {{ copy.common.voices }}</span>
       </div>
-      <h1 class="mt-5 text-4xl font-semibold tracking-tight text-pine">{{ localizedItem.command }}</h1>
-      <p class="mt-4 text-lg leading-8 text-ink/70">{{ localizedItem.summary }}</p>
-      <div class="mt-5 flex flex-wrap gap-2">
+      <h1 class="mt-5 text-3xl font-semibold tracking-tight text-pine sm:text-4xl">{{ localizedItem.command }}</h1>
+      <p class="mt-4 text-base leading-7 text-ink/70 sm:text-lg sm:leading-8">{{ localizedItem.summary }}</p>
+      <div class="mt-5 flex flex-wrap gap-2 sm:gap-2">
         <span
           v-for="tag in localizedItem.tags"
           :key="tag"
@@ -71,13 +82,13 @@ useSeoMeta(() => ({
           {{ tag }}
         </span>
       </div>
-      <div class="mt-8 rounded-[1.5rem] bg-sand/70 p-6">
+      <div class="mt-6 rounded-[1.5rem] bg-sand/70 p-5 sm:mt-8 sm:p-6">
         <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">{{ copy.common.trainingGoal }}</p>
         <p class="mt-3 text-sm leading-7 text-ink/75">{{ localizedItem.goal }}</p>
       </div>
     </section>
 
-    <section class="grid gap-6 lg:grid-cols-3">
+    <section class="hidden gap-6 lg:grid-cols-3 lg:grid">
       <div
         v-for="variant in localizedItem.variants"
         :key="variant.voice"
@@ -91,7 +102,29 @@ useSeoMeta(() => ({
       </div>
     </section>
 
-    <section class="rounded-[2rem] bg-white p-8 shadow-float">
+    <section class="rounded-[2rem] bg-white p-5 shadow-float lg:hidden">
+      <div class="flex flex-wrap gap-2">
+        <button
+          v-for="(variant, index) in localizedItem.variants"
+          :key="variant.voice"
+          type="button"
+          class="rounded-full px-4 py-2 text-sm font-semibold transition"
+          :class="activeVariantIndex === index ? 'bg-pine text-white' : 'bg-sand text-ink/70'"
+          @click="activeVariantIndex = index"
+        >
+          {{ variant.voice }}
+        </button>
+      </div>
+      <div v-if="activeVariant" class="mt-5">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">{{ activeVariant.voice }}</p>
+        <h2 class="mt-2 text-xl font-semibold text-pine">{{ localizedItem.command }}</h2>
+        <div class="mt-4">
+          <AudioPlayer :src="activeVariant.audio" :title="`${localizedItem.command} · ${activeVariant.voice}`" />
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-[2rem] bg-white p-6 shadow-float sm:p-8">
       <h2 class="text-2xl font-semibold text-pine">{{ copy.common.trainingTips }}</h2>
       <ul class="mt-5 grid gap-4">
         <li
@@ -104,16 +137,16 @@ useSeoMeta(() => ({
       </ul>
     </section>
 
-    <section class="grid gap-6 md:grid-cols-2">
-      <NuxtLink :to="`/training/${previousItem.slug}`" class="rounded-[2rem] bg-white p-6 shadow-float transition hover:-translate-y-1">
+    <section class="grid gap-4 md:grid-cols-2 md:gap-6">
+      <NuxtLink :to="`/training/${previousItem.slug}`" class="rounded-[2rem] bg-white p-5 shadow-float transition hover:-translate-y-1 sm:p-6">
         <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">{{ copy.common.previous }}</p>
-        <p class="mt-3 text-2xl font-semibold text-pine">{{ localizedPreviousItem.command }}</p>
-        <p class="mt-2 text-sm leading-7 text-ink/65">{{ localizedPreviousItem.summary }}</p>
+        <p class="mt-3 text-xl font-semibold text-pine sm:text-2xl">{{ localizedPreviousItem.command }}</p>
+        <p class="mt-2 line-clamp-3 text-sm leading-7 text-ink/65">{{ localizedPreviousItem.summary }}</p>
       </NuxtLink>
-      <NuxtLink :to="`/training/${nextItem.slug}`" class="rounded-[2rem] bg-white p-6 shadow-float transition hover:-translate-y-1">
+      <NuxtLink :to="`/training/${nextItem.slug}`" class="rounded-[2rem] bg-white p-5 shadow-float transition hover:-translate-y-1 sm:p-6">
         <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">{{ copy.common.next }}</p>
-        <p class="mt-3 text-2xl font-semibold text-pine">{{ localizedNextItem.command }}</p>
-        <p class="mt-2 text-sm leading-7 text-ink/65">{{ localizedNextItem.summary }}</p>
+        <p class="mt-3 text-xl font-semibold text-pine sm:text-2xl">{{ localizedNextItem.command }}</p>
+        <p class="mt-2 line-clamp-3 text-sm leading-7 text-ink/65">{{ localizedNextItem.summary }}</p>
       </NuxtLink>
     </section>
   </article>

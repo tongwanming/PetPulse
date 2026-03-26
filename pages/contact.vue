@@ -5,8 +5,8 @@ useSeoMeta(() => ({
   title: copy.value.contact.title,
   description:
     locale.value === "zh"
-      ? "联系 PetPulse，提交合作、内容建议或站点反馈。"
-      : "Contact PetPulse for collaboration, content suggestions, or site feedback."
+      ? "联系 PetChat，提交合作、内容建议或站点反馈。"
+      : "Contact PetChat for collaboration, content suggestions, or site feedback."
 }));
 </script>
 

@@ -19,11 +19,11 @@ defineProps<{
 </script>
 
 <template>
-  <article class="card-lift rounded-blob border border-pine/10 bg-white p-6 shadow-float">
+  <article class="card-lift rounded-blob border border-pine/10 bg-white p-5 shadow-float sm:p-6">
     <div class="mb-4 flex items-start justify-between gap-4">
       <div>
         <p class="text-xs font-semibold uppercase tracking-[0.24em] text-coral">{{ item.category }}</p>
-        <h3 class="mt-2 text-xl font-semibold text-pine">{{ item.title }}</h3>
+        <h3 class="mt-2 text-lg font-semibold text-pine sm:text-xl">{{ item.title }}</h3>
       </div>
       <span class="rounded-full bg-mint px-3 py-1 text-xs font-semibold text-pine">{{ item.animal }}</span>
     </div>
@@ -31,8 +31,8 @@ defineProps<{
       <span class="rounded-full bg-sand px-3 py-1 text-xs font-medium text-ink/70">{{ item.mood }}</span>
       <span class="rounded-full bg-peach/40 px-3 py-1 text-xs font-medium text-ink/70">{{ item.duration }}</span>
     </div>
-    <p class="text-sm leading-6 text-ink/70">{{ item.summary }}</p>
-    <div class="mt-4 flex flex-wrap gap-2">
+    <p class="line-clamp-3 text-sm leading-6 text-ink/70">{{ item.summary }}</p>
+    <div class="mt-4 hidden flex-wrap gap-2 sm:flex">
       <span
         v-for="tag in item.tags"
         :key="tag"
@@ -41,18 +41,19 @@ defineProps<{
         {{ tag }}
       </span>
     </div>
-    <div class="mt-5 space-y-2 rounded-3xl bg-sand/55 p-4 text-sm text-ink/80">
+    <div class="mt-5 hidden space-y-2 rounded-3xl bg-sand/55 p-4 text-sm text-ink/80 sm:block">
       <p><span class="font-semibold text-pine">{{ copy.common.useCase }}:</span>{{ item.useCase }}</p>
       <p><span class="font-semibold text-pine">{{ copy.common.caution }}:</span>{{ item.caution }}</p>
     </div>
-    <div class="mt-5">
+    <div class="mt-4 sm:mt-5">
       <AudioPlayer :src="item.audio" :title="item.title" :duration="item.duration" compact />
     </div>
-    <div class="mt-5 flex items-center justify-between gap-3">
+    <div class="mt-4 flex items-center justify-between gap-3 sm:mt-5">
       <NuxtLink :to="`/sounds/${item.slug}`" class="rounded-full bg-pine px-4 py-2 text-sm font-semibold text-white transition hover:bg-coral">
         {{ copy.common.details }}
       </NuxtLink>
-      <span class="text-xs text-ink/50">{{ item.audio ? copy.common.playable : copy.common.waitingAudio }}</span>
+      <span class="text-xs text-ink/50 sm:hidden">{{ item.audio ? copy.common.playable : copy.common.waitingAudio }}</span>
+      <span class="hidden text-xs text-ink/50 sm:inline">{{ item.audio ? copy.common.playable : copy.common.waitingAudio }}</span>
     </div>
   </article>
 </template>
