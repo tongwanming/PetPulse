@@ -4,6 +4,7 @@ import { localeOptions } from "~/data/i18n";
 const route = useRoute();
 const { locale, copy, setLocale } = useSiteLocale();
 const mobileMenuOpen = ref(false);
+const { public: { appStoreUrl } } = useRuntimeConfig();
 
 const navigation = computed(() => [
   { label: copy.value.nav.home, to: "/" },
@@ -30,13 +31,24 @@ watch(
   <header class="relative z-10 mx-auto w-full max-w-7xl px-5 pt-5 sm:px-8">
     <div class="rounded-[2rem] border border-white/70 bg-white/80 px-5 py-4 shadow-float backdrop-blur">
       <div class="flex items-center justify-between gap-4">
-        <NuxtLink to="/" class="flex items-center gap-3">
-          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-coral text-xl text-white">P</span>
-          <span>
-            <span class="block text-lg font-semibold tracking-tight text-pine">PetChat</span>
-            <span class="block text-xs text-ink/60">{{ copy.brandSubtitle }}</span>
-          </span>
-        </NuxtLink>
+        <div class="flex items-center gap-3">
+          <NuxtLink to="/" class="flex items-center gap-3">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-coral text-xl text-white">P</span>
+            <span>
+              <span class="block text-lg font-semibold tracking-tight text-pine">PetChat</span>
+              <span class="block text-xs text-ink/60">{{ copy.brandSubtitle }}</span>
+            </span>
+          </NuxtLink>
+          <a
+            :href="appStoreUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ml-5 hidden items-center gap-2 rounded-full bg-coral px-6 py-3 text-base font-bold text-white shadow-[0_16px_36px_rgba(247,143,107,0.34)] ring-4 ring-coral/15 transition hover:-translate-y-0.5 hover:bg-pine md:inline-flex"
+          >
+            <span class="text-lg leading-none">↓</span>
+            <span>{{ copy.nav.appCta }}</span>
+          </a>
+        </div>
         <div class="hidden items-center gap-3 md:flex">
           <nav class="flex items-center gap-2">
             <NuxtLink
@@ -87,6 +99,15 @@ watch(
           </button>
         </div>
         <nav v-if="mobileMenuOpen" class="mt-4 grid gap-2">
+          <a
+            :href="appStoreUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 rounded-2xl bg-coral px-4 py-3 text-sm font-semibold text-white shadow-float"
+          >
+            <span class="text-base leading-none">↓</span>
+            <span>{{ copy.nav.appCta }}</span>
+          </a>
           <NuxtLink
             v-for="item in navigation"
             :key="`${item.to}-mobile`"

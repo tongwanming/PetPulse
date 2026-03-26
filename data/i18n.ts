@@ -14,7 +14,8 @@ export const siteCopy = {
       training: "训练口令",
       guides: "养宠常识",
       stages: "成长阶段",
-      about: "关于"
+      about: "关于",
+      appCta: "立即使用"
     },
     footer: {
       description: "宠物叫声、逗宠声音、养宠知识与成长阶段指南。",
@@ -70,6 +71,8 @@ export const siteCopy = {
       titlePrefix: "一个更好看、也更好用的",
       titleAccent: "猫狗内容官网",
       description: "把猫狗叫声、逗宠互动声音、养宠常识、风险提醒和成长阶段知识，整理成更容易查找、浏览和继续扩充的内容网站。",
+      appCta: "立即使用",
+      appHint: "打开 App Store 下载 App",
       primaryCta: "先看声音内容",
       secondaryCta: "浏览养宠知识",
       board: "品牌看板",
@@ -204,7 +207,8 @@ export const siteCopy = {
       training: "Training",
       guides: "Care Guides",
       stages: "Life Stages",
-      about: "About"
+      about: "About",
+      appCta: "Get the app"
     },
     footer: {
       description: "Pet sounds, teaser audio, care guides, and life-stage knowledge for cats and dogs.",
@@ -260,6 +264,8 @@ export const siteCopy = {
       titlePrefix: "A better-looking, easier-to-use",
       titleAccent: "pet content website",
       description: "Organize cat and dog sounds, teaser audio, care basics, risk reminders, and life-stage knowledge into a content site that is easier to browse, search, and keep expanding.",
+      appCta: "Get the app",
+      appHint: "Open the App Store and download the app",
       primaryCta: "Browse sounds first",
       secondaryCta: "Read care guides",
       board: "Brand board",

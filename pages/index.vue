@@ -21,6 +21,7 @@ import {
 } from "~/data/localized-content";
 
 const { locale, copy } = useSiteLocale();
+const { public: { appStoreUrl } } = useRuntimeConfig();
 
 useSeoMeta(() => ({
   title: "PetChat",
