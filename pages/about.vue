@@ -36,6 +36,20 @@ useSeoMeta({
           <li class="rounded-3xl bg-peach/30 px-5 py-4">后续如果内容多到几十篇以上，再切到 Markdown 或 CMS，会比现在更合适。</li>
         </ul>
       </article>
+      <article class="rounded-[2rem] bg-white p-8 shadow-float">
+        <h2 class="text-2xl font-semibold text-pine">站点通用页面</h2>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <NuxtLink to="/contact" class="rounded-full bg-pine px-4 py-2 text-sm font-semibold text-white transition hover:bg-coral">
+            联系我们
+          </NuxtLink>
+          <NuxtLink to="/disclaimer" class="rounded-full border border-pine/15 px-4 py-2 text-sm font-semibold text-pine transition hover:bg-sand/40">
+            免责声明
+          </NuxtLink>
+          <NuxtLink to="/privacy" class="rounded-full border border-pine/15 px-4 py-2 text-sm font-semibold text-pine transition hover:bg-sand/40">
+            隐私政策
+          </NuxtLink>
+        </div>
+      </article>
     </div>
   </section>
 </template>

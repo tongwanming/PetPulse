@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteName: "PetPulse",
-      siteUrl: "https://example.com"
+      siteUrl: "https://pet-pulse.lovecqming.workers.dev"
     }
   },
   nitro: {
