@@ -1,0 +1,7 @@
+.DS_Store
+.nuxt
+.output
+dist
+node_modules
+npm-debug.log*
+public/audio/pet_audio_v2_norm
