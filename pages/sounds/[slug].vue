@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { popularSoundTags, soundItems, uploadSteps } from "~/data/site";
+import { localizeSoundItem, localizedPopularSoundTags } from "~/data/localized-content";
 
 const route = useRoute();
 const item = soundItems.find((entry) => entry.slug === route.params.slug);
+const { locale, copy } = useSiteLocale();
 
 if (!item) {
   throw createError({
@@ -11,10 +13,12 @@ if (!item) {
   });
 }
 
-useSeoMeta({
-  title: item.title,
-  description: item.summary
-});
+const localizedItem = computed(() => localizeSoundItem(item, locale.value));
+
+useSeoMeta(() => ({
+  title: localizedItem.value.title,
+  description: localizedItem.value.summary
+}));
 
 const relatedSounds = computed(() => {
   return soundItems
@@ -25,7 +29,7 @@ const relatedSounds = computed(() => {
       const sameCategory = entry.category === item.category ? 3 : 0;
       const score = sharedTags * 4 + sameAnimal + sameCategory;
 
-      return { entry, score };
+      return { entry: localizeSoundItem(entry, locale.value), score };
     })
     .sort((left, right) => right.score - left.score)
     .slice(0, 4)
@@ -33,27 +37,28 @@ const relatedSounds = computed(() => {
 });
 
 const itemIndex = soundItems.findIndex((entry) => entry.slug === item.slug);
-const previousItem = computed(() => soundItems[(itemIndex - 1 + soundItems.length) % soundItems.length]);
-const nextItem = computed(() => soundItems[(itemIndex + 1) % soundItems.length]);
+const previousItem = computed(() => localizeSoundItem(soundItems[(itemIndex - 1 + soundItems.length) % soundItems.length], locale.value));
+const nextItem = computed(() => localizeSoundItem(soundItems[(itemIndex + 1) % soundItems.length], locale.value));
+const localizedPopularTags = computed(() => (locale.value === "zh" ? popularSoundTags : localizedPopularSoundTags.en));
 </script>
 
 <template>
   <article class="mx-auto max-w-4xl space-y-8">
     <NuxtLink to="/sounds" class="inline-flex rounded-full border border-pine/15 bg-white px-4 py-2 text-sm font-semibold text-pine">
-      返回声音列表
+      {{ copy.common.backToSounds }}
     </NuxtLink>
     <section class="rounded-[2rem] bg-white p-8 shadow-float">
       <div class="flex flex-wrap items-center gap-3">
-        <span class="rounded-full bg-peach px-3 py-1 text-xs font-semibold text-pine">{{ item.category }}</span>
-        <span class="rounded-full bg-mint px-3 py-1 text-xs font-semibold text-pine">{{ item.animal }}</span>
-        <span class="rounded-full bg-sand px-3 py-1 text-xs font-semibold text-pine">{{ item.mood }}</span>
-        <span class="rounded-full border border-pine/10 px-3 py-1 text-xs font-semibold text-ink/60">{{ item.duration }}</span>
+        <span class="rounded-full bg-peach px-3 py-1 text-xs font-semibold text-pine">{{ localizedItem.category }}</span>
+        <span class="rounded-full bg-mint px-3 py-1 text-xs font-semibold text-pine">{{ localizedItem.animal }}</span>
+        <span class="rounded-full bg-sand px-3 py-1 text-xs font-semibold text-pine">{{ localizedItem.mood }}</span>
+        <span class="rounded-full border border-pine/10 px-3 py-1 text-xs font-semibold text-ink/60">{{ localizedItem.duration }}</span>
       </div>
-      <h1 class="mt-5 text-4xl font-semibold tracking-tight text-pine">{{ item.title }}</h1>
-      <p class="mt-4 text-lg leading-8 text-ink/70">{{ item.summary }}</p>
+      <h1 class="mt-5 text-4xl font-semibold tracking-tight text-pine">{{ localizedItem.title }}</h1>
+      <p class="mt-4 text-lg leading-8 text-ink/70">{{ localizedItem.summary }}</p>
       <div class="mt-5 flex flex-wrap gap-2">
         <span
-          v-for="tag in item.tags"
+          v-for="tag in localizedItem.tags"
           :key="tag"
           class="rounded-full border border-pine/10 bg-white px-3 py-1 text-xs text-ink/60"
         >
@@ -61,30 +66,30 @@ const nextItem = computed(() => soundItems[(itemIndex + 1) % soundItems.length])
         </span>
       </div>
       <div class="mt-8 rounded-[1.5rem] bg-sand/70 p-6">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">播放区</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">{{ copy.soundDetail.player }}</p>
         <div class="mt-4">
-          <AudioPlayer :src="item.audio" :title="item.title" :duration="item.duration" />
+          <AudioPlayer :src="localizedItem.audio" :title="localizedItem.title" :duration="localizedItem.duration" />
         </div>
       </div>
     </section>
     <section class="grid gap-6 md:grid-cols-2">
       <div class="rounded-[2rem] bg-white p-6 shadow-float">
-        <h2 class="text-xl font-semibold text-pine">适用场景</h2>
-        <p class="mt-3 text-sm leading-7 text-ink/70">{{ item.useCase }}</p>
+        <h2 class="text-xl font-semibold text-pine">{{ copy.common.useCase }}</h2>
+        <p class="mt-3 text-sm leading-7 text-ink/70">{{ localizedItem.useCase }}</p>
       </div>
       <div class="rounded-[2rem] bg-white p-6 shadow-float">
-        <h2 class="text-xl font-semibold text-pine">使用提醒</h2>
-        <p class="mt-3 text-sm leading-7 text-ink/70">{{ item.caution }}</p>
+        <h2 class="text-xl font-semibold text-pine">{{ copy.common.caution }}</h2>
+        <p class="mt-3 text-sm leading-7 text-ink/70">{{ localizedItem.caution }}</p>
       </div>
     </section>
     <section class="grid gap-6 md:grid-cols-2">
       <NuxtLink :to="`/sounds/${previousItem.slug}`" class="rounded-[2rem] bg-white p-6 shadow-float transition hover:-translate-y-1">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">上一条</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">{{ copy.common.previous }}</p>
         <p class="mt-3 text-2xl font-semibold text-pine">{{ previousItem.title }}</p>
         <p class="mt-2 text-sm leading-7 text-ink/65">{{ previousItem.summary }}</p>
       </NuxtLink>
       <NuxtLink :to="`/sounds/${nextItem.slug}`" class="rounded-[2rem] bg-white p-6 shadow-float transition hover:-translate-y-1">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">下一条</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">{{ copy.common.next }}</p>
         <p class="mt-3 text-2xl font-semibold text-pine">{{ nextItem.title }}</p>
         <p class="mt-2 text-sm leading-7 text-ink/65">{{ nextItem.summary }}</p>
       </NuxtLink>
@@ -92,14 +97,14 @@ const nextItem = computed(() => soundItems[(itemIndex + 1) % soundItems.length])
     <section class="rounded-[2rem] bg-white p-8 shadow-float">
       <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 class="text-2xl font-semibold tracking-tight text-pine">热门标签</h2>
-          <p class="mt-1 text-sm leading-7 text-ink/65">用标签继续探索同类声音。</p>
+          <h2 class="text-2xl font-semibold tracking-tight text-pine">{{ copy.soundDetail.popularTags }}</h2>
+          <p class="mt-1 text-sm leading-7 text-ink/65">{{ copy.soundDetail.popularTagsDescription }}</p>
         </div>
-        <NuxtLink to="/sounds" class="text-sm font-semibold text-coral">回到声音库</NuxtLink>
+        <NuxtLink to="/sounds" class="text-sm font-semibold text-coral">{{ copy.soundDetail.backToLibrary }}</NuxtLink>
       </div>
       <div class="mt-5 flex flex-wrap gap-3">
         <span
-          v-for="tag in popularSoundTags"
+          v-for="tag in localizedPopularTags"
           :key="tag"
           class="rounded-full border border-pine/10 bg-sand/45 px-4 py-2 text-sm text-ink/70"
         >
@@ -108,7 +113,7 @@ const nextItem = computed(() => soundItems[(itemIndex + 1) % soundItems.length])
       </div>
     </section>
     <section class="rounded-[2rem] bg-white p-8 shadow-float">
-      <h2 class="text-2xl font-semibold text-pine">后续补真实音频的方法</h2>
+      <h2 class="text-2xl font-semibold text-pine">{{ copy.soundDetail.uploadTitle }}</h2>
       <ul class="mt-5 grid gap-4">
         <li
           v-for="step in uploadSteps"
@@ -122,13 +127,13 @@ const nextItem = computed(() => soundItems[(itemIndex + 1) % soundItems.length])
     <section class="space-y-6">
       <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 class="text-2xl font-semibold tracking-tight text-pine">相关推荐</h2>
+          <h2 class="text-2xl font-semibold tracking-tight text-pine">{{ copy.soundDetail.relatedTitle }}</h2>
           <p class="mt-1 text-sm leading-7 text-ink/65">
-            基于当前音频的动物类型、分类和标签，为你推荐更接近的声音内容。
+            {{ copy.soundDetail.relatedDescription }}
           </p>
         </div>
         <NuxtLink to="/sounds" class="text-sm font-semibold text-coral">
-          查看全部声音
+          {{ copy.soundDetail.allSounds }}
         </NuxtLink>
       </div>
       <div class="grid gap-6 lg:grid-cols-2">

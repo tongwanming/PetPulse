@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { copy } = useSiteLocale();
+
 defineProps<{
   item: {
     slug: string;
@@ -40,17 +42,17 @@ defineProps<{
       </span>
     </div>
     <div class="mt-5 space-y-2 rounded-3xl bg-sand/55 p-4 text-sm text-ink/80">
-      <p><span class="font-semibold text-pine">适用场景：</span>{{ item.useCase }}</p>
-      <p><span class="font-semibold text-pine">注意事项：</span>{{ item.caution }}</p>
+      <p><span class="font-semibold text-pine">{{ copy.common.useCase }}:</span>{{ item.useCase }}</p>
+      <p><span class="font-semibold text-pine">{{ copy.common.caution }}:</span>{{ item.caution }}</p>
     </div>
     <div class="mt-5">
       <AudioPlayer :src="item.audio" :title="item.title" :duration="item.duration" compact />
     </div>
     <div class="mt-5 flex items-center justify-between gap-3">
       <NuxtLink :to="`/sounds/${item.slug}`" class="rounded-full bg-pine px-4 py-2 text-sm font-semibold text-white transition hover:bg-coral">
-        查看详情
+        {{ copy.common.details }}
       </NuxtLink>
-      <span class="text-xs text-ink/50">{{ item.audio ? "可直接播放" : "等待上传音频" }}</span>
+      <span class="text-xs text-ink/50">{{ item.audio ? copy.common.playable : copy.common.waitingAudio }}</span>
     </div>
   </article>
 </template>

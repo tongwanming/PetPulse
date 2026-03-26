@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { copy } = useSiteLocale();
+
 defineProps<{
   item: {
     slug: string;
@@ -24,9 +26,9 @@ defineProps<{
     <p v-if="item.intro" class="mt-3 text-sm leading-6 text-ink/60">
       {{ item.intro }}
     </p>
-    <p class="mt-4 text-sm text-ink/60">适合人群：{{ item.audience }}</p>
+    <p class="mt-4 text-sm text-ink/60">{{ copy.common.audience }}: {{ item.audience }}</p>
     <NuxtLink :to="`${prefix}/${item.slug}`" class="mt-5 inline-flex rounded-full border border-pine/15 px-4 py-2 text-sm font-semibold text-pine transition hover:bg-pine hover:text-white">
-      阅读详情
+      {{ copy.common.readMore }}
     </NuxtLink>
   </article>
 </template>

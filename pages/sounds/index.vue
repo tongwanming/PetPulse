@@ -1,23 +1,33 @@
 <script setup lang="ts">
 import { soundCategories, soundItems } from "~/data/site";
+import { localizeSoundItem, localizedSoundCategories } from "~/data/localized-content";
 
-useSeoMeta({
-  title: "宠物叫声与逗宠声音",
-  description: "查看猫狗叫声、逗宠互动声音以及适用场景与注意事项。"
-});
+const { locale, copy } = useSiteLocale();
+
+useSeoMeta(() => ({
+  title: locale.value === "zh" ? "宠物叫声与逗宠声音" : "Pet sounds and teaser audio",
+  description:
+    locale.value === "zh"
+      ? "查看猫狗叫声、逗宠互动声音以及适用场景与注意事项。"
+      : "Browse cat and dog sounds, teaser audio, and practical playback notes."
+}));
 
 const activeCategory = ref<(typeof soundCategories)[number]["value"]>("all");
 const searchQuery = ref("");
+const localizedSoundItems = computed(() => soundItems.map((item) => localizeSoundItem(item, locale.value)));
+const localizedCategories = computed(() =>
+  soundCategories.map((category, index) => ({ ...category, label: localizedSoundCategories[locale.value][index] ?? category.label }))
+);
 
 const filteredSounds = computed(() => {
-  let items = soundItems;
+  let items = localizedSoundItems.value;
 
   if (activeCategory.value === "cat-call") {
-    items = soundItems.filter((item) => item.animal === "猫咪" && item.category === "叫声");
+    items = localizedSoundItems.value.filter((item) => item.slug.startsWith("cat-") && item.category !== (locale.value === "zh" ? "逗宠声音" : "Teaser audio"));
   } else if (activeCategory.value === "dog-call") {
-    items = soundItems.filter((item) => item.animal === "狗狗" && item.category === "叫声");
+    items = localizedSoundItems.value.filter((item) => item.animal === (locale.value === "zh" ? "狗狗" : "Dog") && item.category !== (locale.value === "zh" ? "逗宠声音" : "Teaser audio"));
   } else if (activeCategory.value === "tease") {
-    items = soundItems.filter((item) => item.category === "逗宠声音");
+    items = localizedSoundItems.value.filter((item) => item.category === (locale.value === "zh" ? "逗宠声音" : "Teaser audio"));
   }
 
   const query = searchQuery.value.trim().toLowerCase();
@@ -31,23 +41,23 @@ const filteredSounds = computed(() => {
   });
 });
 
-const featuredSounds = computed(() => soundItems.slice(0, 4));
+const featuredSounds = computed(() => localizedSoundItems.value.slice(0, 4));
 
 const groupedSounds = computed(() => [
   {
-    title: "猫咪叫声",
-    description: "更偏情绪表达和状态识别，适合和养猫知识页联动。",
-    items: filteredSounds.value.filter((item) => item.animal === "猫咪" && item.category === "叫声")
+    title: copy.value.soundsIndex.groups.cats.title,
+    description: copy.value.soundsIndex.groups.cats.description,
+    items: filteredSounds.value.filter((item) => item.animal === (locale.value === "zh" ? "猫咪" : "Cat") && item.category !== (locale.value === "zh" ? "逗宠声音" : "Teaser audio"))
   },
   {
-    title: "狗狗叫声",
-    description: "更适合做邀玩、警觉、陪伴等行为场景解读。",
-    items: filteredSounds.value.filter((item) => item.animal === "狗狗" && item.category === "叫声")
+    title: copy.value.soundsIndex.groups.dogs.title,
+    description: copy.value.soundsIndex.groups.dogs.description,
+    items: filteredSounds.value.filter((item) => item.animal === (locale.value === "zh" ? "狗狗" : "Dog") && item.category !== (locale.value === "zh" ? "逗宠声音" : "Teaser audio"))
   },
   {
-    title: "互动与召唤音效",
-    description: "更适合作为快速播放内容，适合逗宠和注意力唤回。",
-    items: filteredSounds.value.filter((item) => item.category === "逗宠声音")
+    title: copy.value.soundsIndex.groups.teaser.title,
+    description: copy.value.soundsIndex.groups.teaser.description,
+    items: filteredSounds.value.filter((item) => item.category === (locale.value === "zh" ? "逗宠声音" : "Teaser audio"))
   }
 ]);
 
@@ -57,10 +67,10 @@ const soundLibrarySummary = computed(() => {
   const teaseCount = soundItems.filter((item) => item.category === "逗宠声音").length;
 
   return [
-    { label: "总音频", value: `${soundItems.length}` },
-    { label: "猫咪相关", value: `${catCount}` },
-    { label: "狗狗相关", value: `${dogCount}` },
-    { label: "互动音效", value: `${teaseCount}` }
+    { label: copy.value.soundsIndex.summaryLabels[0], value: `${soundItems.length}` },
+    { label: copy.value.soundsIndex.summaryLabels[1], value: `${catCount}` },
+    { label: copy.value.soundsIndex.summaryLabels[2], value: `${dogCount}` },
+    { label: copy.value.soundsIndex.summaryLabels[3], value: `${teaseCount}` }
   ];
 });
 </script>
@@ -69,22 +79,22 @@ const soundLibrarySummary = computed(() => {
   <section class="space-y-10">
     <SectionHeading
       eyebrow="Sounds"
-      title="宠物叫声与互动声音"
-      description="这里集中放猫叫、狗叫、逗猫和逗狗声音。真实音频文件建议统一存放在 public/audio 目录。"
+      :title="copy.soundsIndex.title"
+      :description="copy.soundsIndex.description"
     />
     <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="rounded-[2rem] bg-white p-6 shadow-float">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">声音库检索</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-coral">{{ copy.soundsIndex.searchTitle }}</p>
         <div class="mt-5 flex flex-col gap-4 sm:flex-row">
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="搜索：安抚、警觉、逗猫、饭点..."
+            :placeholder="copy.soundsIndex.searchPlaceholder"
             class="w-full rounded-full border border-pine/10 bg-sand/45 px-5 py-3 text-sm text-ink outline-none ring-0 placeholder:text-ink/35"
           >
           <div class="flex flex-wrap gap-3">
             <button
-              v-for="category in soundCategories"
+              v-for="category in localizedCategories"
               :key="category.value"
               type="button"
               class="rounded-full px-4 py-2 text-sm font-semibold transition"
@@ -96,7 +106,7 @@ const soundLibrarySummary = computed(() => {
           </div>
         </div>
         <p class="mt-4 text-sm leading-7 text-ink/65">
-          当前展示 {{ filteredSounds.length }} 条声音内容。你可以按动物类型切换，也可以直接按关键词搜索情绪和用途。
+          {{ copy.soundsIndex.searchSummary(filteredSounds.length) }}
         </p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
@@ -114,8 +124,8 @@ const soundLibrarySummary = computed(() => {
     <div class="rounded-[2rem] bg-pine p-8 text-white shadow-float">
       <SectionHeading
         eyebrow="Featured"
-        title="推荐试听"
-        description="先从更有代表性的声音开始，适合首页推荐、用户第一次访问和内容联动。"
+        :title="copy.soundsIndex.featuredTitle"
+        :description="copy.soundsIndex.featuredDescription"
         light
       />
       <div class="mt-8 grid gap-6 lg:grid-cols-2">
@@ -133,7 +143,7 @@ const soundLibrarySummary = computed(() => {
           <h2 class="text-2xl font-semibold tracking-tight text-pine">{{ group.title }}</h2>
           <p class="mt-1 text-sm leading-7 text-ink/65">{{ group.description }}</p>
         </div>
-        <p class="text-sm text-ink/45">{{ group.items.length }} 条内容</p>
+        <p class="text-sm text-ink/45">{{ copy.soundsIndex.groupItems(group.items.length) }}</p>
       </div>
       <div v-if="group.items.length" class="grid gap-6 lg:grid-cols-2">
         <SoundCard v-for="item in group.items" :key="item.slug" :item="item" />
@@ -142,7 +152,7 @@ const soundLibrarySummary = computed(() => {
         v-else
         class="rounded-[1.75rem] border border-dashed border-pine/15 bg-white px-6 py-8 text-sm text-ink/55"
       >
-        当前筛选条件下，这个分组还没有匹配结果。可以切换分类或换个关键词。
+        {{ copy.soundsIndex.emptyGroup }}
       </div>
     </div>
   </section>

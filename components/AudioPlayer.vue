@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { copy } = useSiteLocale();
+
 const props = defineProps<{
   src?: string;
   title: string;
@@ -112,12 +114,12 @@ onBeforeUnmount(() => {
         :disabled="!src"
         @click="togglePlayback"
       >
-        {{ isPlaying ? "暂停" : "播放" }}
+        {{ isPlaying ? copy.audioPlayer.pause : copy.audioPlayer.play }}
       </button>
       <div class="min-w-0 flex-1">
         <p class="truncate text-sm font-semibold text-pine">{{ title }}</p>
         <p class="mt-1 text-xs text-ink/55">
-          {{ src ? "已连接音频文件" : "等待上传真实音频文件" }}
+          {{ src ? copy.audioPlayer.audioConnected : copy.audioPlayer.audioMissing }}
         </p>
       </div>
       <div class="text-right text-xs text-ink/55">

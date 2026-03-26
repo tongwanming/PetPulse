@@ -44,18 +44,36 @@ export type StageItem = {
   }[];
 };
 
+export type SiteLocale = "zh" | "en";
+export type LocalizedText = Record<SiteLocale, string>;
+export type TrainingVoiceKey = "female" | "kid" | "male";
+
 export type TrainingItem = {
   slug: string;
-  command: string;
-  summary: string;
-  goal: string;
-  tips: string[];
-  tags: string[];
+  command: LocalizedText;
+  summary: LocalizedText;
+  goal: LocalizedText;
+  tips: LocalizedText[];
+  tags: LocalizedText[];
   variants: {
-    voice: "女声" | "童声" | "男声";
-    audio: string;
+    voice: TrainingVoiceKey;
+    audio: LocalizedText;
   }[];
 };
+
+export const trainingVoiceLabels: Record<TrainingVoiceKey, LocalizedText> = {
+  female: { zh: "女声", en: "Female" },
+  kid: { zh: "童声", en: "Kid" },
+  male: { zh: "男声", en: "Male" }
+};
+
+export function getLocalizedText(value: string | LocalizedText, locale: SiteLocale) {
+  return typeof value === "string" ? value : value[locale];
+}
+
+export function getTrainingVoiceLabel(voice: TrainingVoiceKey, locale: SiteLocale) {
+  return trainingVoiceLabels[voice][locale];
+}
 
 export const siteStats = [
   { label: "猫狗声音分类", value: "16+" },
@@ -364,106 +382,218 @@ export const soundItems: SoundItem[] = [
 export const trainingItems: TrainingItem[] = [
   {
     slug: "come",
-    command: "过来",
-    summary: "最常用的召回口令，适合从短距离和低干扰环境开始练。",
-    goal: "建立名字反应之外的稳定靠近行为。",
-    tips: ["先在家中短距离练习", "过来后立刻奖励", "避免把过来和结束快乐活动强绑定"],
-    tags: ["召回", "基础训练", "高频口令"],
+    command: { zh: "过来", en: "Come" },
+    summary: {
+      zh: "最常用的召回口令，适合从短距离和低干扰环境开始练。",
+      en: "A core recall command. Start with short distance and low-distraction practice."
+    },
+    goal: {
+      zh: "建立名字反应之外的稳定靠近行为。",
+      en: "Build a reliable move-toward-you response beyond simple name recognition."
+    },
+    tips: [
+      { zh: "先在家中短距离练习", en: "Start indoors with short distances." },
+      { zh: "过来后立刻奖励", en: "Reward immediately after the pet comes over." },
+      { zh: "避免把过来和结束快乐活动强绑定", en: "Avoid making the cue mean fun is always about to end." }
+    ],
+    tags: [
+      { zh: "召回", en: "Recall" },
+      { zh: "基础训练", en: "Foundation training" },
+      { zh: "高频口令", en: "High-frequency cue" }
+    ],
     variants: [
-      { voice: "女声", audio: "/audio/training/come-female.mp3" },
-      { voice: "童声", audio: "/audio/training/come-kid.mp3" },
-      { voice: "男声", audio: "/audio/training/come-male.mp3" }
+      { voice: "female", audio: { zh: "/audio/training/zh/come-female.mp3", en: "/audio/training/en/come-female.mp3" } },
+      { voice: "kid", audio: { zh: "/audio/training/zh/come-kid.mp3", en: "/audio/training/en/come-kid.mp3" } },
+      { voice: "male", audio: { zh: "/audio/training/zh/come-male.mp3", en: "/audio/training/en/come-male.mp3" } }
     ]
   },
   {
     slug: "sit",
-    command: "坐下",
-    summary: "最适合做起始训练的基础口令之一，容易串联等待和奖励时机。",
-    goal: "建立基础配合和短暂停留能力。",
-    tips: ["动作一完成就给奖励", "别重复喊太多次", "先保证诱导动作足够清晰"],
-    tags: ["坐下", "基础动作", "新手训练"],
+    command: { zh: "坐下", en: "Sit" },
+    summary: {
+      zh: "最适合做起始训练的基础口令之一，容易串联等待和奖励时机。",
+      en: "One of the best starter commands and easy to pair with waiting and reward timing."
+    },
+    goal: {
+      zh: "建立基础配合和短暂停留能力。",
+      en: "Build basic cooperation and a brief stationary hold."
+    },
+    tips: [
+      { zh: "动作一完成就给奖励", en: "Reward as soon as the action is completed." },
+      { zh: "别重复喊太多次", en: "Do not repeat the cue too many times." },
+      { zh: "先保证诱导动作足够清晰", en: "Make sure your lure or hand signal is clear first." }
+    ],
+    tags: [
+      { zh: "坐下", en: "Sit" },
+      { zh: "基础动作", en: "Basic action" },
+      { zh: "新手训练", en: "Beginner training" }
+    ],
     variants: [
-      { voice: "女声", audio: "/audio/training/sit-female.mp3" },
-      { voice: "童声", audio: "/audio/training/sit-kid.mp3" },
-      { voice: "男声", audio: "/audio/training/sit-male.mp3" }
+      { voice: "female", audio: { zh: "/audio/training/zh/sit-female.mp3", en: "/audio/training/en/sit-female.mp3" } },
+      { voice: "kid", audio: { zh: "/audio/training/zh/sit-kid.mp3", en: "/audio/training/en/sit-kid.mp3" } },
+      { voice: "male", audio: { zh: "/audio/training/zh/sit-male.mp3", en: "/audio/training/en/sit-male.mp3" } }
     ]
   },
   {
     slug: "down",
-    command: "趴下",
-    summary: "比坐下更需要引导和耐心，适合在宠物已经理解基础配合后加入。",
-    goal: "帮助宠物进入更稳定的低唤醒姿态。",
-    tips: ["从坐姿引导更容易", "训练地面要舒适", "不要在紧张状态下强压动作"],
-    tags: ["趴下", "静态动作", "进阶基础"],
+    command: { zh: "趴下", en: "Down" },
+    summary: {
+      zh: "比坐下更需要引导和耐心，适合在宠物已经理解基础配合后加入。",
+      en: "Usually needs more guidance than sit and works best after the pet understands basic cooperation."
+    },
+    goal: {
+      zh: "帮助宠物进入更稳定的低唤醒姿态。",
+      en: "Help the pet settle into a calmer, lower-arousal posture."
+    },
+    tips: [
+      { zh: "从坐姿引导更容易", en: "It is often easier to guide from a sit." },
+      { zh: "训练地面要舒适", en: "Use a comfortable training surface." },
+      { zh: "不要在紧张状态下强压动作", en: "Do not force the behavior when the pet is tense." }
+    ],
+    tags: [
+      { zh: "趴下", en: "Down" },
+      { zh: "静态动作", en: "Stationary cue" },
+      { zh: "进阶基础", en: "Early intermediate" }
+    ],
     variants: [
-      { voice: "女声", audio: "/audio/training/down-female.mp3" },
-      { voice: "童声", audio: "/audio/training/down-kid.mp3" },
-      { voice: "男声", audio: "/audio/training/down-male.mp3" }
+      { voice: "female", audio: { zh: "/audio/training/zh/down-female.mp3", en: "/audio/training/en/down-female.mp3" } },
+      { voice: "kid", audio: { zh: "/audio/training/zh/down-kid.mp3", en: "/audio/training/en/down-kid.mp3" } },
+      { voice: "male", audio: { zh: "/audio/training/zh/down-male.mp3", en: "/audio/training/en/down-male.mp3" } }
     ]
   },
   {
     slug: "quiet",
-    command: "安静",
-    summary: "适合搭配兴奋管理和暂停提醒，不适合在宠物极度亢奋时硬压使用。",
-    goal: "帮助宠物从高刺激状态回到可沟通状态。",
-    tips: ["先降低环境刺激", "安静一秒也要及时强化", "不要把口令变成持续背景音"],
-    tags: ["安静", "情绪管理", "行为边界"],
+    command: { zh: "安静", en: "Quiet" },
+    summary: {
+      zh: "适合搭配兴奋管理和暂停提醒，不适合在宠物极度亢奋时硬压使用。",
+      en: "Useful for arousal management and pause cues, but not for forcing compliance in peak excitement."
+    },
+    goal: {
+      zh: "帮助宠物从高刺激状态回到可沟通状态。",
+      en: "Help the pet return from high stimulation to a state where it can respond."
+    },
+    tips: [
+      { zh: "先降低环境刺激", en: "Reduce environmental stimulation first." },
+      { zh: "安静一秒也要及时强化", en: "Reinforce even one quiet second promptly." },
+      { zh: "不要把口令变成持续背景音", en: "Do not turn the cue into constant background noise." }
+    ],
+    tags: [
+      { zh: "安静", en: "Quiet" },
+      { zh: "情绪管理", en: "Arousal management" },
+      { zh: "行为边界", en: "Behavior boundary" }
+    ],
     variants: [
-      { voice: "女声", audio: "/audio/training/quiet-female.mp3" },
-      { voice: "童声", audio: "/audio/training/quiet-kid.mp3" },
-      { voice: "男声", audio: "/audio/training/quiet-male.mp3" }
+      { voice: "female", audio: { zh: "/audio/training/zh/quiet-female.mp3", en: "/audio/training/en/quiet-female.mp3" } },
+      { voice: "kid", audio: { zh: "/audio/training/zh/quiet-kid.mp3", en: "/audio/training/en/quiet-kid.mp3" } },
+      { voice: "male", audio: { zh: "/audio/training/zh/quiet-male.mp3", en: "/audio/training/en/quiet-male.mp3" } }
     ]
   },
   {
     slug: "no",
-    command: "不可以",
-    summary: "用于明确打断当前行为，但要和允许替代行为一起使用才更有效。",
-    goal: "建立边界感，而不是单纯制造压力。",
-    tips: ["打断后立刻给正确替代", "语气坚定但不要失控", "不要在已经结束行为后再追着说"],
-    tags: ["边界", "禁止口令", "替代行为"],
+    command: { zh: "不可以", en: "No" },
+    summary: {
+      zh: "用于明确打断当前行为，但要和允许替代行为一起使用才更有效。",
+      en: "Used to interrupt the current behavior, but works best when paired with an allowed alternative."
+    },
+    goal: {
+      zh: "建立边界感，而不是单纯制造压力。",
+      en: "Create clear boundaries instead of only adding pressure."
+    },
+    tips: [
+      { zh: "打断后立刻给正确替代", en: "Offer the correct alternative right after the interruption." },
+      { zh: "语气坚定但不要失控", en: "Keep the tone firm without escalating." },
+      { zh: "不要在已经结束行为后再追着说", en: "Do not keep saying it after the behavior has already ended." }
+    ],
+    tags: [
+      { zh: "边界", en: "Boundary" },
+      { zh: "禁止口令", en: "Interruption cue" },
+      { zh: "替代行为", en: "Alternative behavior" }
+    ],
     variants: [
-      { voice: "女声", audio: "/audio/training/no-female.mp3" },
-      { voice: "童声", audio: "/audio/training/no-kid.mp3" },
-      { voice: "男声", audio: "/audio/training/no-male.mp3" }
+      { voice: "female", audio: { zh: "/audio/training/zh/no-female.mp3", en: "/audio/training/en/no-female.mp3" } },
+      { voice: "kid", audio: { zh: "/audio/training/zh/no-kid.mp3", en: "/audio/training/en/no-kid.mp3" } },
+      { voice: "male", audio: { zh: "/audio/training/zh/no-male.mp3", en: "/audio/training/en/no-male.mp3" } }
     ]
   },
   {
     slug: "shake",
-    command: "握手",
-    summary: "互动感强的趣味动作，适合作为提高参与度的轻训练内容。",
-    goal: "增加正向互动和目标动作理解。",
-    tips: ["训练时长控制在几分钟内", "动作完成后及时奖励", "不要强拉前爪完成动作"],
-    tags: ["握手", "趣味训练", "互动"],
+    command: { zh: "握手", en: "Shake" },
+    summary: {
+      zh: "互动感强的趣味动作，适合作为提高参与度的轻训练内容。",
+      en: "A playful, interaction-heavy trick that works well for light engagement training."
+    },
+    goal: {
+      zh: "增加正向互动和目标动作理解。",
+      en: "Increase positive interaction and target-action understanding."
+    },
+    tips: [
+      { zh: "训练时长控制在几分钟内", en: "Keep each training round within a few minutes." },
+      { zh: "动作完成后及时奖励", en: "Reward quickly when the action is completed." },
+      { zh: "不要强拉前爪完成动作", en: "Do not pull the paw to force the behavior." }
+    ],
+    tags: [
+      { zh: "握手", en: "Shake" },
+      { zh: "趣味训练", en: "Fun training" },
+      { zh: "互动", en: "Interaction" }
+    ],
     variants: [
-      { voice: "女声", audio: "/audio/training/shake-female.mp3" },
-      { voice: "童声", audio: "/audio/training/shake-kid.mp3" },
-      { voice: "男声", audio: "/audio/training/shake-male.mp3" }
+      { voice: "female", audio: { zh: "/audio/training/zh/shake-female.mp3", en: "/audio/training/en/shake-female.mp3" } },
+      { voice: "kid", audio: { zh: "/audio/training/zh/shake-kid.mp3", en: "/audio/training/en/shake-kid.mp3" } },
+      { voice: "male", audio: { zh: "/audio/training/zh/shake-male.mp3", en: "/audio/training/en/shake-male.mp3" } }
     ]
   },
   {
     slug: "high-five",
-    command: "击掌",
-    summary: "适合在握手基础上延伸，动作更轻快，也更适合内容展示。",
-    goal: "增加配合意愿和动作连贯性。",
-    tips: ["先学会抬爪再学击掌", "目标位置保持稳定", "奖励节奏要快"],
-    tags: ["击掌", "互动", "趣味训练"],
+    command: { zh: "击掌", en: "High Five" },
+    summary: {
+      zh: "适合在握手基础上延伸，动作更轻快，也更适合内容展示。",
+      en: "A natural extension of shake with a lighter rhythm that also looks better in demonstrations."
+    },
+    goal: {
+      zh: "增加配合意愿和动作连贯性。",
+      en: "Increase willingness to cooperate and improve action flow."
+    },
+    tips: [
+      { zh: "先学会抬爪再学击掌", en: "Teach paw lift before adding the high-five target." },
+      { zh: "目标位置保持稳定", en: "Keep the target position steady." },
+      { zh: "奖励节奏要快", en: "Keep reward timing fast." }
+    ],
+    tags: [
+      { zh: "击掌", en: "High five" },
+      { zh: "互动", en: "Interaction" },
+      { zh: "趣味训练", en: "Fun training" }
+    ],
     variants: [
-      { voice: "女声", audio: "/audio/training/high-five-female.mp3" },
-      { voice: "童声", audio: "/audio/training/high-five-kid.mp3" },
-      { voice: "男声", audio: "/audio/training/high-five-male.mp3" }
+      { voice: "female", audio: { zh: "/audio/training/zh/high-five-female.mp3", en: "/audio/training/en/high-five-female.mp3" } },
+      { voice: "kid", audio: { zh: "/audio/training/zh/high-five-kid.mp3", en: "/audio/training/en/high-five-kid.mp3" } },
+      { voice: "male", audio: { zh: "/audio/training/zh/high-five-male.mp3", en: "/audio/training/en/high-five-male.mp3" } }
     ]
   },
   {
     slug: "spin",
-    command: "转圈",
-    summary: "典型的表演型趣味口令，适合作为短时互动和内容演示。",
-    goal: "提升专注度和动作跟随能力。",
-    tips: ["先用零食手势做诱导", "动作幅度从小到大", "避免让关节不适的宠物频繁练"],
-    tags: ["转圈", "表演动作", "趣味口令"],
+    command: { zh: "转圈", en: "Spin" },
+    summary: {
+      zh: "典型的表演型趣味口令，适合作为短时互动和内容演示。",
+      en: "A classic trick-style cue that works well for short interaction sessions and demos."
+    },
+    goal: {
+      zh: "提升专注度和动作跟随能力。",
+      en: "Improve focus and following behavior."
+    },
+    tips: [
+      { zh: "先用零食手势做诱导", en: "Start with a food lure or hand target." },
+      { zh: "动作幅度从小到大", en: "Build the turn gradually from smaller movement." },
+      { zh: "避免让关节不适的宠物频繁练", en: "Avoid frequent repetition for pets with joint discomfort." }
+    ],
+    tags: [
+      { zh: "转圈", en: "Spin" },
+      { zh: "表演动作", en: "Trick action" },
+      { zh: "趣味口令", en: "Fun cue" }
+    ],
     variants: [
-      { voice: "女声", audio: "/audio/training/spin-female.mp3" },
-      { voice: "童声", audio: "/audio/training/spin-kid.mp3" },
-      { voice: "男声", audio: "/audio/training/spin-male.mp3" }
+      { voice: "female", audio: { zh: "/audio/training/zh/spin-female.mp3", en: "/audio/training/en/spin-female.mp3" } },
+      { voice: "kid", audio: { zh: "/audio/training/zh/spin-kid.mp3", en: "/audio/training/en/spin-kid.mp3" } },
+      { voice: "male", audio: { zh: "/audio/training/zh/spin-male.mp3", en: "/audio/training/en/spin-male.mp3" } }
     ]
   }
 ];

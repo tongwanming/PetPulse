@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { copy } = useSiteLocale();
+
 defineProps<{
   item: {
     slug: string;
@@ -22,11 +24,11 @@ defineProps<{
         <h3 class="mt-2 text-2xl font-semibold tracking-tight text-pine">{{ item.command }}</h3>
       </div>
       <span class="rounded-full bg-mint px-3 py-1 text-xs font-semibold text-pine">
-        {{ item.variants.length }} 种声音
+        {{ item.variants.length }} {{ copy.common.voices }}
       </span>
     </div>
     <p class="mt-4 text-sm leading-7 text-ink/70">{{ item.summary }}</p>
-    <p class="mt-4 text-sm leading-7 text-ink/60">训练目标：{{ item.goal }}</p>
+    <p class="mt-4 text-sm leading-7 text-ink/60">{{ copy.common.trainingGoal }}: {{ item.goal }}</p>
     <div class="mt-4 flex flex-wrap gap-2">
       <span
         v-for="tag in item.tags"
@@ -52,7 +54,7 @@ defineProps<{
       :to="`/training/${item.slug}`"
       class="mt-5 inline-flex rounded-full bg-pine px-4 py-2 text-sm font-semibold text-white transition hover:bg-coral"
     >
-      查看训练页
+      {{ copy.common.viewTrainingPage }}
     </NuxtLink>
   </article>
 </template>
