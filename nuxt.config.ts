@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2026-03-26",
   ssr: true,
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["nitro-cloudflare-dev"],
   css: ["~/assets/css/main.css"],
   app: {
     head: {
@@ -31,6 +31,13 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true
+    },
+
+    preset: "cloudflare_module",
+
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true
     }
   },
   routeRules: {
