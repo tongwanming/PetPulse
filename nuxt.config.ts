@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteName: "PetChat",
-      siteUrl: "https://pet-pulse.lovecqming.workers.dev",
+      siteUrl: "https://petpulse-20u.pages.dev",
       appStoreUrl: "https://apps.apple.com/us/app/pet-chat-cat-dog-translator/id6755099390"
     }
   },

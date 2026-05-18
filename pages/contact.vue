@@ -28,7 +28,7 @@ useSeoMeta(() => ({
           </div>
           <div class="rounded-3xl bg-sand/50 px-5 py-4">
             <p class="font-semibold text-pine">{{ copy.contact.siteUrl }}</p>
-            <p class="mt-1 break-all">https://pet-pulse.lovecqming.workers.dev</p>
+            <p class="mt-1 break-all">https://petpulse-20u.pages.dev</p>
           </div>
           <div class="rounded-3xl bg-sand/50 px-5 py-4">
             <p class="font-semibold text-pine">{{ copy.contact.fitContent }}</p>
