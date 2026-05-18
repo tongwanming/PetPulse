@@ -8,6 +8,7 @@ const { public: { appStoreUrl } } = useRuntimeConfig();
 
 const navigation = computed(() => [
   { label: copy.value.nav.home, to: "/" },
+  { label: locale.value === "zh" ? "功能分析" : "Feature Map", to: "/feature-analysis" },
   { label: copy.value.nav.sounds, to: "/sounds" },
   { label: copy.value.nav.training, to: "/training" },
   { label: copy.value.nav.guides, to: "/guides" },
