@@ -13,12 +13,14 @@ trap 'rmdir "$LOCK_DIR"' EXIT INT TERM
 
 cd "$WEBSITE_DIR"
 
-if ! git diff --quiet -- . ':!data/petchat-sync.ts'; then
+SYNC_FILES="data/petchat-sync.ts data/petchat.ts"
+
+if ! git diff --quiet -- . ':!data/petchat-sync.ts' ':!data/petchat.ts'; then
   echo "[petpulse-sync] website has unstaged local changes; skip auto publish"
   exit 0
 fi
 
-if ! git diff --cached --quiet -- . ':!data/petchat-sync.ts'; then
+if ! git diff --cached --quiet -- . ':!data/petchat-sync.ts' ':!data/petchat.ts'; then
   echo "[petpulse-sync] website has staged local changes; skip auto publish"
   exit 0
 fi
@@ -27,7 +29,7 @@ echo "[petpulse-sync] syncing from $PETCHAT_REPO"
 PETCHAT_REPO="$PETCHAT_REPO" npm run sync:petchat
 npm run generate
 
-if git diff --quiet -- data/petchat-sync.ts; then
+if git diff --quiet -- $SYNC_FILES; then
   echo "[petpulse-sync] no website sync changes"
   exit 0
 fi
@@ -36,13 +38,15 @@ PETCHAT_BRANCH="$(git -C "$PETCHAT_REPO" branch --show-current)"
 PETCHAT_SHORT="$(git -C "$PETCHAT_REPO" rev-parse --short=7 HEAD)"
 PETCHAT_SUBJECT="$(git -C "$PETCHAT_REPO" show -s --format=%s HEAD)"
 
-git add data/petchat-sync.ts
+git add $SYNC_FILES
 git commit \
-  -m "Refresh PetChat sync metadata" \
+  -m "Refresh PetChat source analysis" \
   -m "PetChat changed on ${PETCHAT_BRANCH:-detached}@${PETCHAT_SHORT}: ${PETCHAT_SUBJECT}" \
+  -m "The sync job scanned PetChat source, Podfile, remote config keys, and analytics call sites, then regenerated the website data used by the feature analysis page." \
   -m "Constraint: Cloudflare Pages deploys only from the PetPulse website repository" \
-  -m "Confidence: high" \
-  -m "Scope-risk: narrow" \
+  -m "Confidence: medium" \
+  -m "Scope-risk: moderate" \
+  -m "Directive: Keep generated data and sync metadata committed together so Cloudflare deploys the same PetChat snapshot shown in the UI" \
   -m "Tested: npm run generate" \
   -m "Not-tested: Browser interaction after automatic hook deployment"
 git push origin main
