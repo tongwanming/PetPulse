@@ -5,6 +5,6 @@ export const petChatSyncInfo = {
   "shortCommit": "b0e730f",
   "subject": "feat:测试脚本",
   "committedAt": "2026-05-19 10:54:23 +0800",
-  "syncedAt": "2026-05-19T03:00:42.532Z",
+  "syncedAt": "2026-05-19T03:30:28.859Z",
   "hasUncommittedChanges": false
 } as const;
