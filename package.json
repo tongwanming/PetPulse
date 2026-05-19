@@ -6,6 +6,7 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
+    "sync:petchat": "node scripts/sync-petchat.mjs",
     "preview": "nuxt preview"
   },
   "dependencies": {

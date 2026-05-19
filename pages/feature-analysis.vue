@@ -7,6 +7,7 @@ import {
   petChatSourceRoot,
   petChatStats
 } from "~/data/petchat";
+import { petChatSyncInfo } from "~/data/petchat-sync";
 
 useSeoMeta({
   title: "PetChat 功能分析",
@@ -48,6 +49,21 @@ const visibleRemoteParameters = computed(() =>
             <p class="text-2xl font-semibold text-pine">{{ item.value }}</p>
             <p class="mt-1 text-sm text-ink/60">{{ item.label }}</p>
           </div>
+        </div>
+      </div>
+      <div class="grid gap-3 rounded-[1.5rem] border border-pine/10 bg-white/80 p-4 text-sm text-ink/65 shadow-float sm:grid-cols-4">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-coral">PetChat Branch</p>
+          <p class="mt-1 font-semibold text-pine">{{ petChatSyncInfo.branch }}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-coral">Commit</p>
+          <p class="mt-1 font-semibold text-pine">{{ petChatSyncInfo.shortCommit }}</p>
+        </div>
+        <div class="sm:col-span-2">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-coral">Last PetChat Change</p>
+          <p class="mt-1 truncate font-semibold text-pine">{{ petChatSyncInfo.subject }}</p>
+          <p class="mt-1 text-xs text-ink/50">{{ petChatSyncInfo.committedAt }}</p>
         </div>
       </div>
     </section>
