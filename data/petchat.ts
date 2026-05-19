@@ -1079,7 +1079,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Analyzing_Sound_Fail",
     "module": "Pet Talk",
     "trigger": "w.state = .failed(message) analyzingView.isHidden = false var failParam: [String: Any] = [\"Reason\": message] failParam.merge(vipS…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:318",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:323",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1087,7 +1087,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Analyzing_Sound_Success",
     "module": "Pet Talk",
     "trigger": "ParamKey.type.rawValue: recordType(for: changeType), PCAdjustEventParamKey.time.rawValue: elapsed, ] successParam.merge(vipStateA…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:137",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:142",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1127,7 +1127,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Translation_Result_Page_Show",
     "module": "Pet Talk",
     "trigger": "ultPageParam: [String: Any] = [ PCAdjustEventParamKey.type.rawValue: recordType(for: changeType) ] resultPageParam.merge(vipState…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:253",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:258",
     "params": "-",
     "target": "Thinking/Firebase"
   },

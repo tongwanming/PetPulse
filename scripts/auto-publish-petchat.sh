@@ -11,6 +11,10 @@ if ! mkdir "$LOCK_DIR" 2>/dev/null; then
 fi
 trap 'rmdir "$LOCK_DIR"' EXIT INT TERM
 
+# Git hooks export repository-local environment variables. Clear them before
+# operating on the website repo; otherwise git commands can still target PetChat.
+unset $(git rev-parse --local-env-vars 2>/dev/null || true)
+
 cd "$WEBSITE_DIR"
 
 SYNC_FILES="data/petchat-sync.ts data/petchat.ts"
