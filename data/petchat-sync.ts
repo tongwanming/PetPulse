@@ -1,10 +1,10 @@
 export const petChatSyncInfo = {
   "sourceRoot": "/Users/xiaomao822/Desktop/git/petchat/PetChat",
   "branch": "dev_1.1.0",
-  "commit": "d1a79f501b0a71ddba8f8221165660477f148de0",
-  "shortCommit": "d1a79f5",
-  "subject": "feat:新增本地判断音频是否为空",
-  "committedAt": "2026-05-19 10:35:46 +0800",
-  "syncedAt": "2026-05-19T02:43:53.759Z",
+  "commit": "b0e730fbd28c130fb380d1f8e754458a54c35926",
+  "shortCommit": "b0e730f",
+  "subject": "feat:测试脚本",
+  "committedAt": "2026-05-19 10:54:23 +0800",
+  "syncedAt": "2026-05-19T03:00:42.532Z",
   "hasUncommittedChanges": false
 } as const;

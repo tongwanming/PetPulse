@@ -4,12 +4,26 @@ set -eu
 WEBSITE_DIR="/Users/xiaomao822/Desktop/官网"
 PETCHAT_REPO="${PETCHAT_REPO:-/Users/xiaomao822/Desktop/git/petchat/PetChat}"
 LOCK_DIR="/tmp/petpulse-petchat-sync.lock"
+LOG_FILE="${PETPULSE_SYNC_LOG:-/tmp/petpulse-petchat-sync.log}"
+
+mkdir -p "$(dirname "$LOG_FILE")" 2>/dev/null || true
+exec >>"$LOG_FILE" 2>&1
+
+echo ""
+echo "[petpulse-sync] started at $(date '+%Y-%m-%d %H:%M:%S') pid=$$"
 
 if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   echo "[petpulse-sync] another sync is already running; skip"
   exit 0
 fi
-trap 'rmdir "$LOCK_DIR"' EXIT INT TERM
+cleanup() {
+  status=$?
+  rmdir "$LOCK_DIR" 2>/dev/null || true
+  echo "[petpulse-sync] finished with status $status at $(date '+%Y-%m-%d %H:%M:%S')"
+}
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 
 # Git hooks export repository-local environment variables. Clear them before
 # operating on the website repo; otherwise git commands can still target PetChat.
