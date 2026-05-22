@@ -29,7 +29,7 @@ export const petChatSourceRoot = "/Users/xiaomao822/Desktop/git/petchat/PetChat"
 export const petChatStats = [
   {
     "label": "功能分支",
-    "value": "10"
+    "value": "11"
   },
   {
     "label": "SDK/能力集成",
@@ -150,6 +150,50 @@ export const petChatFeatureMindMap: MindMapNode = {
           "title": "PCTabBarController",
           "summary": "源码扫描识别出的核心类型。",
           "source": "PetChat/Module/MainTab/PCTabBarController.swift"
+        }
+      ]
+    },
+    {
+      "id": "petcare",
+      "title": "PetCare",
+      "summary": "扫描到 9 个源码文件，包含 8 个主要类型。",
+      "source": "PetChat/Module/PetCare/VC/PCPetCareArticleDetailVC.swift",
+      "children": [
+        {
+          "id": "petcare-manager",
+          "title": "Manager",
+          "summary": "扫描到 0 个源码文件。",
+          "source": "PetChat/Module/PetCare/Manager"
+        },
+        {
+          "id": "petcare-service",
+          "title": "Service",
+          "summary": "扫描到 0 个源码文件。",
+          "source": "PetChat/Module/PetCare/Service"
+        },
+        {
+          "id": "petcare-pcpetcarecontentmanager",
+          "title": "PCPetCareContentManager",
+          "summary": "源码扫描识别出的核心类型。",
+          "source": "PetChat/Module/PetCare/Manager/PCPetCareContentManager.swift"
+        },
+        {
+          "id": "petcare-keys",
+          "title": "Keys",
+          "summary": "源码扫描识别出的核心类型。",
+          "source": "PetChat/Module/PetCare/Manager/PCPetCareContentManager.swift"
+        },
+        {
+          "id": "petcare-pcpetcarepettype",
+          "title": "PCPetCarePetType",
+          "summary": "源码扫描识别出的核心类型。",
+          "source": "PetChat/Module/PetCare/Manager/PCPetCareContentManager.swift"
+        },
+        {
+          "id": "petcare-pcpetcarecategory",
+          "title": "PCPetCareCategory",
+          "summary": "源码扫描识别出的核心类型。",
+          "source": "PetChat/Module/PetCare/Manager/PCPetCareContentManager.swift"
         }
       ]
     },
@@ -1135,7 +1179,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Load_Again",
     "module": "公共能力",
     "trigger": "ad_Again`。 func reportPetMagicLoadAgainIfNeeded(using template: TemItemInfo?) { guard let template, PCTempManager.consumePetMagic…",
-    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:410, PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:628",
+    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:410, PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:634",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1143,7 +1187,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Load_Fail",
     "module": "公共能力",
     "trigger": "dataModel.dataModel) payload[PCAdjustEventParamKey.time.rawValue] = elapsedTime payload[PCAdjustEventParamKey.reason.rawValue] = …",
-    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:307, PetChat/Common/Managers/ProgressManager/PCProgressManager.swift:336, PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:605",
+    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:307, PetChat/Common/Managers/ProgressManager/PCProgressManager.swift:336, PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:611",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1727,7 +1771,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Talk_Guide_Finish",
     "module": "Pet Talk",
     "trigger": "guard petVoiceCard.bounds.width > 0, petVoiceCard.bounds.height > 0 else { return false } return true } /// 完成首页引导后，记录本地状态并恢复顶部视频…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:397",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:417",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1735,7 +1779,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Talk_Guide_Show",
     "module": "Pet Talk",
     "trigger": "shouldRetryTalkGuidePresentation = false attachGuideOverlayIfNeeded() guideContainerView().layoutIfNeeded() introVideoPlayerView.…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:346",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:366",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1743,7 +1787,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Tap_to_Record",
     "module": "Pet Talk",
     "trigger": "nToDog case (.dog, .pet): changeType = .dogToHuman } let title = kind == .human ? PCLocal(str: \"petTalk.humanVoice\") : PCLocal(st…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:904",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:924",
     "params": "type",
     "target": "Thinking/Firebase"
   },
