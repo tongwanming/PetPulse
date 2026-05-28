@@ -1267,7 +1267,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Adjust_Check_Start",
     "module": "归因",
     "trigger": "Finished: @escaping (PCAttributionInitialWindowResult) -> Void, onResolved: ((PCAttributionResolution) -> Void)? = nil ) { attrib…",
-    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:485",
+    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:491",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1275,7 +1275,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Adjust_Get_Promote",
     "module": "归因",
     "trigger": "passTime: Int? = nil) { guard attribution.isPaidUser else { return } guard !UserDefaults.standard.bool(forKey: StorageKey.promote…",
-    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1068",
+    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1074",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1283,7 +1283,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Adjust_Get_Promote_Final",
     "module": "归因",
     "trigger": "eFinalReported) else { return } var params = promoteParams(from: attribution) params[PCAdjustEventParamKey.form.rawValue] = final…",
-    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1094",
+    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1100",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1291,15 +1291,15 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Adjust_Get_Promote_Server",
     "module": "归因",
     "trigger": "tServerAttribution) { guard attribution.isPaidUser else { return } guard !UserDefaults.standard.bool(forKey: StorageKey.promoteSe…",
-    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1080",
+    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1086",
     "params": "-",
     "target": "Thinking/Firebase"
   },
   {
     "id": "Adjust_Get_Success",
     "module": "归因",
-    "trigger": "ers(in: .whitespacesAndNewlines) ?? \"\" guard network.isEmpty == false else { return } let passTime = currentPromotePassTime() if …",
-    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1108",
+    "trigger": "ypeNames.contains(eventName) == false if shouldReportType { reportedSDKAttributionTypeNames.insert(eventName) } } if shouldReport…",
+    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1131",
     "params": "passTime, adNetwork, campaign",
     "target": "Thinking/Firebase"
   },
@@ -1307,7 +1307,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Adjust_Init",
     "module": "归因",
     "trigger": "se) } } func registerSDK() { if register { return } register = true configOECallBackParam() Adjust.initSdk(adjustConfig) PCReport…",
-    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:448",
+    "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:454",
     "params": "-",
     "target": "Thinking/Firebase"
   },
