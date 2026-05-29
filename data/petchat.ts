@@ -37,7 +37,7 @@ export const petChatStats = [
   },
   {
     "label": "埋点事件",
-    "value": "107"
+    "value": "120"
   },
   {
     "label": "下发参数",
@@ -1019,7 +1019,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Restore_Click",
     "module": "订阅",
     "trigger": "purchase(productID: productID, source: vipSource, placement: placement) } /// 恢复购买。 func restoreVIP(placement: String? = nil) { g…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:360",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:371",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1067,7 +1067,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Click",
     "module": "订阅",
     "trigger": "firstOfferID } @objc private func didTapContinue() { guard let productID = selectedProductID else { return } guard beginPurchaseA…",
-    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:283, PetChat/Module/VIP/VC/PCVIPBViewController.swift:277, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:873, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:709",
+    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:283, PetChat/Module/VIP/VC/PCVIPBViewController.swift:277, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:884, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:720",
     "params": "-",
     "target": "Thinking/Firebase + Adjust"
   },
@@ -1075,7 +1075,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Close",
     "module": "订阅",
     "trigger": "uccessfulOrderIDForSubClose ?? \"\", PCAdjustEventParamKey.xTimes.rawValue: UserDefaults.standard.subShowTimes ] param.merge(paywal…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:905",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:916",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1083,7 +1083,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Show",
     "module": "订阅",
     "trigger": "ncy, PCAdjustEventParamKey.price.rawValue: price, PCAdjustEventParamKey.xTimes.rawValue: times ] param.merge(mediaParams) { _, ne…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:1070, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:274",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:1081, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:285",
     "params": "-",
     "target": "Thinking/Firebase + Adjust"
   },
@@ -1091,9 +1091,33 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Success",
     "module": "订阅",
     "trigger": "switch outcome { case .success(let transactionID): if let selectedProductID { reportSubSuccessForPurchase(productID: selectedProd…",
-    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:338, PetChat/Module/VIP/VC/PCVIPBViewController.swift:332, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:934, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:478",
+    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:338, PetChat/Module/VIP/VC/PCVIPBViewController.swift:332, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:945, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:478",
     "params": "-",
     "target": "Adjust"
+  },
+  {
+    "id": "Article_Click",
+    "module": "公共能力",
+    "trigger": "/// 上报文章点击。 static func reportArticleClick(article: PCPetCareArticle, source: String) { var param = articleParams(article) param[…",
+    "location": "PetChat/Module/PetCare/Model/PCPetCareModels.swift:282",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Article_Collect",
+    "module": "公共能力",
+    "trigger": "PCReport.report(withEvent: Event(type: .other, key: PCAdjustEventID.articleShow.rawValue, param: param)) } /// 上报文章收藏操作。 static f…",
+    "location": "PetChat/Module/PetCare/Model/PCPetCareModels.swift:294",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Article_Show",
+    "module": "公共能力",
+    "trigger": "/// 上报文章展示。 static func reportArticleShow(article: PCPetCareArticle, source: String) { var param = articleParams(article) param[P…",
+    "location": "PetChat/Module/PetCare/Model/PCPetCareModels.swift:289",
+    "params": "-",
+    "target": "Thinking/Firebase"
   },
   {
     "id": "ATT_Reject",
@@ -1120,6 +1144,14 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Adjust"
   },
   {
+    "id": "Care_Topic_Tab_Click",
+    "module": "公共能力",
+    "trigger": "e.rawValue: isEnabled ? ActionType.on : ActionType.off ])) } /// 上报 Pet Care 专题分类点击。 static func reportCareTopicTabClick(petType:…",
+    "location": "PetChat/Module/PetCare/Model/PCPetCareModels.swift:272",
+    "params": "petType, category",
+    "target": "Thinking/Firebase"
+  },
+  {
     "id": "custom_Prompt_Finish",
     "module": "公共能力",
     "trigger": "type: .other, key: AnalyticsEvent.submit, param: [ \"Source\": result.source.rawValue, \"Feedback\": String(feedback.prefix(256)), \"L…",
@@ -1133,6 +1165,30 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "trigger": "type: .other, key: AnalyticsEvent.submit, param: [ \"Source\": result.source.rawValue, \"Feedback\": String(feedback.prefix(256)), \"L…",
     "location": "PetChat/Common/Managers/PCFeedbackManager/PCFeedbackManager.swift:142, PetChat/Common/Managers/PCRatingManager/PCRatingManager.swift:323",
     "params": "Source, Feedback, Length",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Daily_Tip_Action",
+    "module": "公共能力",
+    "trigger": "Id.rawValue: tip.tipId, PCAdjustEventParamKey.source.rawValue: source ])) } /// 上报每日小贴士弹窗操作。 static func reportDailyTipAction(tip…",
+    "location": "PetChat/Module/PetCare/Model/PCPetCareModels.swift:257",
+    "params": "actionType, tipId",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Daily_Tip_Reminder_Set",
+    "module": "公共能力",
+    "trigger": "Key.actionType.rawValue: actionType, PCAdjustEventParamKey.tipId.rawValue: tip.tipId ])) } /// 上报每日小贴士提醒开关操作。 static func reportD…",
+    "location": "PetChat/Module/PetCare/Model/PCPetCareModels.swift:265",
+    "params": "actionType",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Daily_Tip_Show",
+    "module": "公共能力",
+    "trigger": "ect\" static let close = \"close\" static let on = \"on\" static let off = \"off\" } /// 上报每日小贴士弹窗展示。 static func reportDailyTipShow(tip…",
+    "location": "PetChat/Module/PetCare/Model/PCPetCareModels.swift:248",
+    "params": "petType, tipId, source",
     "target": "Thinking/Firebase"
   },
   {
@@ -1165,6 +1221,14 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "trigger": "else { return } appDelegate.window?.backgroundColor = .color_bg appDelegate.window?.rootViewController = PCTabBarController() app…",
     "location": "PetChat/Base/PCRouter.swift:28",
     "params": "Country",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "My_Library_Show",
+    "module": "公共能力",
+    "trigger": "PCReport.report(withEvent: Event(type: .other, key: PCAdjustEventID.articleCollect.rawValue, param: articleParams(article))) } //…",
+    "location": "PetChat/Module/PetCare/Model/PCPetCareModels.swift:299",
+    "params": "-",
     "target": "Thinking/Firebase"
   },
   {
@@ -1312,6 +1376,14 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
+    "id": "action_type",
+    "module": "埋点",
+    "trigger": "已定义，未扫描到触发调用。",
+    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
     "id": "ad_network",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
@@ -1353,6 +1425,14 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   },
   {
     "id": "campaign_name",
+    "module": "埋点",
+    "trigger": "已定义，未扫描到触发调用。",
+    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "category",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
@@ -1536,6 +1616,14 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
+    "id": "source",
+    "module": "埋点",
+    "trigger": "已定义，未扫描到触发调用。",
+    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
     "id": "Sub_Agree_Rejct",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
@@ -1553,6 +1641,22 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   },
   {
     "id": "Time",
+    "module": "埋点",
+    "trigger": "已定义，未扫描到触发调用。",
+    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "tip_id",
+    "module": "埋点",
+    "trigger": "已定义，未扫描到触发调用。",
+    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "title",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
@@ -1746,8 +1850,8 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   {
     "id": "Analyzing_Sound_Fail",
     "module": "Pet Talk",
-    "trigger": "w.state = .failed(message) analyzingView.isHidden = false var failParam: [String: Any] = [\"Reason\": message] failParam.merge(vipS…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:323",
+    "trigger": "ramKey.reason.rawValue: reportReason, PCAdjustEventParamKey.type.rawValue: recordType(for: changeType) ] failParam.merge(vipState…",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:351",
     "params": "-",
     "target": "Thinking/Firebase"
   },
