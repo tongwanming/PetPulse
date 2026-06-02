@@ -961,7 +961,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "module": "启动",
     "defaultValue": "true",
     "feature": "1.0.9 新版引导页顺序配置（JSON 数组字符串）。",
-    "triggerLocation": "PetChat/Module/Launch/PCLaunchVC.swift:430",
+    "triggerLocation": "PetChat/Module/Launch/PCLaunchVC.swift:437",
     "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:597"
   },
   {
@@ -1707,7 +1707,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Loading_Show",
     "module": "启动",
     "trigger": "ceed() } } } } override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated) hasLaunchViewAppeared = true PCRepor…",
-    "location": "PetChat/Module/Launch/PCLaunchVC.swift:347",
+    "location": "PetChat/Module/Launch/PCLaunchVC.swift:354",
     "params": "-",
     "target": "Thinking/Firebase"
   },
