@@ -1243,7 +1243,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Load_Again",
     "module": "公共能力",
     "trigger": "ad_Again`。 func reportPetMagicLoadAgainIfNeeded(using template: TemItemInfo?) { guard let template, PCTempManager.consumePetMagic…",
-    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:410, PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:521",
+    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:404, PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:572",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1251,7 +1251,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Load_Fail",
     "module": "公共能力",
     "trigger": "dataModel.dataModel) payload[PCAdjustEventParamKey.time.rawValue] = elapsedTime payload[PCAdjustEventParamKey.reason.rawValue] = …",
-    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:307, PetChat/Common/Managers/ProgressManager/PCProgressManager.swift:336",
+    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:301, PetChat/Common/Managers/ProgressManager/PCProgressManager.swift:336",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1794,8 +1794,8 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   {
     "id": "Pet_Magic_Click_Create",
     "module": "Pet Magic",
-    "trigger": "petMagicNavigationController?.popToRootViewController(animated: true) } /// “开始创作”按钮事件，发起任务。 @objc private func handleMakeButtonT…",
-    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:499",
+    "trigger": "buttonTitle: PCLocal(str: \"alert.ok\") ) } } /// “开始创作”按钮事件，发起任务。 @objc private func handleMakeButtonTapped() { reportPetMagicLoad…",
+    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:550",
     "params": "resource_id, Resource_Name, Resource_Cover_URL, Resource_URL",
     "target": "Thinking/Firebase"
   },
@@ -1818,7 +1818,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   {
     "id": "Pet_Magic_Enter_Album_Page",
     "module": "Pet Magic",
-    "trigger": "nCreateTaskSuccess = { [weak self] in self?.returnToPetMagicHomeAfterTaskCreated() } self.present(pickerVC, animated: true) PCRep…",
+    "trigger": "eak self, weak pickerVC] in self?.handlePhotoPickerTaskCreated(pickerVC: pickerVC) } self.present(pickerVC, animated: true) PCRep…",
     "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:438",
     "params": "resource_id, Resource_Name, Resource_Cover_URL, Resource_URL",
     "target": "Thinking/Firebase"
