@@ -1851,7 +1851,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Analyzing_Sound_Fail",
     "module": "Pet Talk",
     "trigger": "ramKey.reason.rawValue: reportReason, PCAdjustEventParamKey.type.rawValue: recordType(for: changeType) ] failParam.merge(vipState…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:351",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:371",
     "params": "-",
     "target": "Thinking/Firebase"
   },
