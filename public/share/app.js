@@ -1,0 +1,262 @@
+(function () {
+  const dictionaries = {
+    en: {
+      heroTitle: "What Is\nMy Pet\nThinking",
+      speech: "AI reads tiny visual clues for playful pet thoughts",
+      calendar: "Emotion Calendar",
+      thoughts: "Pet Thoughts",
+      quote: "This is it. My era has officially begun. All eyes on me, peasants.",
+      basis: "Analysis Basis:",
+      basisOne: "Head held high like a star on the throne.",
+      basisTwo: "Eyes locked in with royal confidence.",
+      download: "Download on the",
+      downloadSuffix: "",
+      caption: "Download and decode more pet thoughts.",
+    },
+    "zh-CN": {
+      heroTitle: "我的宠物\n在想什么",
+      speech: "AI 捕捉细微视觉线索，读懂爱玩耍的宠物内心想法",
+      calendar: "心情日记",
+      thoughts: "宠物想法",
+      quote: "就是现在。本喵的时代正式开始，所有人都看我，臣民们。",
+      basis: "分析依据：",
+      basisOne: "高昂着头，像坐在王座上的明星。",
+      basisTwo: "目光坚定，写满自信。",
+      download: "前往",
+      downloadSuffix: "下载",
+      caption: "下载读懂更多宠物心声",
+    },
+    ja: {
+      heroTitle: "うちの子は\n何を考えてる？",
+      speech: "AIが小さな視覚的手がかりを読み、遊び好きなペットの気持ちを理解",
+      calendar: "気分日記",
+      thoughts: "ペットの気持ち",
+      quote: "ついに私の時代が正式に始まった。みんな私を見て、しもべたち。",
+      basis: "分析の根拠：",
+      basisOne: "王座のスターのように頭を高く上げている。",
+      basisTwo: "視線はまっすぐ、自信たっぷり。",
+      download: "",
+      downloadSuffix: "でダウンロード",
+      caption: "ダウンロードして、もっとペットの気持ちを読み解こう",
+    },
+    ko: {
+      heroTitle: "우리 펫은\n무슨 생각 중?",
+      speech: "인공지능은 미세한 시각적 단서를 읽어 장난기 많은 반려동물의 속마음을 파악한다",
+      calendar: "기분 일기",
+      thoughts: "반려동물 생각",
+      quote: "바로 이거야. 내 시대가 공식적으로 시작됐어. 모두 나를 봐, 신하들.",
+      basis: "분석 근거:",
+      basisOne: "왕좌 위의 스타처럼 고개를 높이 들고 있어요.",
+      basisTwo: "시선이 당당하고 자신감이 넘쳐요.",
+      download: "",
+      downloadSuffix: "에서 다운로드",
+      caption: "다운로드해 더 많은 반려동물의 마음을 해석하세요",
+    },
+    pt: {
+      heroTitle: "O que meu\npet está\npensando?",
+      speech: "A IA lê pistas visuais para entender os pets brincalhões",
+      calendar: "Diário de humor",
+      thoughts: "Pensamentos dos pets",
+      quote: "É isso. Minha era começou oficialmente. Todos os olhos em mim, plebeus.",
+      basis: "Base da análise:",
+      basisOne: "Cabeça erguida como estrela no trono.",
+      basisTwo: "Olhar firme, cheio de confiança.",
+      download: "Baixe na",
+      downloadSuffix: "",
+      caption: "Baixe e decifre mais pensamentos dos pets",
+    },
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const lang = resolveLanguage();
+  const copy = dictionaries[lang] || dictionaries.en;
+
+  syncScale();
+  applyCopy(copy, lang);
+
+  window.addEventListener("resize", syncScale, { passive: true });
+  window.addEventListener("orientationchange", syncScale, { passive: true });
+
+  const storeButton = document.querySelector("[data-store-button]");
+  if (storeButton) {
+    storeButton.addEventListener("click", openStore);
+  }
+
+  function applyCopy(nextCopy, nextLang) {
+    document.documentElement.lang = nextLang;
+    document.querySelectorAll("[data-i18n]").forEach((node) => {
+      const key = node.getAttribute("data-i18n");
+      if (Object.prototype.hasOwnProperty.call(nextCopy, key)) {
+        node.textContent = nextCopy[key];
+      }
+    });
+  }
+
+  function renderFigmaLayers(nextLang) {
+    const mount = document.querySelector("[data-figma-layers]");
+    if (!mount) return;
+
+    const layers = figmaLayers[nextLang] || figmaLayers.en;
+    const fragment = document.createDocumentFragment();
+    layers.forEach((layer) => {
+      const img = document.createElement("img");
+      img.className = `figma-layer ${layer.kind || "hero-layer"}`;
+      img.src = `./assets/figma/${layer.file}.svg`;
+      img.alt = "";
+      img.setAttribute("aria-hidden", "true");
+      img.style.left = `${layer.x}px`;
+      img.style.top = `${layer.y}px`;
+      img.style.width = `${layer.w}px`;
+      img.style.height = `${layer.h}px`;
+      fragment.appendChild(img);
+    });
+
+    mount.replaceChildren(fragment);
+  }
+
+  function resolveLanguage() {
+    const requestedLang = params.get("lang");
+    if (requestedLang) return pickLanguage(requestedLang);
+
+    const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language];
+    for (const browserLang of browserLanguages) {
+      const matchedLang = pickLanguage(browserLang);
+      if (matchedLang) return matchedLang;
+    }
+
+    return "en";
+  }
+
+  function pickLanguage(value) {
+    if (!value) return "";
+    if (dictionaries[value]) return value;
+    const normalized = String(value).toLowerCase();
+    if (normalized.startsWith("zh")) return "zh-CN";
+    if (normalized.startsWith("ja")) return "ja";
+    if (normalized.startsWith("ko")) return "ko";
+    if (normalized.startsWith("pt")) return "pt";
+    if (normalized.startsWith("en")) return "en";
+    return "";
+  }
+
+  function openStore() {
+    const override = params.get("storeUrl");
+    const httpsUrl = override || "https://apps.apple.com/search?term=Pet%20Chat";
+    const appStoreUrl = httpsUrl.startsWith("https://apps.apple.com")
+      ? httpsUrl.replace("https://apps.apple.com", "itms-apps://apps.apple.com")
+      : httpsUrl;
+
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      window.location.href = appStoreUrl;
+      window.setTimeout(() => {
+        window.location.href = httpsUrl;
+      }, 650);
+      return;
+    }
+
+    window.location.href = httpsUrl;
+  }
+
+  function syncScale() {
+    const scale = Math.min(window.innerWidth / 393, 1);
+    document.documentElement.style.setProperty("--scale", String(scale));
+  }
+
+  const figmaLayers = {
+    en: [
+      L("en-calendar", 16, 320, 237.21, 446.96, "phone-layer"),
+      L("en-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("en-hero", 43, 106, 308.67, 229.46, "hero-layer"),
+    ],
+    "zh-CN": [
+      L("zh-calendar", 16, 320, 237.21, 446.96, "phone-layer"),
+      L("zh-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("zh-pet-a", 130, 163, 72.38, 90, "hero-layer"),
+      L("zh-pet-b", 89, 226, 107.15, 109.46, "hero-layer"),
+      L("zh-deco-green", 248, 108, 47.87, 44.57, "deco-layer"),
+      L("zh-deco-pink", 51, 242, 32.49, 32.48, "deco-layer"),
+      L("zh-title-8", 55.78, 121.43, 45.7, 45.66, "title-layer"),
+      L("zh-title-7", 105, 116, 41, 39, "title-layer"),
+      L("zh-title-6", 152, 111, 39.95, 41.48, "title-layer"),
+      L("zh-title-5", 195, 109, 45.42, 42.98, "title-layer"),
+      L("zh-title-4", 88, 164, 42.29, 43.3, "title-layer"),
+      L("zh-title-3", 201, 161, 44.35, 40.78, "title-layer"),
+      L("zh-title-2", 248, 161, 39, 37, "title-layer"),
+      L("zh-title-1", 288.29, 158.29, 40.43, 40.43, "title-layer"),
+      L("zh-speech", 180, 206, 136, 129, "speech-layer"),
+      L("zh-leaf", 285, 284.48, 25, 27.15, "deco-layer"),
+    ],
+    ja: [
+      L("ja-calendar", 16, 320, 237.21, 446.96, "phone-layer"),
+      L("ja-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("ja-pet-a", 115, 160, 70.77, 88, "hero-layer"),
+      L("ja-pet-b", 86, 216, 107.15, 109.46, "hero-layer"),
+      L("ja-deco-pink", 46, 242, 32.49, 32.48, "deco-layer"),
+      L("ja-deco-orange", 304, 116, 47.87, 44.57, "deco-layer"),
+      L("ja-title-14", 70, 119, 38.85, 38.46, "title-layer"),
+      L("ja-title-13", 117, 123, 29.87, 26.11, "title-layer"),
+      L("ja-title-12", 158, 115, 34.14, 31.05, "title-layer"),
+      L("ja-title-11", 204, 122.34, 20.05, 21.45, "title-layer"),
+      L("ja-title-10", 229.52, 115, 18.59, 30.1, "title-layer"),
+      L("ja-title-9", 257, 115, 39.86, 39.41, "title-layer"),
+      L("ja-title-8", 55, 176.15, 39.91, 39.95, "title-layer"),
+      L("ja-title-7", 95.56, 174, 19.37, 29.12, "title-layer"),
+      L("ja-title-6", 188, 165, 34, 34, "title-layer"),
+      L("ja-title-5", 227.55, 167.02, 21.91, 28.96, "title-layer"),
+      L("ja-title-4", 249, 168, 21.42, 24.7, "title-layer"),
+      L("ja-title-3", 273.94, 173, 26.83, 22.74, "title-layer"),
+      L("ja-title-2", 300.07, 174.54, 18.96, 27.15, "title-layer"),
+      L("ja-title-1", 317.85, 186.41, 30.38, 29.73, "title-layer"),
+      L("ja-speech", 167, 206, 137.31, 135.38, "speech-layer"),
+      L("ja-leaf", 294.62, 302, 16.76, 18.21, "deco-layer"),
+    ],
+    ko: [
+      L("ko-calendar", 16, 320, 237.21, 446.96, "phone-layer"),
+      L("ko-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("ko-pet-a", 105, 171, 70.77, 88, "hero-layer"),
+      L("ko-pet-b", 89, 226, 107.15, 109.46, "hero-layer"),
+      L("ko-deco-pink", 51, 242, 32.49, 32.48, "deco-layer"),
+      L("ko-deco-orange", 308, 117, 47.87, 44.57, "deco-layer"),
+      L("ko-title-14", 98, 122, 27.81, 33.06, "title-layer"),
+      L("ko-title-13", 134, 122, 28.56, 31.42, "title-layer"),
+      L("ko-title-12", 169.93, 118.95, 26.07, 32.13, "title-layer"),
+      L("ko-title-11", 201.58, 119.61, 29.7, 31.45, "title-layer"),
+      L("ko-title-10", 233, 118, 31.72, 33.56, "title-layer"),
+      L("ko-title-9", 266.35, 120.45, 32.16, 33.66, "title-layer"),
+      L("ko-title-8", 45.39, 177.48, 32.1, 33.5, "title-layer"),
+      L("ko-title-7", 78.89, 169.22, 28.87, 30.53, "title-layer"),
+      L("ko-title-6", 172, 167, 28.94, 32.67, "title-layer"),
+      L("ko-title-5", 205.97, 167.84, 27.65, 29.6, "title-layer"),
+      L("ko-title-4", 239.33, 168.25, 26.28, 28.18, "title-layer"),
+      L("ko-title-3", 270.97, 168.84, 25.69, 27.73, "title-layer"),
+      L("ko-title-2", 297.66, 169.84, 34.77, 36.14, "title-layer"),
+      L("ko-title-1", 333.97, 178.84, 22.74, 29.79, "title-layer"),
+      L("ko-speech", 180, 206, 136, 129, "speech-layer"),
+      L("ko-leaf", 288, 290, 20.84, 22.64, "deco-layer"),
+    ],
+    pt: [
+      L("pt-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("pt-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("pt-pet-a", 130, 166, 70.77, 88, "hero-layer"),
+      L("pt-pet-b", 89, 226, 107.15, 109.46, "hero-layer"),
+      L("pt-deco-pink", 51, 242, 32.49, 32.48, "deco-layer"),
+      L("pt-deco-orange", 293, 106, 47.87, 44.57, "deco-layer"),
+      L("pt-title-1", 63, 116, 36, 40, "title-layer"),
+      L("pt-title-2", 111.67, 129.45, 52.46, 37.45, "title-layer"),
+      L("pt-title-4", 175.67, 124.66, 55.33, 21.74, "title-layer"),
+      L("pt-title-3", 240.83, 108, 46.71, 52.9, "title-layer"),
+      L("pt-title-5", 38, 174, 83.96, 46.61, "title-layer"),
+      L("pt-title-6", 205, 154, 127.55, 49.82, "title-layer"),
+      L("pt-speech", 180, 206, 136, 129, "speech-layer"),
+      L("pt-leaf", 287, 276, 20, 23.19, "deco-layer"),
+    ],
+  };
+
+  function L(file, x, y, w, h, kind) {
+    return { file, x, y, w, h, kind };
+  }
+
+  renderFigmaLayers(lang);
+})();
