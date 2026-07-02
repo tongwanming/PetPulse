@@ -656,17 +656,15 @@ html[lang="ja"] .speech-card span {
 .store-button {
   position: absolute;
   left: 53px;
-  top: 65.5px;
+  top: 65.5735px;
   z-index: 3;
-  width: 287px;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 0 31px 0 50px;
+  width: 286.7805px;
+  height: 54.1382px;
+  display: block;
+  padding: 0;
   color: #fff;
-  background: var(--orange);
-  border-radius: 40% 60% 48% 52% / 52% 46% 54% 48%;
+  background: transparent url("./assets/figma/store-button-bg.svg") center / 100% 100% no-repeat;
+  border-radius: 0;
   cursor: pointer;
   pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
@@ -677,37 +675,26 @@ html[lang="ja"] .speech-card span {
 }
 
 .apple-mark {
-  position: relative;
+  position: absolute;
+  left: 24.771px;
+  top: 12.4265px;
   width: 23px;
   height: 27px;
-  flex: 0 0 auto;
+  background: url("./assets/figma/store-apple-mark.svg") center / 100% 100% no-repeat;
 }
 
 .apple-mark::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 22px;
-  height: 21px;
-  border-radius: 42% 42% 46% 46%;
-  background: #fff;
-  clip-path: polygon(45% 0, 62% 8%, 77% 0, 100% 24%, 87% 78%, 68% 100%, 50% 90%, 31% 100%, 11% 78%, 0 28%, 20% 8%);
+  content: none;
 }
 
 .apple-mark::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 0;
-  width: 7px;
-  height: 8px;
-  border-radius: 8px 0 8px 0;
-  background: #fff;
-  transform: rotate(31deg);
+  content: none;
 }
 
 .store-copy {
+  position: absolute;
+  left: 55.771px;
+  top: 19.4265px;
   display: flex;
   align-items: baseline;
   gap: 7px;
@@ -752,24 +739,15 @@ html[lang="ko"] .store-suffix {
 
 .store-arrow {
   position: absolute;
-  right: 26px;
-  top: 16px;
+  right: 14.0096px;
+  top: 17.4265px;
   width: 24px;
   height: 24px;
-  border: 1px solid #fff;
-  border-radius: 50%;
+  background: url("./assets/figma/store-arrow.svg") center / 100% 100% no-repeat;
 }
 
 .store-arrow::after {
-  content: "";
-  position: absolute;
-  left: 8px;
-  top: 5px;
-  width: 7px;
-  height: 12px;
-  border: solid #fff;
-  border-width: 0 1px 1px 0;
-  transform: rotate(-45deg);
+  content: none;
 }
 
 .download-copy {
