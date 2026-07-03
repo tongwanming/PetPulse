@@ -2251,7 +2251,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Album_Page_Next_Click",
     "module": "Pet Thoughts",
     "trigger": ".fullScreen self.present(pickerVC, animated: true) { viewModel.backAction = { [weak self, weak pickerVC] in guard let self else {…",
-    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:1450",
+    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:1470",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2267,7 +2267,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Thoughts_Enter_Album_Page",
     "module": "Pet Thoughts",
     "trigger": "视频；在选择达到上限时给出专属提示文案。 viewModel.onSelectionLimitReached = { [weak pickerVC] in pickerVC?.view.makeToastText(PCLocal(str: \"petThoug…",
-    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:1439",
+    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:1459",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2275,7 +2275,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Thoughts_Load_Again",
     "module": "Pet Thoughts",
     "trigger": "y.featurePetThoughts, resourceId: \"\", soundsName: \"\" )) return } pendingConsumeFreeUse = true } PCReport.report(withEvent: Event(…",
-    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:2194, PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:4189",
+    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:2214, PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:4227",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2291,7 +2291,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Thoughts_Load_Success",
     "module": "Pet Thoughts",
     "trigger": "self.tableView.reloadData() self.scrollToInitialConversationPosition(animated: true) self.scheduleConversationSave() PCReport.rep…",
-    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:2007",
+    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:2027",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2347,7 +2347,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Thoughts_Start_Load",
     "module": "Pet Thoughts",
     "trigger": "oughtStyleName.all : [primaryStyleName] let usageTimes = nextPetThoughtsUsageTimes() let mediaType = petThoughtsMediaType(for: mo…",
-    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:1491",
+    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:1511",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2363,7 +2363,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Thoughts_Upload_Photo_Click",
     "module": "Pet Thoughts",
     "trigger": "ontext: PCVIPSubShowEntryContext( iapEntry: PCVIPIAPEntry.featurePetThoughts, resourceId: \"\", soundsName: \"\" )) return } PCReport…",
-    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:1428",
+    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:1448",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2371,7 +2371,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Thought_Detail_Click",
     "module": "Pet Thoughts",
     "trigger": "= globalIndexForVisibleRow(indexPath.row) guard allMessages.indices.contains(globalIndex) else { return } guard shouldShowAnalysi…",
-    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:2658",
+    "location": "PetChat/Module/PetThoughts/PCPetThoughtsVC.swift:2688",
     "params": "-",
     "target": "Thinking/Firebase"
   }
