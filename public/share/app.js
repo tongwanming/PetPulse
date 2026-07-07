@@ -68,10 +68,14 @@
   };
 
   const params = new URLSearchParams(window.location.search);
+  const supportedStyleNames = ["real_insight", "sweet_talk", "inner_drama", "savage_roast"];
+  const styleName = resolveStyleName("real_insight");
+  const attributionStyleName = resolveStyleName("unknown");
   const lang = resolveLanguage();
   const copy = dictionaries[lang] || dictionaries.en;
 
   syncScale();
+  applyStyleName(styleName);
   applyCopy(copy, lang);
 
   window.addEventListener("resize", syncScale, { passive: true });
@@ -89,6 +93,13 @@
       if (Object.prototype.hasOwnProperty.call(nextCopy, key)) {
         node.textContent = nextCopy[key];
       }
+    });
+  }
+
+  function applyStyleName(nextStyleName) {
+    document.documentElement.dataset.styleName = nextStyleName;
+    document.querySelectorAll("[data-store-button]").forEach((node) => {
+      node.setAttribute("data-style-name", nextStyleName);
     });
   }
 
@@ -141,14 +152,20 @@
     return "";
   }
 
+  function resolveStyleName(fallback) {
+    const requestedStyleName = params.get("style_name") || params.get("styleName") || "";
+    const normalizedStyleName = String(requestedStyleName).trim().toLowerCase().replace(/-/g, "_");
+    return supportedStyleNames.includes(normalizedStyleName) ? normalizedStyleName : fallback;
+  }
+
   function openStore() {
     const override = params.get("storeUrl");
-    const httpsUrl = override || "https://apps.apple.com/search?term=Pet%20Chat";
+    const httpsUrl = override ? withShareContext(override) : buildAdjustUrl();
     const appStoreUrl = httpsUrl.startsWith("https://apps.apple.com")
       ? httpsUrl.replace("https://apps.apple.com", "itms-apps://apps.apple.com")
       : httpsUrl;
 
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && appStoreUrl !== httpsUrl) {
       window.location.href = appStoreUrl;
       window.setTimeout(() => {
         window.location.href = httpsUrl;
@@ -157,6 +174,23 @@
     }
 
     window.location.href = httpsUrl;
+  }
+
+  function buildAdjustUrl() {
+    const adjustUrl = new URL("https://app.adjust.com/22upvjh8");
+    adjustUrl.searchParams.set("campaign", "pethought_card_share");
+    adjustUrl.searchParams.set("adgroup", attributionStyleName);
+    return adjustUrl.href;
+  }
+
+  function withShareContext(url) {
+    try {
+      const nextUrl = new URL(url, window.location.href);
+      nextUrl.searchParams.set("style_name", styleName);
+      return nextUrl.href;
+    } catch (_) {
+      return url;
+    }
   }
 
   function syncScale() {
