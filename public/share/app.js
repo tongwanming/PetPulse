@@ -69,6 +69,18 @@
 
   const params = new URLSearchParams(window.location.search);
   const supportedStyleNames = ["real_insight", "sweet_talk", "inner_drama", "savage_roast"];
+  const pngFigmaLayerFiles = new Set([
+    "en-calendar",
+    "en-thoughts",
+    "ja-calendar",
+    "ja-thoughts",
+    "ko-calendar",
+    "ko-thoughts",
+    "pt-calendar",
+    "pt-thoughts",
+    "zh-calendar",
+    "zh-thoughts",
+  ]);
   const styleName = resolveStyleName("real_insight");
   const attributionStyleName = resolveStyleName("unknown");
   const lang = resolveLanguage();
@@ -112,7 +124,7 @@
     layers.forEach((layer) => {
       const img = document.createElement("img");
       img.className = `figma-layer ${layer.kind || "hero-layer"}`;
-      img.src = `./assets/figma/${layer.file}.svg`;
+      img.src = `./assets/figma/${layer.file}.${getFigmaLayerExtension(layer.file)}`;
       img.alt = "";
       img.setAttribute("aria-hidden", "true");
       img.style.left = `${layer.x}px`;
@@ -123,6 +135,10 @@
     });
 
     mount.replaceChildren(fragment);
+  }
+
+  function getFigmaLayerExtension(file) {
+    return pngFigmaLayerFiles.has(file) ? "png" : "svg";
   }
 
   function resolveLanguage() {

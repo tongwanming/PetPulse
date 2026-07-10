@@ -63,17 +63,12 @@ button {
 .phone-canvas::before {
   content: "";
   position: absolute;
-  left: -179px;
+  left: 0;
   top: 297px;
   z-index: 0;
-  width: 764px;
-  height: 778px;
-  background:
-    radial-gradient(circle at 62% 22%, rgba(241, 255, 22, 0.98) 0 15%, transparent 16%),
-    radial-gradient(circle at 48% 58%, #f1ff16 0 47%, transparent 48%),
-    radial-gradient(circle at 34% 76%, #f1ff16 0 31%, transparent 32%);
-  opacity: 0.49;
-  transform: rotate(30.53deg);
+  width: 393px;
+  height: 555px;
+  background: url("./assets/figma/bg_icon.png") center / 100% 100% no-repeat;
   pointer-events: none;
 }
 
