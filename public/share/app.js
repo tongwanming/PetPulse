@@ -65,6 +65,58 @@
       downloadSuffix: "",
       caption: "Baixe e decifre mais pensamentos dos pets",
     },
+    de: {
+      heroTitle: "Was denkt mein Haustier?",
+      speech: "KI erkennt visuelle Signale und liest die Gedanken verspielter Haustiere.",
+      calendar: "Stimmungstagebuch",
+      thoughts: "Haustiergedanken",
+      quote: "Das ist es. Meine Ära hat offiziell begonnen. Alle Augen auf mich, ihr einfachen Leute.",
+      basis: "Analysegrundlage:",
+      basisOne: "Der Kopf ist erhoben wie ein Star auf dem Thron.",
+      basisTwo: "Der Blick ist fest und voller Selbstvertrauen.",
+      download: "Laden im",
+      downloadSuffix: "",
+      caption: "Herunterladen, um noch mehr Gedanken Ihres Haustiers zu verstehen.",
+    },
+    fr: {
+      heroTitle: "À quoi pense mon animal de compagnie ?",
+      speech: "L’IA capture de subtils indices visuels et déchiffre les pensées de votre animal joueur.",
+      calendar: "Journal d’humeur",
+      thoughts: "Pensées des animaux",
+      quote: "Ça y est. Mon règne commence officiellement. Tous les regards sur moi, simples mortels.",
+      basis: "Base de l’analyse :",
+      basisOne: "La tête haute, comme une star sur son trône.",
+      basisTwo: "Un regard fixe, plein d’assurance.",
+      download: "Télécharger dans l’",
+      downloadSuffix: "",
+      caption: "Téléchargez pour comprendre davantage les pensées de votre animal",
+    },
+    it: {
+      heroTitle: "A cosa sta pensando il mio animale domestico?",
+      speech: "L’IA cattura sottili indizi visivi e comprende i pensieri del tuo animale amante del gioco.",
+      calendar: "Diario dell’umore",
+      thoughts: "Pensieri degli animali",
+      quote: "Eccoci. La mia era è ufficialmente iniziata. Tutti gli occhi su di me, plebei.",
+      basis: "Base dell’analisi:",
+      basisOne: "Testa alta, come una star sul trono.",
+      basisTwo: "Sguardo fisso e pieno di sicurezza.",
+      download: "Scarica su",
+      downloadSuffix: "",
+      caption: "Scarica per capire di più cosa pensa il tuo animale",
+    },
+    ar: {
+      heroTitle: "ماذا يفكر حيواني الأليف؟",
+      speech: "يلتقط الذكاء الاصطناعي المؤشرات البصرية الدقيقة ويفهم أفكار حيوانك الأليف المحب للعب.",
+      calendar: "مذكرات المزاج",
+      thoughts: "أفكار الحيوانات الأليفة",
+      quote: "هذا هو الأمر. بدأ عصري رسمياً. كل الأنظار عليّ، أيها العامة.",
+      basis: "أساس التحليل:",
+      basisOne: "الرأس مرفوع كأنه نجم على العرش.",
+      basisTwo: "نظرة ثابتة مليئة بالثقة.",
+      download: "تنزيل من",
+      downloadSuffix: "",
+      caption: "قم بالتنزيل لفهم المزيد من أفكار حيوانك الأليف.",
+    },
   };
 
   const params = new URLSearchParams(window.location.search);
@@ -80,6 +132,14 @@
     "pt-thoughts",
     "zh-calendar",
     "zh-thoughts",
+    "de-calendar",
+    "de-thoughts",
+    "fr-calendar",
+    "fr-thoughts",
+    "it-calendar",
+    "it-thoughts",
+    "ar-calendar",
+    "ar-thoughts",
   ]);
   const styleName = resolveStyleName("real_insight");
   const attributionStyleName = resolveStyleName("unknown");
@@ -100,6 +160,7 @@
 
   function applyCopy(nextCopy, nextLang) {
     document.documentElement.lang = nextLang;
+    document.documentElement.dir = nextLang === "ar" ? "rtl" : "ltr";
     document.querySelectorAll("[data-i18n]").forEach((node) => {
       const key = node.getAttribute("data-i18n");
       if (Object.prototype.hasOwnProperty.call(nextCopy, key)) {
@@ -164,6 +225,10 @@
     if (normalized.startsWith("ja")) return "ja";
     if (normalized.startsWith("ko")) return "ko";
     if (normalized.startsWith("pt")) return "pt";
+    if (normalized.startsWith("de")) return "de";
+    if (normalized.startsWith("fr")) return "fr";
+    if (normalized.startsWith("it")) return "it";
+    if (normalized.startsWith("ar")) return "ar";
     if (normalized.startsWith("en")) return "en";
     return "";
   }
@@ -301,6 +366,47 @@
       L("pt-title-6", 205, 154, 127.55, 49.82, "title-layer"),
       L("pt-speech", 180, 206, 136, 129, "speech-layer"),
       L("pt-leaf", 287, 276, 20, 23.19, "deco-layer"),
+    ],
+    de: [
+      L("de-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("de-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("de-title", 73.14, 112.15, 245.88, 78.54, "title-layer"),
+      L("de-pet-a", 35, 172, 70.77, 88, "hero-layer"),
+      L("de-pet-b", 99, 195, 107.15, 109.46, "hero-layer"),
+      L("de-speech", 182, 196, 154.42, 143, "speech-layer"),
+      L("de-deco-orange", 294, 143, 47.87, 44.57, "deco-layer"),
+      L("de-deco-pink", 57, 271, 32.49, 32.48, "deco-layer"),
+      L("de-leaf", 303, 299, 20, 23.19, "deco-layer"),
+    ],
+    fr: [
+      L("fr-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("fr-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("fr-title", 64.05, 93.26, 271.74, 115.63, "title-layer"),
+      L("fr-pet-a", 29, 150, 70.77, 88, "hero-layer"),
+      L("fr-pet-b", 103, 214, 107.15, 109.46, "hero-layer"),
+      L("fr-speech", 178, 205, 154.42, 143, "speech-layer"),
+      L("fr-deco-orange", 316, 130, 47.87, 44.57, "deco-layer"),
+      L("fr-deco-pink", 61, 250, 32.49, 32.48, "deco-layer"),
+    ],
+    it: [
+      L("it-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("it-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("it-title", 42.02, 96.58, 315.19, 105.74, "title-layer"),
+      L("it-pet-a", 29, 150, 70.77, 88, "hero-layer"),
+      L("it-pet-b", 103, 214, 107.15, 109.46, "hero-layer"),
+      L("it-speech", 172, 207, 173.2, 143, "speech-layer"),
+      L("it-deco-orange", 316, 130, 47.87, 44.57, "deco-layer"),
+      L("it-deco-pink", 61, 250, 32.49, 32.48, "deco-layer"),
+    ],
+    ar: [
+      L("ar-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("ar-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
+      L("ar-title", 80.84, 105.58, 237.23, 84.7, "title-layer"),
+      L("ar-pet-a", 29, 162, 70.77, 88, "hero-layer"),
+      L("ar-pet-b", 103, 181, 107.15, 109.46, "hero-layer"),
+      L("ar-speech", 172, 207, 173.2, 143, "speech-layer"),
+      L("ar-deco-orange", 270, 140, 47.87, 44.57, "deco-layer"),
+      L("ar-deco-pink", 68, 279, 32.49, 32.48, "deco-layer"),
     ],
   };
 
