@@ -121,7 +121,6 @@
 
   const params = new URLSearchParams(window.location.search);
   const supportedStyleNames = ["real_insight", "sweet_talk", "inner_drama", "savage_roast"];
-  const generatedPhoneCardLanguages = new Set(["de", "fr", "it", "ar"]);
   const pngFigmaLayerFiles = new Set([
     "en-calendar",
     "en-thoughts",
@@ -164,7 +163,6 @@
 
   function applyCopy(nextCopy, nextLang) {
     document.documentElement.lang = nextLang;
-    document.documentElement.dir = nextLang === "ar" ? "rtl" : "ltr";
     document.querySelectorAll("[data-i18n]").forEach((node) => {
       const key = node.getAttribute("data-i18n");
       if (Object.prototype.hasOwnProperty.call(nextCopy, key)) {
@@ -199,57 +197,7 @@
       fragment.appendChild(img);
     });
 
-    renderGeneratedPhoneCards(fragment, nextCopyFor(nextLang), nextLang);
     mount.replaceChildren(fragment);
-  }
-
-  function nextCopyFor(nextLang) {
-    return dictionaries[nextLang] || dictionaries.en;
-  }
-
-  function renderGeneratedPhoneCards(fragment, nextCopy, nextLang) {
-    if (!generatedPhoneCardLanguages.has(nextLang)) return;
-
-    const isRtl = nextLang === "ar";
-    const calendar = createElement("article", `localized-phone-card localized-calendar-card${isRtl ? " is-rtl" : ""}`);
-    calendar.appendChild(createElement("h3", "localized-card-title", nextCopy.calendar));
-    const week = createElement("div", "localized-calendar-week");
-    ["SUN", "MON", "TUE", "WED", "THU", "FRI"].forEach((day) => {
-      week.appendChild(createElement("span", "", day));
-    });
-    calendar.appendChild(week);
-    const grid = createElement("div", "localized-calendar-grid");
-    Array.from({ length: 30 }).forEach((_, index) => {
-      const cell = createElement("span", "");
-      if ([2, 7, 13, 18, 24].includes(index)) {
-        cell.className = "has-mood";
-        cell.textContent = String((index % 5) + 1);
-      }
-      grid.appendChild(cell);
-    });
-    calendar.appendChild(grid);
-
-    const thoughts = createElement("article", `localized-phone-card localized-thought-card${isRtl ? " is-rtl" : ""}`);
-    thoughts.appendChild(createElement("h3", "localized-card-title", nextCopy.thoughts));
-    thoughts.appendChild(createElement("div", "localized-pet-thumb"));
-    thoughts.appendChild(createElement("p", "localized-quote", nextCopy.quote));
-    thoughts.appendChild(createElement("strong", "localized-basis-title", nextCopy.basis));
-    const basisList = createElement("ul", "localized-basis-list");
-    [nextCopy.basisOne, nextCopy.basisTwo].forEach((item) => {
-      const li = createElement("li", "", item);
-      basisList.appendChild(li);
-    });
-    thoughts.appendChild(basisList);
-
-    fragment.appendChild(calendar);
-    fragment.appendChild(thoughts);
-  }
-
-  function createElement(tagName, className, text) {
-    const node = document.createElement(tagName);
-    if (className) node.className = className;
-    if (typeof text === "string") node.textContent = text;
-    return node;
   }
 
   function getFigmaLayerExtension(file) {
@@ -423,6 +371,8 @@
       L("pt-leaf", 287, 276, 20, 23.19, "deco-layer"),
     ],
     de: [
+      L("de-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("de-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
       L("de-title", 73.14, 112.15, 245.88, 78.54, "title-layer"),
       L("de-pet-a", 35, 172, 70.77, 88, "hero-layer"),
       L("de-pet-b", 99, 195, 107.15, 109.46, "hero-layer"),
@@ -432,6 +382,8 @@
       L("de-leaf", 303, 299, 20, 23.19, "deco-layer"),
     ],
     fr: [
+      L("fr-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("fr-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
       L("fr-title", 64.05, 93.26, 271.74, 115.63, "title-layer"),
       L("fr-pet-a", 29, 150, 70.77, 88, "hero-layer"),
       L("fr-pet-b", 103, 214, 107.15, 109.46, "hero-layer"),
@@ -440,6 +392,8 @@
       L("fr-deco-pink", 61, 250, 32.49, 32.48, "deco-layer"),
     ],
     it: [
+      L("it-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("it-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
       L("it-title", 42.02, 96.58, 315.19, 105.74, "title-layer"),
       L("it-pet-a", 29, 150, 70.77, 88, "hero-layer"),
       L("it-pet-b", 103, 214, 107.15, 109.46, "hero-layer"),
@@ -448,6 +402,8 @@
       L("it-deco-pink", 61, 250, 32.49, 32.48, "deco-layer"),
     ],
     ar: [
+      L("ar-calendar", 15.99, 320, 237.21, 446.96, "phone-layer"),
+      L("ar-thoughts", 151, 304, 233.42, 435.8, "phone-layer"),
       L("ar-title", 80.84, 105.58, 237.23, 84.7, "title-layer"),
       L("ar-pet-a", 29, 162, 70.77, 88, "hero-layer"),
       L("ar-pet-b", 103, 181, 107.15, 109.46, "hero-layer"),
