@@ -35,3 +35,19 @@ Figma MCP successfully returned the target node data for `public/share`, but dir
 
 ### Suggested Action
 For this environment, prefer Figma MCP node geometry as the reliable source for vector-only assets. Use build verification when browser automation is blocked, and avoid printing local config values while searching for tool credentials.
+
+## [ERR-20260724-001] tooling
+
+**Logged**: 2026-07-24T07:28:58Z
+**Priority**: low
+**Status**: pending
+**Area**: tooling
+
+### Summary
+Project knowledge script global options must be passed before the subcommand.
+
+### Details
+Running `project_knowledge.py new-case --project-root ...` failed with `unrecognized arguments` because the script expects global options before subcommands.
+
+### Suggested Action
+Use `project_knowledge.py --project-root <path> new-case ...` for project-scoped writes.
