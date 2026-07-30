@@ -33,7 +33,7 @@ export const petChatStats = [
   },
   {
     "label": "SDK/能力集成",
-    "value": "37"
+    "value": "39"
   },
   {
     "label": "埋点事件",
@@ -333,7 +333,7 @@ export const petChatFeatureMindMap: MindMapNode = {
       "id": "petsounds",
       "title": "Pet Sounds 声音库",
       "summary": "训练口令、召唤声、情绪声音播放和免费次数控制。",
-      "source": "PetChat/Module/PetSounds/PCPetSoundsVC.swift",
+      "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameVC.swift",
       "children": [
         {
           "id": "petsounds-manager",
@@ -348,28 +348,28 @@ export const petChatFeatureMindMap: MindMapNode = {
           "source": "PetChat/Module/PetSounds/Manager/PCPetSoundsFreePlayManager.swift"
         },
         {
-          "id": "petsounds-pcpetsoundsvc",
-          "title": "PCPetSoundsVC",
+          "id": "petsounds-pcpetsoundsplaytimegamescene",
+          "title": "PCPetSoundsPlayTimeGameScene",
           "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetSounds/PCPetSoundsVC.swift"
+          "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameScene.swift"
         },
         {
-          "id": "petsounds-soundtab",
-          "title": "SoundTab",
+          "id": "petsounds-target",
+          "title": "Target",
           "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetSounds/PCPetSoundsVC.swift"
+          "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameScene.swift"
         },
         {
-          "id": "petsounds-trainingvoicestyle",
-          "title": "TrainingVoiceStyle",
+          "id": "petsounds-pcpetsoundsplaytimegamevc",
+          "title": "PCPetSoundsPlayTimeGameVC",
           "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetSounds/PCPetSoundsVC.swift"
+          "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameVC.swift"
         },
         {
-          "id": "petsounds-trainingcommand",
-          "title": "TrainingCommand",
+          "id": "petsounds-targetspeedoption",
+          "title": "TargetSpeedOption",
           "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetSounds/PCPetSoundsVC.swift"
+          "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameVC.swift"
         }
       ]
     },
@@ -384,6 +384,12 @@ export const petChatFeatureMindMap: MindMapNode = {
           "title": "Service",
           "summary": "扫描到 0 个源码文件。",
           "source": "PetChat/Module/PetTalk/Service"
+        },
+        {
+          "id": "pettalk-pcpettalkhumanvoicerecord",
+          "title": "PCPetTalkHumanVoiceRecord",
+          "summary": "源码扫描识别出的核心类型。",
+          "source": "PetChat/Module/PetTalk/Model/PCPetTalkModel.swift"
         },
         {
           "id": "pettalk-pcpettalkmodel",
@@ -406,12 +412,6 @@ export const petChatFeatureMindMap: MindMapNode = {
         {
           "id": "pettalk-layout",
           "title": "Layout",
-          "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetTalk/PCPetTalkAnalyzingPetResultVC.swift"
-        },
-        {
-          "id": "pettalk-moodscoreitem",
-          "title": "MoodScoreItem",
           "summary": "源码扫描识别出的核心类型。",
           "source": "PetChat/Module/PetTalk/PCPetTalkAnalyzingPetResultVC.swift"
         }
@@ -517,7 +517,7 @@ export const petChatSdkMindMap: MindMapNode = {
     {
       "id": "-",
       "title": "基础库",
-      "summary": "扫描到 4 个 Pod：RxSwift、RxCocoa、SSZipArchive、FBSDKCoreKit。",
+      "summary": "扫描到 6 个 Pod：RxSwift、RxCocoa、SSZipArchive、FBSDKCoreKit、LookinServer、LookDebugBridge。",
       "source": "Podfile",
       "children": [
         {
@@ -536,13 +536,25 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "ssziparchive",
           "title": "SSZipArchive ~> 2.4.3",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:35"
+          "source": "Podfile:36"
         },
         {
           "id": "fbsdkcorekit",
           "title": "FBSDKCoreKit",
           "summary": "在业务源码中检测到 import 或调用入口。",
           "source": "PetChat/AppDelegate.swift"
+        },
+        {
+          "id": "lookinserver",
+          "title": "LookinServer",
+          "summary": "由 Podfile 声明集成。",
+          "source": "Podfile:56"
+        },
+        {
+          "id": "lookdebugbridge",
+          "title": "LookDebugBridge",
+          "summary": "由 Podfile 声明集成。",
+          "source": "Podfile:58"
         }
       ]
     },
@@ -574,7 +586,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "lottie-ios",
           "title": "lottie-ios",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:20"
+          "source": "Podfile:21"
         },
         {
           "id": "flanimatedimage",
@@ -612,7 +624,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "toast-swift",
           "title": "Toast-Swift",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:17"
+          "source": "Podfile:18"
         },
         {
           "id": "spbutton",
@@ -674,7 +686,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "protobuf",
           "title": "Protobuf",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:49"
+          "source": "Podfile:50"
         }
       ]
     },
@@ -688,7 +700,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "fmdb",
           "title": "FMDB",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:31"
+          "source": "Podfile:32"
         },
         {
           "id": "lkdbhelper",
@@ -708,7 +720,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "cocoalumberjack-swift",
           "title": "CocoaLumberjack/Swift ~> 3.7.4",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:34"
+          "source": "Podfile:35"
         },
         {
           "id": "thinkingsdk",
@@ -726,7 +738,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "umdevice",
           "title": "UMDevice",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:39"
+          "source": "Podfile:40"
         },
         {
           "id": "umapm",
@@ -738,19 +750,19 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "umabtest",
           "title": "UMABTest",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:41"
+          "source": "Podfile:42"
         },
         {
           "id": "adjust",
           "title": "Adjust 5.5.0",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:45"
+          "source": "Podfile:46"
         },
         {
           "id": "adjust-adjustgoogleodm",
           "title": "Adjust/AdjustGoogleOdm",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:46"
+          "source": "Podfile:47"
         },
         {
           "id": "bdasignalsdk",
@@ -2067,7 +2079,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Click_Bottom_Button",
     "module": "主导航",
     "trigger": "y = 0 tabBar.layer.shadowOffset = .zero tabBar.layer.shadowRadius = 0 tabBar.layer.shadowPath = nil } func handleTabDidSwitch(fro…",
-    "location": "PetChat/Module/MainTab/PCTabBarController.swift:218",
+    "location": "PetChat/Module/MainTab/PCTabBarController.swift:239",
     "params": "type",
     "target": "Thinking/Firebase"
   },
@@ -2075,7 +2087,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Page_Show",
     "module": "主导航",
     "trigger": "meter index: 当前展示 tab 的索引。 private func reportPageShow(for index: Int) { guard let pageName = pageShowName(for: index) else { ret…",
-    "location": "PetChat/Module/MainTab/PCTabBarController.swift:276",
+    "location": "PetChat/Module/MainTab/PCTabBarController.swift:297",
     "params": "pageName, time",
     "target": "Thinking/Firebase"
   },
@@ -2163,7 +2175,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "pet_audio_click",
     "module": "Pet Sounds",
     "trigger": "cell.maskHidden = !shouldShowVipMask(for: visibleItem) } } /// 上报语音包点击埋点。 /// /// - Parameter item: 当前点击的语音包。 private func report…",
-    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:641",
+    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:717",
     "params": "audioType, petType, voicePersonality, audioName",
     "target": "Thinking/Firebase"
   },
@@ -2171,7 +2183,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Sounds_Click",
     "module": "Pet Sounds",
     "trigger": "音频成功开始播放后，再消耗一次免费次数，避免点击失败也扣次。 PCPetSoundsFreePlayManager.shared.consumeOnceAfterPlaySuccessIfNeeded() refreshVisibleVipMaskState…",
-    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:602",
+    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:663",
     "params": "Type, name",
     "target": "Thinking/Firebase"
   },
@@ -2179,7 +2191,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Analyzing_Sound_Fail",
     "module": "Pet Talk",
     "trigger": "reportDomain.isEmpty == false { failParam[PCAdjustEventParamKey.requestDomain.rawValue] = reportDomain } failParam.merge(vipState…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:569",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:591",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2187,7 +2199,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Analyzing_Sound_Success",
     "module": "Pet Talk",
     "trigger": ".type.rawValue: analysisRecordType(for: changeType), PCAdjustEventParamKey.time.rawValue: elapsed, ] successParam.merge(vipStateA…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:324",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:344",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2243,7 +2255,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Translation_Result_Page_Show",
     "module": "Pet Talk",
     "trigger": "ultPageParam: [String: Any] = [ PCAdjustEventParamKey.type.rawValue: recordType(for: changeType) ] resultPageParam.merge(vipState…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:448",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:470",
     "params": "-",
     "target": "Thinking/Firebase"
   },
