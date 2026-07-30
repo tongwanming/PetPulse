@@ -342,6 +342,24 @@ export const petChatFeatureMindMap: MindMapNode = {
           "source": "PetChat/Module/PetSounds/Manager"
         },
         {
+          "id": "petsounds-pcpetgameaccessstatus",
+          "title": "PCPetGameAccessStatus",
+          "summary": "源码扫描识别出的核心类型。",
+          "source": "PetChat/Module/PetSounds/Manager/PCPetGameAccessManager.swift"
+        },
+        {
+          "id": "petsounds-pcpetgameaccessmanager",
+          "title": "PCPetGameAccessManager",
+          "summary": "源码扫描识别出的核心类型。",
+          "source": "PetChat/Module/PetSounds/Manager/PCPetGameAccessManager.swift"
+        },
+        {
+          "id": "petsounds-pcpetgameanalytics",
+          "title": "PCPetGameAnalytics",
+          "summary": "源码扫描识别出的核心类型。",
+          "source": "PetChat/Module/PetSounds/Manager/PCPetGameAccessManager.swift"
+        },
+        {
           "id": "petsounds-pcpetsoundsfreeplaymanager",
           "title": "PCPetSoundsFreePlayManager",
           "summary": "源码扫描识别出的核心类型。",
@@ -352,24 +370,6 @@ export const petChatFeatureMindMap: MindMapNode = {
           "title": "PCPetSoundsPlayTimeGameScene",
           "summary": "源码扫描识别出的核心类型。",
           "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameScene.swift"
-        },
-        {
-          "id": "petsounds-target",
-          "title": "Target",
-          "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameScene.swift"
-        },
-        {
-          "id": "petsounds-pcpetsoundsplaytimegamevc",
-          "title": "PCPetSoundsPlayTimeGameVC",
-          "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameVC.swift"
-        },
-        {
-          "id": "petsounds-targetspeedoption",
-          "title": "TargetSpeedOption",
-          "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetSounds/PCPetSoundsPlayTimeGameVC.swift"
         }
       ]
     },
@@ -380,40 +380,40 @@ export const petChatFeatureMindMap: MindMapNode = {
       "source": "PetChat/Module/PetTalk/PCPetTalkAnalyzingPetResultVC.swift",
       "children": [
         {
+          "id": "pettalk-manager",
+          "title": "Manager",
+          "summary": "扫描到 0 个源码文件。",
+          "source": "PetChat/Module/PetTalk/Manager"
+        },
+        {
           "id": "pettalk-service",
           "title": "Service",
           "summary": "扫描到 0 个源码文件。",
           "source": "PetChat/Module/PetTalk/Service"
         },
         {
-          "id": "pettalk-pcpettalkhumanvoicerecord",
-          "title": "PCPetTalkHumanVoiceRecord",
+          "id": "pettalk-pcpettalkanalytics",
+          "title": "PCPetTalkAnalytics",
           "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetTalk/Model/PCPetTalkModel.swift"
+          "source": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift"
         },
         {
-          "id": "pettalk-pcpettalkmodel",
-          "title": "PCPetTalkModel",
+          "id": "pettalk-pagename",
+          "title": "PageName",
           "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetTalk/Model/PCPetTalkModel.swift"
+          "source": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift"
         },
         {
-          "id": "pettalk-sourcemediatype",
-          "title": "SourceMediaType",
+          "id": "pettalk-favoriteaction",
+          "title": "FavoriteAction",
           "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetTalk/Model/PCPetTalkModel.swift"
+          "source": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift"
         },
         {
-          "id": "pettalk-pcpettalkanalyzingpetresultvc",
-          "title": "PCPetTalkAnalyzingPetResultVC",
+          "id": "pettalk-feedbacktype",
+          "title": "FeedbackType",
           "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetTalk/PCPetTalkAnalyzingPetResultVC.swift"
-        },
-        {
-          "id": "pettalk-layout",
-          "title": "Layout",
-          "summary": "源码扫描识别出的核心类型。",
-          "source": "PetChat/Module/PetTalk/PCPetTalkAnalyzingPetResultVC.swift"
+          "source": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift"
         }
       ]
     },
@@ -1844,39 +1844,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "Pet_Game_Card_Click",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
-    "id": "Pet_Game_End",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
     "id": "Pet_Game_Guide_Show",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
-    "id": "Pet_Game_Setting_Save",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
-    "id": "Pet_Game_Start",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
@@ -1901,14 +1869,6 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   },
   {
     "id": "Pet_Num",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
-    "id": "Pet_Talk_History_Record_Click",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
@@ -1941,22 +1901,6 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   },
   {
     "id": "Pet_Talk_Memory_View_All_Click",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
-    "id": "Pet_Talk_Result_Favorite_Click",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
-    "id": "Pet_Talk_Result_Feedback_Click",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
@@ -2276,14 +2220,6 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "Translation_Result_VideoPlay",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
     "id": "Type",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
@@ -2492,6 +2428,38 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
+    "id": "Pet_Game_Card_Click",
+    "module": "Pet Sounds",
+    "trigger": "return \"fish_chase\" } } } /// 宠物游戏 V1.1.4 埋点封装。 enum PCPetGameAnalytics { /// 上报游戏卡片点击事件。 static func reportCardClick(gameID: Str…",
+    "location": "PetChat/Module/PetSounds/Manager/PCPetGameAccessManager.swift:78",
+    "params": "gameID, lockStatus, freeTimesLeft",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Pet_Game_End",
+    "module": "Pet Sounds",
+    "trigger": "tGameStart.rawValue, param: [ PCAdjustEventParamKey.gameID.rawValue: gameID ])) } /// 上报游戏结束事件。 static func reportGameEnd(gameID:…",
+    "location": "PetChat/Module/PetSounds/Manager/PCPetGameAccessManager.swift:94",
+    "params": "gameID",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Pet_Game_Setting_Save",
+    "module": "Pet Sounds",
+    "trigger": "djustEventParamKey.score.rawValue: max(0, score) ])) } /// 上报游戏设置保存事件。 static func reportSettingSave(gameID: String, targetCount:…",
+    "location": "PetChat/Module/PetSounds/Manager/PCPetGameAccessManager.swift:103",
+    "params": "on, gameID, targetCount, speed, soundStatus",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Pet_Game_Start",
+    "module": "Pet Sounds",
+    "trigger": "PCAdjustEventParamKey.freeTimesLeft.rawValue: PCPetGameAccessManager.shared.analyticsFreeTimesLeft() ])) } /// 上报正式进入游戏事件。 static…",
+    "location": "PetChat/Module/PetSounds/Manager/PCPetGameAccessManager.swift:87",
+    "params": "gameID",
+    "target": "Thinking/Firebase"
+  },
+  {
     "id": "Pet_Sounds_Click",
     "module": "Pet Sounds",
     "trigger": "音频成功开始播放后，再消耗一次免费次数，避免点击失败也扣次。 PCPetSoundsFreePlayManager.shared.consumeOnceAfterPlaySuccessIfNeeded() refreshVisibleVipMaskState…",
@@ -2516,11 +2484,35 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
+    "id": "Pet_Talk_History_Record_Click",
+    "module": "Pet Talk",
+    "trigger": "djustEventParamKey.inputType.rawValue: inputType(for: model.sourceMediaType) ])) } /// 上报历史记录点击事件。 static func reportHistoryRecor…",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:67",
+    "params": "translateDirection, inputType, isFavorite",
+    "target": "Thinking/Firebase"
+  },
+  {
     "id": "Pet_Talk_Mode_Click",
     "module": "Pet Talk",
     "trigger": "case .catToHuman: return \"Cat_To_Human\" } } /// 上报 Pet Talk 人转宠物模式切换点击。 private func reportPetTalkModeClick(_ mode: HumanInputMod…",
     "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1483",
     "params": "translateDirection, mode",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Pet_Talk_Result_Favorite_Click",
+    "module": "Pet Talk",
+    "trigger": ", PCAdjustEventParamKey.playType.rawValue: playType ])) } /// 上报结果收藏点击事件。 static func reportFavoriteClick(pageName: String, isFav…",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:48",
+    "params": "standardPageName, favoriteAction, translateDirection, inputType",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Pet_Talk_Result_Feedback_Click",
+    "module": "Pet Talk",
+    "trigger": "AdjustEventParamKey.inputType.rawValue: inputType(for: model.sourceMediaType) ])) } /// 上报结果反馈点击事件。 static func reportFeedbackCli…",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:58",
+    "params": "feedbackType, translateDirection, inputType",
     "target": "Thinking/Firebase"
   },
   {
@@ -2569,6 +2561,14 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "trigger": "ultPageParam: [String: Any] = [ PCAdjustEventParamKey.type.rawValue: recordType(for: changeType) ] resultPageParam.merge(vipState…",
     "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:470",
     "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Translation_Result_VideoPlay",
+    "module": "Pet Talk",
+    "trigger": "let albumCancel = \"album_cancel\" static let unknown = \"unknown\" } /// 上报翻译结果音色播放事件。 static func reportResultVoicePlay(voiceID: St…",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:39",
+    "params": "voiceID, translateDirection, playType",
     "target": "Thinking/Firebase"
   },
   {
