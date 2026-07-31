@@ -553,8 +553,8 @@ export const petChatSdkMindMap: MindMapNode = {
         {
           "id": "lookdebugbridge",
           "title": "LookDebugBridge",
-          "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:58"
+          "summary": "在业务源码中检测到 import 或调用入口。",
+          "source": "PetChat/AppDelegate.swift"
         }
       ]
     },
@@ -1908,14 +1908,6 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "Pet_Talk_Memory_Refresh_Click",
-    "module": "埋点",
-    "trigger": "已定义，未扫描到触发调用。",
-    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
     "id": "Pet_Talk_Memory_View_All_Click",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
@@ -2508,10 +2500,18 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
+    "id": "Pet_Talk_Memory_Refresh_Click",
+    "module": "Pet Talk",
+    "trigger": ".setMemoryExpanded(true, animated: true) } memoryView.onCollapse = { [weak self] in self?.setMemoryExpanded(false, animated: true…",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:287",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
     "id": "Pet_Talk_Mode_Click",
     "module": "Pet Talk",
     "trigger": "case .catToHuman: return \"Cat_To_Human\" } } /// 上报 Pet Talk 人转宠物模式切换点击。 private func reportPetTalkModeClick(_ mode: HumanInputMod…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1485",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1676",
     "params": "translateDirection, mode",
     "target": "Thinking/Firebase"
   },
@@ -2535,7 +2535,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Talk_Text_Translate_Click",
     "module": "Pet Talk",
     "trigger": "ticsValue ] )) } /// 上报 Pet Talk 文字翻译按钮点击及校验结果。 private func reportPetTalkTextTranslateClick(textContent: String, validationResul…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1497",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1688",
     "params": "textLength, validationResult",
     "target": "Thinking/Firebase"
   },
@@ -2559,7 +2559,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Talk_Guide_Finish",
     "module": "Pet Talk",
     "trigger": "guard petVoiceCard.bounds.width > 0, petVoiceCard.bounds.height > 0 else { return false } return true } /// 完成首页引导后，记录本地状态并恢复顶部视频…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:833",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:919",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2567,7 +2567,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Talk_Guide_Show",
     "module": "Pet Talk",
     "trigger": "shouldRetryTalkGuidePresentation = false attachGuideOverlayIfNeeded() guideContainerView().layoutIfNeeded() introVideoPlayerView.…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:782",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:868",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2575,7 +2575,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Tap_to_Record",
     "module": "Pet Talk",
     "trigger": "model.id = UUID().uuidString model.sourceText = text model.sourceMediaType = .text model.changeType = changeType model.createTime…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:618, PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1462",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:704, PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1653",
     "params": "type",
     "target": "Thinking/Firebase"
   },
