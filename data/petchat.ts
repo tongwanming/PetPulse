@@ -2478,16 +2478,16 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   {
     "id": "Pet_Talk_History_Record_Click",
     "module": "Pet Talk",
-    "trigger": "djustEventParamKey.inputType.rawValue: inputType(for: model.sourceMediaType) ])) } /// 上报历史记录点击事件。 static func reportHistoryRecor…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:77",
-    "params": "translateDirection, inputType, isFavorite",
+    "trigger": "ite.rawValue: item.isFavorite ] if let sourceMediaType = item.sourceMediaType { param[PCAdjustEventParamKey.inputType.rawValue] =…",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:87",
+    "params": "source",
     "target": "Thinking/Firebase"
   },
   {
     "id": "Pet_Talk_History_Show",
     "module": "Pet Talk",
-    "trigger": "inputType(for: item.sourceMediaType), PCAdjustEventParamKey.isFavorite.rawValue: item.isFavorite ])) } /// 上报历史列表展示事件。 static fun…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:86",
+    "trigger": "PCReport.report(withEvent: Event(type: .other, key: PCAdjustEventID.petTalkHistoryRecordClick.rawValue, param: param)) } /// 上报历史…",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:92",
     "params": "source",
     "target": "Thinking/Firebase"
   },
@@ -2495,7 +2495,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Talk_Memory_Click",
     "module": "Pet Talk",
     "trigger": "kHistoryShow.rawValue, param: [ PCAdjustEventParamKey.source.rawValue: source ])) } /// 上报 Memories 卡片点击事件。 static func reportMem…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:93",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:99",
     "params": "source",
     "target": "Thinking/Firebase"
   },
@@ -2519,15 +2519,15 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Talk_Result_Favorite_Click",
     "module": "Pet Talk",
     "trigger": ", PCAdjustEventParamKey.playType.rawValue: playType ])) } /// 上报结果收藏点击事件。 static func reportFavoriteClick(pageName: String, isFav…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:48, PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:58",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:48, PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:66",
     "params": "standardPageName, favoriteAction, translateDirection, inputType",
     "target": "Thinking/Firebase"
   },
   {
     "id": "Pet_Talk_Result_Feedback_Click",
     "module": "Pet Talk",
-    "trigger": "CAdjustEventParamKey.inputType.rawValue: inputType(for: item.sourceMediaType) ])) } /// 上报结果反馈点击事件。 static func reportFeedbackCli…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:68",
+    "trigger": "nt(type: .other, key: PCAdjustEventID.petTalkResultFavoriteClick.rawValue, param: param)) } /// 上报结果反馈点击事件。 static func reportFee…",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkAnalytics.swift:71",
     "params": "feedbackType, translateDirection, inputType",
     "target": "Thinking/Firebase"
   },
