@@ -243,9 +243,77 @@
       .nprofile-card { border:1px solid rgba(56,70,59,.10); border-radius:12px; background:#e4e9dc; box-shadow:none; }.nprofile-card b { color:#2e473a; }.nprofile-card span { color:#68786c; }.nsettings { border-radius:12px; background:rgba(255,253,248,.76); }.nsetting { color:#354137; border-bottom-color:rgba(55,66,57,.10); }.nswitch { background:#57866e; }.nsocial { background:#d6e3d8; }.nsocial-actions span { border-radius:10px; background:#2b5a47; }.nsocial-actions span:last-child { color:#355d4b; background:#e7ece3; }
       .state-divider { color:#344137; }.state-divider b { font-family:"Songti SC", "STSong", Georgia, serif; font-size:19px; font-weight:600; }.nstate-head h1 { color:#2b392f; font-family:"Songti SC", "STSong", Georgia, serif; font-size:33px; font-weight:600; }.nstate-head p { color:#7c7d74; }.nstate-body { padding:26px 20px 79px; }.nstate-hero { min-height:186px; padding:10px 0 19px; border-radius:0; color:#2d3b31; background:transparent; }.nstate-hero.dark { color:#2d3b31; background:transparent; }.nstate-hero.photo { min-height:278px; padding:21px; border-radius:12px; color:#f9f5ec; background:linear-gradient(0deg,rgba(29,40,33,.67),transparent 66%),url('/design-assets/cat-garden.jpg') center/cover; }.nstate-hero b { margin-top:40px; font-family:"Songti SC", "STSong", Georgia, serif; font-size:31px; font-weight:600; }.nstate-hero:not(.photo) b { margin-top:18px; }.nstate-hero span { color:#74776e; }.nstate-hero.photo span { color:rgba(249,245,236,.82); }.nstate-card { padding:16px 0; border:0; border-top:1px solid rgba(52,65,55,.15); border-radius:0; background:transparent; }.nstate-card b { color:#344137; font-family:"Songti SC", "STSong", Georgia, serif; font-size:18px; font-weight:600; }.nstate-card p { color:#73766d; }.nstate-action { border-radius:10px; background:#2b5a47; }.nstate-action.soft { color:#2b5a47; background:#e4eadf; }.nstate-list, .npk-pets, .nlegal { border-radius:0; background:transparent; }.nstate-row, .npk-pet, .nlegal article { padding-right:0; padding-left:0; border-bottom-color:rgba(52,65,55,.13); }.nstate-row:first-child, .npk-pet:first-child, .nlegal article:first-child { border-top:1px solid rgba(52,65,55,.13); }.nstate-row { color:#354137; }.nstate-row span, .npk-pet span, .nlegal p { color:#87887f; }.nstate-tags span, .npk-pet em { border-radius:7px; color:#527565; background:#e4eadf; }.nscan { border-radius:12px; filter:saturate(.72); }.nscan::after { background:#e4b18b; box-shadow:0 115px 28px rgba(228,177,139,.34); }.npk-pet b, .nlegal b { color:#354137; }.nlegal b { font-family:"Songti SC", "STSong", Georgia, serif; font-size:16px; font-weight:600; }.nresult { border-radius:12px; background:#2b5a47; }.interaction-rail button { color:#a86345; }.interaction-sheet { color:#2e3b31; border-radius:22px; background:rgba(247,245,238,.97); }.interaction-sheet h2 { font-family:"Songti SC", "STSong", Georgia, serif; font-weight:600; }.interaction-sheet p { color:#73766d; }.interaction-sheet button { border-radius:10px; }.interaction-sheet button:first-child { color:#2b5a47; background:#e4eadf; }.interaction-sheet button:last-child { background:#2b5a47; }
       @media (max-width:840px) { .natural-complete { width:390px; margin:0 auto; padding:28px 0 60px; overflow:hidden; }.natural-head { width:390px; }.natural-head span { display:none; }.natural-grid { grid-template-columns:390px; }.natural-board { height:878px; }.nphone { transform:scale(.92); transform-origin:left top; }.natural-foot { width:388px; } }
+
+      /* UI/UX Pro Max refinement: one authored, iOS-first Natural Notes system. */
+      :root { color-scheme: light; }
+      html { background:#eeece6; }
+      body { overflow-x:clip; }
+      .natural-complete { width:min(calc(100% - 48px), 1660px); margin:0 auto; padding:52px 0 96px; }
+      .natural-head { min-height:34px; margin-bottom:30px; letter-spacing:0; }
+      .natural-head b { font-size:20px; }
+      .natural-grid { grid-template-columns:repeat(auto-fit, minmax(360px, 390px)); justify-content:start; gap:48px 32px; }
+      .natural-label { margin-bottom:10px; color:#70766e; font-size:11px; letter-spacing:0; }
+      .natural-label i { width:5px; height:5px; background:#b3aca0; }
+      .nphone { --moss:#2b5a47; --paper:#f5f3ec; --ink:#2b392f; --muted:#6f766f; border-color:rgba(43,57,47,.15); box-shadow:0 16px 40px rgba(44,43,37,.11); }
+      .nmaterial { box-shadow:0 8px 24px rgba(43,50,42,.09); }
+      .nnav { display:grid; align-items:center; min-height:68px; padding:7px 8px 8px; border-radius:22px; box-shadow:0 8px 22px rgba(39,48,39,.10); }
+      .nnav span { display:grid; min-width:44px; min-height:44px; align-content:center; justify-items:center; gap:3px; color:inherit; font-size:10px; line-height:1.2; touch-action:manipulation; }
+      .nnav i { display:none; }
+      .nnav-icon { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+      .nnav .active { font-weight:700; }
+      .nnav .active .nnav-icon { stroke-width:2.25; }
+      .nstatus > span:last-child { display:inline-flex; align-items:center; justify-content:flex-end; min-width:30px; }
+      .nstatus-icon { width:30px; height:12px; fill:none; stroke:currentColor; stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round; }
+      .nclose { width:44px; height:44px; display:grid; place-items:center; border-radius:50%; }
+      .nclose-icon { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+      .narrow-icon { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+      .nsearch b { display:grid; width:18px; height:18px; place-items:center; font-size:0; }
+      .nsearch-icon { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; }
+      .nthread { align-content:start; min-height:0; padding:96px 20px 112px; }
+      .nthread::before { content:"今天 · 梧桐路口"; justify-self:center; color:#90948d; font-size:11px; }
+      .nbubble { box-shadow:none; }
+      .ntile.virtual-a { background:linear-gradient(150deg, #bfcfc4 0%, #8ca89b 100%); }
+      .ntile.virtual-b { background:linear-gradient(150deg, #d9d3b9 0%, #9f9f83 100%); }
+      .ntile.virtual-a::before, .ntile.virtual-b::before { content:""; position:absolute; z-index:0; width:126px; height:126px; border:1px solid rgba(255,255,255,.6); border-radius:50%; }
+      .ntile.virtual-a::before { top:22px; left:50%; box-shadow:0 0 0 18px rgba(255,255,255,.11), 0 0 0 42px rgba(255,255,255,.06); transform:translateX(-50%); }
+      .ntile.virtual-b::before { top:30px; left:50%; width:112px; height:112px; border-radius:43% 57% 53% 47%; box-shadow:0 0 0 18px rgba(255,255,255,.10); transform:translateX(-50%) rotate(23deg); }
+      .ntile-copy, .nsource { z-index:2; }
+      .nstate-action, .interaction-rail button, .interaction-sheet button { transition:transform 180ms ease, opacity 180ms ease, background-color 180ms ease; touch-action:manipulation; }
+      .nstate-action:active, .interaction-rail button:active, .interaction-sheet button:active { transform:scale(.98); opacity:.88; }
+      button:focus-visible { outline:3px solid rgba(43,90,71,.38); outline-offset:3px; }
+      @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) { .nmaterial { background:#f7f6ef; } }
+      @media (max-width:840px) { .natural-complete { width:100%; margin:0; padding:28px 0 56px; overflow:hidden; }.natural-head { width:358px; min-height:0; margin:0 auto 24px; }.natural-head span { display:none; }.natural-grid { width:390px; grid-template-columns:390px; justify-content:start; gap:28px; margin:0 auto; }.natural-board { height:878px; }.natural-foot { width:358px; margin-right:auto; margin-left:auto; }.nphone { transform:scale(.92); transform-origin:left top; } }
+      @media (prefers-reduced-motion:reduce) { *, *::before, *::after { scroll-behavior:auto !important; transition-duration:0.01ms !important; animation-duration:0.01ms !important; animation-iteration-count:1 !important; } }
     </style>
     <script>
       (() => {
+        const icon = (paths, className) => `<svg class="${className}" viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`;
+        const tabIcons = [
+          '<path d="m3.5 11 8.5-7 8.5 7v9.5a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5z"/><path d="M9.5 21v-6h5v6"/>',
+          '<path d="M4 8.5h16v11H4z"/><path d="M8 8.5 9.5 6h5L16 8.5"/><circle cx="12" cy="14" r="3"/>',
+          '<path d="M5 7.5h14l-1 13H6z"/><path d="M9 7.5v-1a3 3 0 0 1 6 0v1"/>',
+          '<path d="M12 20s-7-4.4-7-10.1C5 7.5 6.8 6 9 6c1.3 0 2.5.7 3 1.8C12.5 6.7 13.7 6 15 6c2.2 0 4 1.5 4 3.9C19 15.6 12 20 12 20Z"/>',
+          '<circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c.7-3.2 3-5 6.5-5s5.8 1.8 6.5 5"/>'
+        ];
+        const searchIcon = '<circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/>';
+        const closeIcon = '<path d="m7 7 10 10M17 7 7 17"/>';
+        const backIcon = '<path d="m15 18-6-6 6-6"/>';
+        const arrowIcon = '<path d="M5 12h13"/><path d="m13 6 6 6-6 6"/>';
+        const systemIcon = '<path d="M3 17.5v-3m4 3v-5m4 5v-7"/><path d="M15.5 9.5c1.7-1.7 4.4-1.7 6.1 0"/><path d="M17.6 11.6c.5-.5 1.3-.5 1.8 0"/><rect x="19" y="13" width="3" height="6" rx=".8"/>';
+        document.querySelectorAll('.nnav').forEach((nav) => {
+          nav.querySelectorAll('span').forEach((item, index) => {
+            const placeholder = item.querySelector('i');
+            if (placeholder) placeholder.replaceWith(document.createRange().createContextualFragment(icon(tabIcons[index], 'nnav-icon')));
+          });
+        });
+        document.querySelectorAll('.nstatus > span:last-child').forEach((item) => { item.innerHTML = icon(systemIcon, 'nstatus-icon'); });
+        document.querySelectorAll('.nsearch b').forEach((item) => { item.innerHTML = icon(searchIcon, 'nsearch-icon'); });
+        document.querySelectorAll('.nclose').forEach((item) => {
+          item.innerHTML = icon(item.textContent.trim() === '‹' ? backIcon : closeIcon, 'nclose-icon');
+        });
+        document.querySelectorAll('.nround, .ncapture-action i, .njourney i, .nchat-input i').forEach((item) => {
+          item.innerHTML = icon(arrowIcon, 'narrow-icon');
+        });
         const messages = {
           M01: ['确认这次相遇', '主体、地点、时间和背景会进入 AI 分析，并作为真实伙伴的初遇资料。'],
           M02: ['选择前景动物', '多个主体时，只将你选中的前景动物裁出并写入旅行档案。'],
@@ -255,9 +323,16 @@
         const overlay = document.querySelector('#interaction-overlay');
         const title = document.querySelector('#interaction-title');
         const body = document.querySelector('#interaction-body');
+        let opener = null;
+        const closeOverlay = () => {
+          overlay.classList.remove('open');
+          overlay.setAttribute('aria-hidden', 'true');
+          opener?.focus();
+        };
         document.querySelectorAll('[data-open]').forEach((button) => {
           button.addEventListener('click', () => {
             const [nextTitle, nextBody] = messages[button.dataset.open] || messages.M01;
+            opener = button;
             title.textContent = nextTitle;
             body.textContent = nextBody;
             overlay.classList.add('open');
@@ -265,16 +340,15 @@
           });
         });
         document.querySelectorAll('[data-close]').forEach((button) => {
-          button.addEventListener('click', () => {
-            overlay.classList.remove('open');
-            overlay.setAttribute('aria-hidden', 'true');
-          });
+          button.addEventListener('click', closeOverlay);
         });
         overlay.addEventListener('click', (event) => {
           if (event.target === overlay) {
-            overlay.classList.remove('open');
-            overlay.setAttribute('aria-hidden', 'true');
+            closeOverlay();
           }
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
         });
       })();
     </script>
