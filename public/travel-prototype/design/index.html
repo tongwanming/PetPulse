@@ -269,6 +269,23 @@
       .narrow-icon { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
       .nsearch b { display:grid; width:18px; height:18px; place-items:center; font-size:0; }
       .nsearch-icon { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; }
+      .nplace { display:flex; align-items:center; gap:5px; }
+      .nplace::before { display:none; }
+      .nplace-icon { width:14px; height:14px; fill:none; stroke:#b66945; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+      .nsource { display:inline-flex; align-items:center; gap:4px; }
+      .nsource-icon { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+      .ncapture-icon { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+      .ndetail-facts span { display:flex; align-items:center; gap:4px; }
+      .ndetail-fact-icon { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+      .nchat-memory-icon { width:13px; height:13px; margin:0 4px -2px 0; fill:none; stroke:#6f816f; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+      .nprofile-card { position:relative; padding-left:58px; }
+      .nprofile-icon, .nsetting-icon { position:absolute; display:grid; box-sizing:border-box; place-items:center; width:28px; height:28px; padding:6px; border-radius:8px; color:#396650; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; background:rgba(43,90,71,.09); }
+      .nprofile-icon { top:50%; left:16px; transform:translateY(-50%); }
+      .nsetting { position:relative; padding-left:58px; }
+      .nsetting-icon { top:50%; left:16px; transform:translateY(-50%); }
+      .nrow-chevron { width:16px; height:16px; fill:none; stroke:#8a8d85; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+      .nsocial-actions span { display:flex; align-items:center; justify-content:center; gap:7px; }
+      .nsocial-action-icon { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
       .nthread { align-content:start; min-height:0; padding:96px 20px 112px; }
       .nthread::before { content:"今天 · 梧桐路口"; justify-self:center; color:#90948d; font-size:11px; }
       .nbubble { box-shadow:none; }
@@ -299,6 +316,18 @@
         const closeIcon = '<path d="m7 7 10 10M17 7 7 17"/>';
         const backIcon = '<path d="m15 18-6-6 6-6"/>';
         const arrowIcon = '<path d="M5 12h13"/><path d="m13 6 6 6-6 6"/>';
+        const cameraIcon = '<path d="M4 8.5h16v11H4z"/><path d="M8 8.5 9.5 6h5L16 8.5"/><circle cx="12" cy="14" r="3"/>';
+        const pinIcon = '<path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"/><circle cx="12" cy="10" r="1.8"/>';
+        const sparkleIcon = '<path d="m12 3 1.3 5.1L18 9.5l-4.7 1.4L12 16l-1.3-5.1L6 9.5l4.7-1.4L12 3Z"/><path d="m19 15 .6 2.3L22 18l-2.4.7L19 21l-.6-2.3L16 18l2.4-.7L19 15Z"/>';
+        const bookIcon = '<path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H19v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17"/>';
+        const lockIcon = '<rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>';
+        const fileIcon = '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h5"/>';
+        const cloudIcon = '<path d="M7 18h10a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.7 1.4A3.3 3.3 0 0 0 7 18Z"/>';
+        const eyeIcon = '<path d="M3 12s3.2-5 9-5 9 5 9 5-3.2 5-9 5-9-5-9-5Z"/><circle cx="12" cy="12" r="2"/>';
+        const chevronIcon = '<path d="m9 6 6 6-6 6"/>';
+        const insertIcon = (element, paths, className, position = 'afterbegin') => {
+          element.insertAdjacentHTML(position, icon(paths, className));
+        };
         const systemIcon = '<path d="M3 17.5v-3m4 3v-5m4 5v-7"/><path d="M15.5 9.5c1.7-1.7 4.4-1.7 6.1 0"/><path d="M17.6 11.6c.5-.5 1.3-.5 1.8 0"/><rect x="19" y="13" width="3" height="6" rx=".8"/>';
         document.querySelectorAll('.nnav').forEach((nav) => {
           nav.querySelectorAll('span').forEach((item, index) => {
@@ -308,12 +337,30 @@
         });
         document.querySelectorAll('.nstatus > span:last-child').forEach((item) => { item.innerHTML = icon(systemIcon, 'nstatus-icon'); });
         document.querySelectorAll('.nsearch b').forEach((item) => { item.innerHTML = icon(searchIcon, 'nsearch-icon'); });
+        document.querySelectorAll('.nplace').forEach((item) => { insertIcon(item, pinIcon, 'nplace-icon'); });
+        document.querySelectorAll('.nsource').forEach((item) => { insertIcon(item, sparkleIcon, 'nsource-icon'); });
+        document.querySelectorAll('.ndetail-facts > div').forEach((fact, index) => {
+          const paths = [pinIcon, cloudIcon, eyeIcon][index];
+          if (paths) insertIcon(fact.querySelector('span'), paths, 'ndetail-fact-icon');
+        });
+        document.querySelectorAll('.nchat-pet span').forEach((item) => { insertIcon(item, sparkleIcon, 'nchat-memory-icon'); });
+        document.querySelectorAll('.nprofile-card').forEach((item) => { insertIcon(item, '<path d="M12 20s-7-4.4-7-10.1C5 7.5 6.8 6 9 6c1.3 0 2.5.7 3 1.8C12.5 6.7 13.7 6 15 6c2.2 0 4 1.5 4 3.9C19 15.6 12 20 12 20Z"/>', 'nprofile-icon'); });
+        document.querySelectorAll('.nprofile .nsetting').forEach((item, index) => {
+          const paths = [bookIcon, cameraIcon, pinIcon, lockIcon, fileIcon][index];
+          insertIcon(item, paths, 'nsetting-icon');
+          const chevron = item.querySelector('span');
+          if (chevron?.textContent.trim() === '›') chevron.innerHTML = icon(chevronIcon, 'nrow-chevron');
+        });
+        document.querySelectorAll('.nsocial-actions span').forEach((item, index) => {
+          insertIcon(item, index === 0 ? sparkleIcon : bookIcon, 'nsocial-action-icon');
+        });
         document.querySelectorAll('.nclose').forEach((item) => {
           item.innerHTML = icon(item.textContent.trim() === '‹' ? backIcon : closeIcon, 'nclose-icon');
         });
-        document.querySelectorAll('.nround, .ncapture-action i, .njourney i, .nchat-input i').forEach((item) => {
+        document.querySelectorAll('.nround, .njourney i, .nchat-input i').forEach((item) => {
           item.innerHTML = icon(arrowIcon, 'narrow-icon');
         });
+        document.querySelectorAll('.ncapture-action i').forEach((item) => { item.innerHTML = icon(cameraIcon, 'ncapture-icon'); });
         const messages = {
           M01: ['确认这次相遇', '主体、地点、时间和背景会进入 AI 分析，并作为真实伙伴的初遇资料。'],
           M02: ['选择前景动物', '多个主体时，只将你选中的前景动物裁出并写入旅行档案。'],
