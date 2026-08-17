@@ -2501,7 +2501,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Talk_Memory_Refresh_Click",
     "module": "Pet Talk",
     "trigger": ".setMemoryExpanded(true, animated: true) } memoryView.onCollapse = { [weak self] in self?.setMemoryExpanded(false, animated: true…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:301",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:308",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2509,7 +2509,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Talk_Mode_Click",
     "module": "Pet Talk",
     "trigger": "case .catToHuman: return \"Cat_To_Human\" } } /// 上报 Pet Talk 人转宠物模式切换点击。 private func reportPetTalkModeClick(_ mode: HumanInputMod…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1826",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1837",
     "params": "translateDirection, mode",
     "target": "Thinking/Firebase"
   },
@@ -2533,7 +2533,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Talk_Text_Translate_Click",
     "module": "Pet Talk",
     "trigger": "ticsValue ] )) } /// 上报 Pet Talk 文字翻译按钮点击及校验结果。 private func reportPetTalkTextTranslateClick(textContent: String, validationResul…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1838",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1849",
     "params": "textLength, validationResult",
     "target": "Thinking/Firebase"
   },
@@ -2557,7 +2557,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Talk_Guide_Finish",
     "module": "Pet Talk",
     "trigger": "guard petVoiceCard.bounds.width > 0, petVoiceCard.bounds.height > 0 else { return false } return true } /// 完成首页引导后，记录本地状态并恢复顶部视频…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1019",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1030",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2565,7 +2565,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Talk_Guide_Show",
     "module": "Pet Talk",
     "trigger": "shouldRetryTalkGuidePresentation = false attachGuideOverlayIfNeeded() guideContainerView().layoutIfNeeded() introVideoPlayerView.…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:968",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:979",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2573,7 +2573,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Tap_to_Record",
     "module": "Pet Talk",
     "trigger": "model.id = UUID().uuidString model.sourceText = text model.sourceMediaType = .text model.changeType = changeType model.createTime…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:774, PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1803",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:785, PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1814",
     "params": "type",
     "target": "Thinking/Firebase"
   },
