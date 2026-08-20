@@ -1517,7 +1517,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_Entry_Click",
     "module": "公共能力",
     "trigger": "s(string: rawURL.trimmingCharacters(in: .whitespacesAndNewlines))?.host?.lowercased() ?? \"\" } /// 上报商城入口点击。 private func reportSt…",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:242",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:240",
     "params": "entryID",
     "target": "Thinking/Firebase"
   },
@@ -1525,7 +1525,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_External_Jump_Result",
     "module": "公共能力",
     "trigger": "ate func reportStoreExternalJumpResult( entryID: String, productID: String, domain: String, result: String, failReason: String ) …",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:294",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:292",
     "params": "entryID, productID, jumpURLDomain, result, failReason",
     "target": "Thinking/Firebase"
   },
@@ -1533,7 +1533,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_Product_Click",
     "module": "公共能力",
     "trigger": "n ] )) } /// 上报商城商品点击。 private func reportStoreProductClick(_ item: PCStoreProductItem, displayIndex: Int, entryID: String, domai…",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:272",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:270",
     "params": "entryID, productID, productName, productIndex, priceText, jumpURLDomain",
     "target": "Thinking/Firebase"
   },
@@ -1541,7 +1541,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_Product_List_Load_Fail",
     "module": "公共能力",
     "trigger": "[PCAdjustEventParamKey.entryID.rawValue: entryID] )) } /// 上报商城商品列表页无法展示。 private func reportStoreProductListLoadFail(entryID: St…",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:260",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:258",
     "params": "entryID, failReason",
     "target": "Thinking/Firebase"
   },
@@ -1549,7 +1549,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_Product_List_Show",
     "module": "公共能力",
     "trigger": ", param: [PCAdjustEventParamKey.entryID.rawValue: entryID] )) } /// 上报商城商品列表页展示成功。 private func reportStoreProductListShow(entryI…",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:251",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:249",
     "params": "entryID",
     "target": "Thinking/Firebase"
   },
