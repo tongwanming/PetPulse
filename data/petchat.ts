@@ -574,7 +574,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "kingfisher",
           "title": "Kingfisher ~> 7.0",
           "summary": "在业务源码中检测到 import 或调用入口。",
-          "source": "PetChat/Base/PCBaseViewVC.swift"
+          "source": "PetChat/Common/Extends/PCKingfisher+Ex.swift"
         },
         {
           "id": "sdwebimage",
@@ -812,7 +812,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "false / defaultPetTalkTrialConfig.freeTrialCount",
     "feature": "Demo Key：用于验证“参数下发 + 解析层”链路是否打通。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:802"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:806"
   },
   {
     "key": "pet_magic_free_trial_count",
@@ -820,7 +820,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "1",
     "feature": "Pet Magic：免费试用次数（默认 1）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:930, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:952"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:934, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:956"
   },
   {
     "key": "pet_talk_free_trial_count",
@@ -828,7 +828,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "false / defaultPetTalkTrialConfig.freeTrialCount",
     "feature": "Pet Talk：免费试用配置。  兼容两种下发方式： 1）旧版直接下发整数字符串； 2）1.0.9 起下发 JSON（内含 `free_trial_count` / `emotion_free_trial_count`）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:813"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:817"
   },
   {
     "key": "emotion_free_trial_count",
@@ -836,7 +836,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "false / defaultPetTalkTrialConfig.freeTrialCount",
     "feature": "Pet Talk：情绪翻译免费次数（兼容独立 key 的兜底读取）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:824, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:843"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:828, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:847"
   },
   {
     "key": "pet_talk_guide_config",
@@ -844,7 +844,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "0",
     "feature": "Pet Talk：首页引导开关（默认 0）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:861"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:865"
   },
   {
     "key": "local_audio_detection_enabled",
@@ -852,7 +852,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "false",
     "feature": "Pet Talk：客户端本地音频静音检测开关（默认 false）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:867"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:871"
   },
   {
     "key": "pettalk_memories_enable",
@@ -860,7 +860,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "true",
     "feature": "Pet Talk：回忆模块展示开关（默认 true）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:873"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:877"
   },
   {
     "key": "translation_complete_popup",
@@ -868,7 +868,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "关闭",
     "feature": "Pet Talk：翻译完成订阅弹窗配置（默认关闭）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:879, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:886"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:883, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:890"
   },
   {
     "key": "selected_offer",
@@ -876,7 +876,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "商品兜底",
     "feature": "Pet Talk：翻译完成订阅弹窗默认商品兜底。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:881, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:890"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:885, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:894"
   },
   {
     "key": "pet_magic_subscribe_mode",
@@ -884,7 +884,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "0",
     "feature": "Pet Magic：订阅模式（默认 0，可直接下发 0/1，也可下发 1.0.9 打包 JSON）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:917, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:923"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:921, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:927"
   },
   {
     "key": "high_quality",
@@ -892,7 +892,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultPetMagicConfig.subscribeMode / defaultPetMagicConfig.freeTrialCount",
     "feature": "Pet Magic：高清保存次数/开关（1.0.9 业务配置）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:937, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:959"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:941, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:963"
   },
   {
     "key": "pet_sounds_free_trial_count",
@@ -900,7 +900,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "5",
     "feature": "Pet Sounds：免费试用次数（默认 5）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:968"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:972"
   },
   {
     "key": "pet_sounds_subscribe_mode",
@@ -908,7 +908,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "0",
     "feature": "Pet Sounds：订阅模式（默认 0）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:974"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:978"
   },
   {
     "key": "Pet_sounds_rating_guide",
@@ -916,7 +916,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "4",
     "feature": "Pet Sounds：播放完成第几次后触发评分引导（默认 4）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:980"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:984"
   },
   {
     "key": "pet_game_free_game_list",
@@ -924,7 +924,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultPetMagicConfig.highQualityCount / 5",
     "feature": "Pet Game：免费用户可进入的游戏 ID 列表。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:986"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:990"
   },
   {
     "key": "pet_game_free_play_times_per_day",
@@ -932,7 +932,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "5 / 0",
     "feature": "Pet Game：免费用户每日可正式开始游戏的次数。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:991"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:995"
   },
   {
     "key": "rating_prompt_type",
@@ -940,7 +940,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultPetGameConfig.freeGameList / defaultPetGameConfig.freePlayTimesPerDay",
     "feature": "评分引导样式：`system` 为系统评分弹窗，`custom` 为自定义评分弹窗。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1017"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1021"
   },
   {
     "key": "petthought_free_trial_count",
@@ -948,7 +948,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "3",
     "feature": "Pet Thoughts：免费试用次数（默认 3）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1029"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1033"
   },
   {
     "key": "pet_thought_free_trial_count",
@@ -956,7 +956,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultPetGameConfig.freePlayTimesPerDay / return \"system\"",
     "feature": "Pet Thoughts：免费试用次数旧版 key 兼容。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1030"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1034"
   },
   {
     "key": "petthought_default_free_style",
@@ -964,7 +964,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "免费风格（默认",
     "feature": "Pet Thoughts：非订阅用户默认免费风格（默认 real_insight）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1038"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1042"
   },
   {
     "key": "petthought_share_qr_url",
@@ -972,7 +972,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "return \"system\" / 3",
     "feature": "Pet Thoughts：分享图二维码落地页 URL（支持 `{style_name}` 占位符）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1046"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1050"
   },
   {
     "key": "ai_vet_free_trial_count",
@@ -980,7 +980,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "1",
     "feature": "AI Health Assistant：免费试用次数（默认 1）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1069"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1073"
   },
   {
     "key": "subscribe_page_type",
@@ -988,7 +988,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "0",
     "feature": "订阅页类型（默认 0）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1075"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1079"
   },
   {
     "key": "sub_offer_popup",
@@ -996,7 +996,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "见解析代码",
     "feature": "首次进入订阅页的优惠弹窗配置（V1.1.7）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1423"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1427"
   },
   {
     "key": "Promote_Sub_Group",
@@ -1004,7 +1004,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "见解析代码",
     "feature": "买量用户订阅分组配置（JSON 数组字符串）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1147"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1151"
   },
   {
     "key": "Organic_Sub_Group",
@@ -1012,7 +1012,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "见解析代码",
     "feature": "自然用户订阅分组配置（JSON 数组字符串）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1155"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1159"
   },
   {
     "key": "Grouping",
@@ -1020,7 +1020,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "1 / 0",
     "feature": "独立 Grouping 分组事件参数。  - Note: 运营配置 value（如 `A`）后，客户端需上报 `Grouping_A`。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1084"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1088"
   },
   {
     "key": "Grouping_X",
@@ -1028,7 +1028,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "1 / 0",
     "feature": "Grouping 参数兼容命名。  - Note: 部分文档以 `Grouping_X` 描述该参数，这里兼容一次旧命名读取。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1090"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1094"
   },
   {
     "key": "Main_Page_Show",
@@ -1036,7 +1036,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "1 / 0",
     "feature": "首页首次展示目标页配置。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1097"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1101"
   },
   {
     "key": "store_entry_config",
@@ -1044,7 +1044,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "0",
     "feature": "商城入口配置（JSON 对象字符串）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1105"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1109"
   },
   {
     "key": "store_products_config",
@@ -1052,7 +1052,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "见解析代码",
     "feature": "商城商品列表配置（JSON 对象字符串）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1113"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1117"
   },
   {
     "key": "boarding_enabled",
@@ -1060,7 +1060,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "true",
     "feature": "引导页总开关：首次启动是否展示 `PCGuideVC`。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1226"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1230"
   },
   {
     "key": "boarding_first",
@@ -1068,7 +1068,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "true",
     "feature": "旧版引导页第 1 页是否展示。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1232"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1236"
   },
   {
     "key": "boarding_second",
@@ -1076,7 +1076,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "true",
     "feature": "旧版引导页第 2 页是否展示。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1238"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1242"
   },
   {
     "key": "boarding_third",
@@ -1084,7 +1084,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "true",
     "feature": "旧版引导页第 3 页是否展示。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1244"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1248"
   },
   {
     "key": "boarding_page_show",
@@ -1092,7 +1092,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "true",
     "feature": "1.0.9 新版引导页顺序配置（JSON 数组字符串）。",
     "triggerLocation": "PetChat/Module/Launch/PCLaunchVC.swift:460",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1250"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1254"
   },
   {
     "key": "Iap_pop_open",
@@ -1100,7 +1100,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultIapPopOpenConfig.isEnabled / defaultIapPopOpenConfig.openTime",
     "feature": "强拉支付配置主 key。  兼容两种下发方式： 1）直接下发 `0/1`； 2）下发 JSON（内含 `Iap_pop_open` / `IAP_Pop_Open_Time` / `Force_Offer_ID`）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1298"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1302"
   },
   {
     "key": "IAP_Pop_Open",
@@ -1108,7 +1108,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultIapPopOpenConfig.isEnabled / defaultIapPopOpenConfig.openTime",
     "feature": "远端配置 IAP_Pop_Open，由 PCRemoteConfigKeys.iapPopOpenUpper 声明。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1299"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1303"
   },
   {
     "key": "iap_pop_open",
@@ -1116,7 +1116,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultIapPopOpenConfig.isEnabled / defaultIapPopOpenConfig.openTime",
     "feature": "远端配置 iap_pop_open，由 PCRemoteConfigKeys.iapPopOpenLower 声明。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1300"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1304"
   },
   {
     "key": "IAP_Pop_Open_Time",
@@ -1124,7 +1124,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultIapPopOpenConfig.isEnabled / defaultIapPopOpenConfig.openTime",
     "feature": "强拉支付时机（兼容独立 key 兜底）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1303"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1307"
   },
   {
     "key": "iap_pop_open_time",
@@ -1132,7 +1132,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultIapPopOpenConfig.isEnabled / defaultIapPopOpenConfig.openTime",
     "feature": "远端配置 iap_pop_open_time，由 PCRemoteConfigKeys.iapPopOpenTimeLower 声明。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1304"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1308"
   },
   {
     "key": "Force_Offer_ID",
@@ -1140,7 +1140,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "defaultIapPopOpenConfig.isEnabled / defaultIapPopOpenConfig.openTime",
     "feature": "强拉支付商品 ID（兼容独立 key 兜底）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1317, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1332"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1321, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1336"
   }
 ];
 
