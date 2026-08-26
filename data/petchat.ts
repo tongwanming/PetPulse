@@ -1525,7 +1525,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_Entry_Click",
     "module": "公共能力",
     "trigger": "s(string: rawURL.trimmingCharacters(in: .whitespacesAndNewlines))?.host?.lowercased() ?? \"\" } /// 上报商城入口点击。 private func reportSt…",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:241",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:249",
     "params": "entryID",
     "target": "Thinking/Firebase"
   },
@@ -1533,7 +1533,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_External_Jump_Result",
     "module": "公共能力",
     "trigger": "ate func reportStoreExternalJumpResult( entryID: String, productID: String, domain: String, result: String, failReason: String ) …",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:293",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:301",
     "params": "entryID, productID, jumpURLDomain, result, failReason",
     "target": "Thinking/Firebase"
   },
@@ -1541,7 +1541,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_Product_Click",
     "module": "公共能力",
     "trigger": "n ] )) } /// 上报商城商品点击。 private func reportStoreProductClick(_ item: PCStoreProductItem, displayIndex: Int, entryID: String, domai…",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:271",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:279",
     "params": "entryID, productID, productName, productIndex, priceText, jumpURLDomain",
     "target": "Thinking/Firebase"
   },
@@ -1549,7 +1549,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_Product_List_Load_Fail",
     "module": "公共能力",
     "trigger": "[PCAdjustEventParamKey.entryID.rawValue: entryID] )) } /// 上报商城商品列表页无法展示。 private func reportStoreProductListLoadFail(entryID: St…",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:259",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:267",
     "params": "entryID, failReason",
     "target": "Thinking/Firebase"
   },
@@ -1557,7 +1557,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Store_Product_List_Show",
     "module": "公共能力",
     "trigger": ", param: [PCAdjustEventParamKey.entryID.rawValue: entryID] )) } /// 上报商城商品列表页展示成功。 private func reportStoreProductListShow(entryI…",
-    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:250",
+    "location": "PetChat/Common/Managers/StoreEntry/PCStoreEntryManager.swift:258",
     "params": "entryID",
     "target": "Thinking/Firebase"
   },
@@ -2597,7 +2597,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "pet_audio_click",
     "module": "Pet Sounds",
     "trigger": "cell.maskHidden = !shouldShowVipMask(for: visibleItem) } } /// 上报语音包点击埋点。 /// /// - Parameter item: 当前点击的语音包。 private func report…",
-    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:856",
+    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:870",
     "params": "audioType, petType, voicePersonality, audioName",
     "target": "Thinking/Firebase"
   },
@@ -2621,7 +2621,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Game_Guide_Show",
     "module": "Pet Sounds",
     "trigger": "PlayTimeGuideView() guideView.onStart = onStart containerView.addSubview(guideView) guideView.snp.makeConstraints { make in make.…",
-    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:1133",
+    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:1215",
     "params": "gameID",
     "target": "Thinking/Firebase"
   },
@@ -2645,7 +2645,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Games_Page_Show",
     "module": "Pet Sounds",
     "trigger": "/// 上报宠物游戏列表展示事件，避免布局刷新导致重复上报。 private func reportGamePageShowIfNeeded() { guard selectedTab == .game, shouldReportGamePageShow e…",
-    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:820",
+    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:834",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2653,7 +2653,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Sounds_Click",
     "module": "Pet Sounds",
     "trigger": "音频成功开始播放后，再消耗一次免费次数，避免点击失败也扣次。 PCPetSoundsFreePlayManager.shared.consumeOnceAfterPlaySuccessIfNeeded() refreshVisibleVipMaskState…",
-    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:793",
+    "location": "PetChat/Module/PetSounds/PCPetSoundsVC.swift:807",
     "params": "Type, name",
     "target": "Thinking/Firebase"
   },
