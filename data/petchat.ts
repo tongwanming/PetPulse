@@ -1421,7 +1421,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Load_Again",
     "module": "公共能力",
     "trigger": "ad_Again`。 func reportPetMagicLoadAgainIfNeeded(using template: TemItemInfo?) { guard let template, PCTempManager.consumePetMagic…",
-    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:405, PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:889",
+    "location": "PetChat/Common/Managers/PCPhotoPickManager/View/PCPhotoPickerImageView.swift:405, PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:903",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2517,7 +2517,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Click_Create",
     "module": "Pet Magic",
     "trigger": "buttonTitle: PCLocal(str: \"alert.ok\") ) } } /// “开始创作”按钮事件，发起任务。 @objc private func handleMakeButtonTapped() { reportPetMagicLoad…",
-    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:810",
+    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:824",
     "params": "resource_id, Resource_Name, Resource_Cover_URL, Resource_URL",
     "target": "Thinking/Firebase"
   },
@@ -2525,7 +2525,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Click_Like",
     "module": "Pet Magic",
     "trigger": "ibleVideo() } } } /// 上报 PetMagic 点赞/取消点赞事件。 /// /// - Parameter isLiked: 最新点赞状态。 func reportPetMagicLike(isLiked: Bool) { PCRepo…",
-    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:870",
+    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:884",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2533,7 +2533,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Click_Like_Cancel",
     "module": "Pet Magic",
     "trigger": "} /// 上报 PetMagic 点赞/取消点赞事件。 /// /// - Parameter isLiked: 最新点赞状态。 func reportPetMagicLike(isLiked: Bool) { PCReport.report(withEv…",
-    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:870",
+    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:884",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2541,15 +2541,15 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Create_Click",
     "module": "Pet Magic",
     "trigger": "URL\":self.dataModel.cover ?? \"\",\"Resource_URL\":self.dataModel.url ?? \"\"])) } } } } func eventClickActive() { reportPetMagicLoadAg…",
-    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:707",
+    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:721",
     "params": "-",
     "target": "Thinking/Firebase"
   },
   {
     "id": "Pet_Magic_Detail_Page_Show",
     "module": "Pet Magic",
-    "trigger": "ems.safeObject(at: indexPath.item) else { return } let detailVC = PCPetMagicDetailVC() detailVC.dataModel = data detailVC.dataArr…",
-    "location": "PetChat/Module/PetMagic/PCPetMagicVC.swift:430, PetChat/Module/PetMagicNew/vc/PCPetMagicNewListVC.swift:826",
+    "trigger": "o, list: [TemItemInfo]) { let detailVC = PCPetMagicDetailVC() detailVC.dataModel = selected detailVC.dataArr = list detailVC.mode…",
+    "location": "PetChat/Module/PetMagicNew/vc/PCPetMagicNewListVC.swift:826",
     "params": "resource_id, Resource_Name, Resource_Cover_URL, Resource_URL",
     "target": "Thinking/Firebase"
   },
@@ -2557,7 +2557,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Enter_Album_Page",
     "module": "Pet Magic",
     "trigger": "eak self, weak pickerVC] in self?.handlePhotoPickerTaskCreated(pickerVC: pickerVC) } self.present(pickerVC, animated: true) PCRep…",
-    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:699",
+    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:713",
     "params": "resource_id, Resource_Name, Resource_Cover_URL, Resource_URL",
     "target": "Thinking/Firebase"
   },
@@ -2565,7 +2565,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Feedback_Click",
     "module": "Pet Magic",
     "trigger": "() )) startSharingContent(for: item) } /// 反馈按钮事件。 @objc private func handleFeedbackTapped() { guard let item = dataModel else { …",
-    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:425",
+    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:439",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2589,7 +2589,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Share_Click",
     "module": "Pet Magic",
     "trigger": "wnloadState(resourceId: currentItem.id ?? \"\") } } /// 分享按钮事件。 @objc private func handleShareTapped() { guard let item = dataModel…",
-    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:414",
+    "location": "PetChat/Module/PetMagic/PCPetMagicDetailVC.swift:428",
     "params": "-",
     "target": "Thinking/Firebase"
   },
