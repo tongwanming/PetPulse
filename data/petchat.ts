@@ -1149,7 +1149,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "animation_timeout",
     "module": "订阅",
     "trigger": "tExposure < 24 * 60 * 60 } /// 上报订阅优惠弹窗动画加载失败。 /// /// - Parameter reason: 失败原因，字段值与飞书埋点表保持一致。 func reportSubOfferPopupAnimationT…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:1712",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:1902",
     "params": "failReason",
     "target": "Thinking/Firebase"
   },
@@ -1157,7 +1157,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Restore_Click",
     "module": "订阅",
     "trigger": "erProperties ) } /// 恢复购买。 func restoreVIP(placement: String? = nil) { markPaywallUserInteractionForAnalytics() guard beginPurcha…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:632",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:635",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1165,7 +1165,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Restore_Fail",
     "module": "订阅",
     "trigger": "eport.report(withEvent: Event(type: .other, key: PCAdjustEventID.restoreSuccess.rawValue)) PCToastTool.show(PCLocal(str: \"vip.res…",
-    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:377, PetChat/Module/VIP/VC/PCVIPBViewController.swift:372, PetChat/Module/VIP/VC/PCVIPCViewController.swift:381, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:517",
+    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:393, PetChat/Module/VIP/VC/PCVIPBViewController.swift:388, PetChat/Module/VIP/VC/PCVIPCViewController.swift:396, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:533",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1173,7 +1173,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Restore_Success",
     "module": "订阅",
     "trigger": "geWithFailureToastIfNeeded() { return } PCToastTool.showError(message) } } override func vipDidCompleteRestore(success: Bool, mes…",
-    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:372, PetChat/Module/VIP/VC/PCVIPBViewController.swift:367, PetChat/Module/VIP/VC/PCVIPCViewController.swift:376, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:512",
+    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:388, PetChat/Module/VIP/VC/PCVIPBViewController.swift:383, PetChat/Module/VIP/VC/PCVIPCViewController.swift:391, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:528",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1181,7 +1181,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Agree_Close",
     "module": "订阅",
     "trigger": "ewControlellerDidFinidsh(self, agree: true) } } @objc private func close() { dismissAnimation { [weak self] in guard let `self` =…",
-    "location": "PetChat/Module/VIP/VC/PCAgreementPopupViewController.swift:201, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:399",
+    "location": "PetChat/Module/VIP/VC/PCAgreementPopupViewController.swift:201, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:409",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1189,7 +1189,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Agree_Show",
     "module": "订阅",
     "trigger": "et productID = selectedProductID { reportSubClickForContinueButton(productID: productID) } if let agree = agreementView { if agre…",
-    "location": "PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:317, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:374",
+    "location": "PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:327, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:384",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1197,7 +1197,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Agree_Success",
     "module": "订阅",
     "trigger": "URL(string: ConstantURL.loadMemberURL())!) } } @objc private func buttonClick() { dismissAnimation { [weak self] in guard let `se…",
-    "location": "PetChat/Module/VIP/VC/PCAgreementPopupViewController.swift:192, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:323, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:380",
+    "location": "PetChat/Module/VIP/VC/PCAgreementPopupViewController.swift:192, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:333, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:390",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1205,7 +1205,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Close",
     "module": "订阅",
     "trigger": "appendPetTalkAnalyticsParamsIfNeeded(context: context, to: &param) appendSubOfferPopupAnalyticsParamsIfNeeded(to: &param) param.m…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:1850",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2040",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1213,7 +1213,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Show",
     "module": "订阅",
     "trigger": "o: &param) appendPetTalkAnalyticsParamsIfNeeded(context: context, to: &param) appendSubOfferPopupAnalyticsParamsIfNeeded(to: &par…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2110, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:522",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2300, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:525",
     "params": "-",
     "target": "Thinking/Firebase + Adjust"
   },
@@ -1221,7 +1221,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Success",
     "module": "订阅",
     "trigger": "appendPetTalkAnalyticsParamsIfNeeded(context: context, to: &param) appendSubOfferPopupAnalyticsParamsIfNeeded(to: &param) param.m…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:1891",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2081",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2469,7 +2469,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Page_Show",
     "module": "主导航",
     "trigger": "meter index: 当前展示 tab 的索引。 private func reportPageShow(for index: Int) { guard let pageName = pageShowName(for: index) else { ret…",
-    "location": "PetChat/Module/MainTab/PCTabBarController.swift:427",
+    "location": "PetChat/Module/MainTab/PCTabBarController.swift:370",
     "params": "pageName, time",
     "target": "Thinking/Firebase"
   },
@@ -2749,7 +2749,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Click",
     "module": "Pet Talk",
     "trigger": "let productID = translationCompleteProductID(from: config) isTranslationCompleteDirectPurchaseInProgress = true reportTranslation…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:1111, PetChat/Module/VIP/VC/PCVIPAViewController.swift:288, PetChat/Module/VIP/VC/PCVIPBViewController.swift:283, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:1813",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:1111, PetChat/Module/VIP/VC/PCVIPAViewController.swift:298, PetChat/Module/VIP/VC/PCVIPBViewController.swift:293, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2003",
     "params": "-",
     "target": "Thinking/Firebase + Adjust"
   },
