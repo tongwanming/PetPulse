@@ -37,7 +37,7 @@ export const petChatStats = [
   },
   {
     "label": "埋点事件",
-    "value": "222"
+    "value": "223"
   },
   {
     "label": "下发参数",
@@ -2123,6 +2123,14 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   },
   {
     "id": "Domain",
+    "module": "埋点",
+    "trigger": "已定义，未扫描到触发调用。",
+    "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "domain_name",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
