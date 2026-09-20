@@ -2725,7 +2725,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Detail_Page_Show",
     "module": "Pet Magic",
     "trigger": "o, list: [TemItemInfo]) { let detailVC = PCPetMagicDetailVC() detailVC.dataModel = selected detailVC.dataArr = list detailVC.mode…",
-    "location": "PetChat/Module/PetMagicNew/vc/PCPetMagicNewListVC.swift:1016",
+    "location": "PetChat/Module/PetMagicNew/vc/PCPetMagicNewListVC.swift:1021",
     "params": "resource_id, Resource_Name, Resource_Cover_URL, Resource_URL",
     "target": "Thinking/Firebase"
   },
@@ -2957,7 +2957,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Result_Feedback_Popup_Show",
     "module": "Pet Talk",
     "trigger": "t(where: { $0.isKeyWindow }) } return UIApplication.shared.keyWindow } func reportShow(direction: PCPetTalkResultFeedbackDirectio…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkResultFeedbackManager.swift:246",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkResultFeedbackManager.swift:259",
     "params": "trigger, translateDirection",
     "target": "Thinking/Firebase"
   },
@@ -2965,7 +2965,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Result_Feedback_Submit",
     "module": "Pet Talk",
     "trigger": "wValue: direction.rawValue, \"trigger\": trigger.rawValue, ])) } func reportSubmit(submission: PCPetTalkResultFeedbackSubmission, t…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkResultFeedbackManager.swift:253",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkResultFeedbackManager.swift:266",
     "params": "trigger, translateDirection, feedbackType, textLength",
     "target": "Thinking/Firebase"
   },
