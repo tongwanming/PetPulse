@@ -1628,7 +1628,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
   {
     "id": "Adjust_Get_Promote_Final",
     "module": "归因",
-    "trigger": "eFinalReported) else { return } var params = promoteParams(from: attribution) params[PCAdjustEventParamKey.form.rawValue] = final…",
+    "trigger": "{ return } var params = promoteParams(from: attribution) params[PCAdjustEventParamKey.attributionSource.rawValue] = finalPromoteS…",
     "location": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift:1100",
     "params": "-",
     "target": "Thinking/Firebase"
@@ -1914,7 +1914,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "Form",
+    "id": "free_times_left",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
@@ -1922,7 +1922,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "free_times_left",
+    "id": "From",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
@@ -2981,7 +2981,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Result_Feedback_Popup_Show",
     "module": "Pet Talk",
     "trigger": "t(where: { $0.isKeyWindow }) } return UIApplication.shared.keyWindow } func reportShow(direction: PCPetTalkResultFeedbackDirectio…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkResultFeedbackManager.swift:259",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkResultFeedbackManager.swift:275",
     "params": "trigger, translateDirection",
     "target": "Thinking/Firebase"
   },
@@ -2989,7 +2989,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Result_Feedback_Submit",
     "module": "Pet Talk",
     "trigger": "wValue: direction.rawValue, \"trigger\": trigger.rawValue, ])) } func reportSubmit(submission: PCPetTalkResultFeedbackSubmission, t…",
-    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkResultFeedbackManager.swift:266",
+    "location": "PetChat/Module/PetTalk/Manager/PCPetTalkResultFeedbackManager.swift:282",
     "params": "trigger, translateDirection, feedbackType, textLength",
     "target": "Thinking/Firebase"
   },
