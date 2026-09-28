@@ -1,10 +1,10 @@
 export const petChatSyncInfo = {
   "sourceRoot": "/Users/xiaomao822/Desktop/git/petchat/PetChat",
   "branch": "dev_1.1.8",
-  "commit": "69fb0adec9c872b7c2d092ae3d869d7c63ea754f",
-  "shortCommit": "69fb0ad",
-  "subject": "fix:打包测试环境",
-  "committedAt": "2026-09-28 20:46:22 +0800",
-  "syncedAt": "2026-09-28T12:46:23.034Z",
+  "commit": "6aa033b110bef479bda56f2a8e821da23e6f3beb",
+  "shortCommit": "6aa033b",
+  "subject": "打包提交：TestFlight 1.1.8(3)",
+  "committedAt": "2026-09-28 21:03:51 +0800",
+  "syncedAt": "2026-09-28T13:03:52.050Z",
   "hasUncommittedChanges": false
 } as const;
