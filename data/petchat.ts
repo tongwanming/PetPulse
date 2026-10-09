@@ -41,7 +41,7 @@ export const petChatStats = [
   },
   {
     "label": "下发参数",
-    "value": "47"
+    "value": "48"
   }
 ];
 
@@ -828,7 +828,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "defaultValue": "false / defaultPetTalkTrialConfig.freeTrialCount",
     "feature": "Pet Talk：免费试用配置。  兼容两种下发方式： 1）旧版直接下发整数字符串； 2）1.0.9 起下发 JSON（内含 `free_trial_count` / `emotion_free_trial_count`）。",
     "triggerLocation": "未扫描到业务触发点",
-    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1061, PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1133"
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1061"
   },
   {
     "key": "pet_talk_attract_voice_config",
@@ -837,6 +837,14 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "feature": "Pet Talk：实时视频吸引声资源配置。",
     "triggerLocation": "未扫描到业务触发点",
     "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1110"
+  },
+  {
+    "key": "attract_voice_free_count",
+    "module": "公共能力",
+    "defaultValue": "2",
+    "feature": "Pet Talk：实时视频吸引声永久累计免费次数（默认 2）。",
+    "triggerLocation": "未扫描到业务触发点",
+    "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1133"
   },
   {
     "key": "emotion_free_trial_count",
@@ -2749,7 +2757,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Magic_Detail_Page_Show",
     "module": "Pet Magic",
     "trigger": "o, list: [TemItemInfo]) { let detailVC = PCPetMagicDetailVC() detailVC.dataModel = selected detailVC.dataArr = list detailVC.mode…",
-    "location": "PetChat/Module/PetMagicNew/vc/PCPetMagicNewListVC.swift:1084",
+    "location": "PetChat/Module/PetMagicNew/vc/PCPetMagicNewListVC.swift:1115",
     "params": "resource_id, Resource_Name, Resource_Cover_URL, Resource_URL",
     "target": "Thinking/Firebase"
   },
@@ -2861,7 +2869,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Analyzing_Sound_Fail",
     "module": "Pet Talk",
     "trigger": "reportDomain.isEmpty == false { failParam[PCAdjustEventParamKey.requestDomain.rawValue] = reportDomain } failParam.merge(vipState…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:713",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:727",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2925,7 +2933,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Talk_Mode_Click",
     "module": "Pet Talk",
     "trigger": "case .catToHuman: return \"Cat_To_Human\" } } /// 上报 Pet Talk 人转宠物模式切换点击。 private func reportPetTalkModeClick(_ mode: HumanInputMod…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:2132",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:2137",
     "params": "translateDirection, mode",
     "target": "Thinking/Firebase"
   },
@@ -2965,7 +2973,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Pet_Talk_Text_Translate_Click",
     "module": "Pet Talk",
     "trigger": "ticsValue ] )) } /// 上报 Pet Talk 文字翻译按钮点击及校验结果。 private func reportPetTalkTextTranslateClick(textContent: String, validationResul…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:2144",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:2149",
     "params": "textLength, validationResult",
     "target": "Thinking/Firebase"
   },
@@ -3005,7 +3013,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Sub_Click",
     "module": "Pet Talk",
     "trigger": "let productID = translationCompleteProductID(from: config) isTranslationCompleteDirectPurchaseInProgress = true reportTranslation…",
-    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:1215, PetChat/Module/VIP/VC/PCVIPAViewController.swift:306, PetChat/Module/VIP/VC/PCVIPBViewController.swift:302, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2368",
+    "location": "PetChat/Module/PetTalk/PCVoiceRecordVC.swift:1229, PetChat/Module/VIP/VC/PCVIPAViewController.swift:306, PetChat/Module/VIP/VC/PCVIPBViewController.swift:302, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2368",
     "params": "-",
     "target": "Thinking/Firebase + Adjust"
   },
@@ -3013,7 +3021,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Talk_Guide_Finish",
     "module": "Pet Talk",
     "trigger": "guard petVoiceCard.bounds.width > 0, petVoiceCard.bounds.height > 0 else { return false } return true } /// 完成首页引导后，记录本地状态并恢复顶部视频…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1261",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1262",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -3021,7 +3029,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Talk_Guide_Show",
     "module": "Pet Talk",
     "trigger": "shouldRetryTalkGuidePresentation = false attachGuideOverlayIfNeeded() guideContainerView().layoutIfNeeded() introVideoPlayerView.…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1210",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:1211",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -3029,7 +3037,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Tap_to_Record",
     "module": "Pet Talk",
     "trigger": "model.id = UUID().uuidString model.sourceText = text model.sourceMediaType = .text model.changeType = changeType model.createTime…",
-    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:847, PetChat/Module/PetTalk/PCPetTalkNewVC.swift:2109",
+    "location": "PetChat/Module/PetTalk/PCPetTalkNewVC.swift:847, PetChat/Module/PetTalk/PCPetTalkNewVC.swift:2114",
     "params": "type",
     "target": "Thinking/Firebase"
   },
