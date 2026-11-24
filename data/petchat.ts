@@ -33,7 +33,7 @@ export const petChatStats = [
   },
   {
     "label": "SDK/能力集成",
-    "value": "40"
+    "value": "42"
   },
   {
     "label": "埋点事件",
@@ -547,7 +547,7 @@ export const petChatSdkMindMap: MindMapNode = {
     {
       "id": "-",
       "title": "基础库",
-      "summary": "扫描到 7 个 Pod：RxSwift、RxCocoa、VVCatUI、SSZipArchive、FBSDKCoreKit、LookinServer、LookDebugBridge。",
+      "summary": "扫描到 12 个 Pod：RxSwift、RxCocoa、VVCatUI、SSZipArchive、AGConnectRemoteConfig、Google-Mobile-Ads-SDK、GoogleUserMessagingPlatform、GoogleMobileAdsMediationMintegral、GoogleMobileAdsMediationPangle、FBSDKCoreKit、LookinServer、LookDebugBridge。",
       "source": "Podfile",
       "children": [
         {
@@ -575,6 +575,36 @@ export const petChatSdkMindMap: MindMapNode = {
           "source": "Podfile:37"
         },
         {
+          "id": "agconnectremoteconfig",
+          "title": "AGConnectRemoteConfig ~> 1.9.4.300",
+          "summary": "在业务源码中检测到 import 或调用入口。",
+          "source": "PetChat/Common/Managers/RemoteConfig/PCRemoteConfigCenter.swift"
+        },
+        {
+          "id": "google-mobile-ads-sdk",
+          "title": "Google-Mobile-Ads-SDK ~> 12.14",
+          "summary": "由 Podfile 声明集成。",
+          "source": "Podfile:41"
+        },
+        {
+          "id": "googleusermessagingplatform",
+          "title": "GoogleUserMessagingPlatform",
+          "summary": "由 Podfile 声明集成。",
+          "source": "Podfile:42"
+        },
+        {
+          "id": "googlemobileadsmediationmintegral",
+          "title": "GoogleMobileAdsMediationMintegral",
+          "summary": "由 Podfile 声明集成。",
+          "source": "Podfile:44"
+        },
+        {
+          "id": "googlemobileadsmediationpangle",
+          "title": "GoogleMobileAdsMediationPangle",
+          "summary": "由 Podfile 声明集成。",
+          "source": "Podfile:45"
+        },
+        {
           "id": "fbsdkcorekit",
           "title": "FBSDKCoreKit",
           "summary": "在业务源码中检测到 import 或调用入口。",
@@ -584,7 +614,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "lookinserver",
           "title": "LookinServer",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:55"
+          "source": "Podfile:56"
         },
         {
           "id": "lookdebugbridge",
@@ -722,7 +752,7 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "protobuf",
           "title": "Protobuf",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:49"
+          "source": "Podfile:50"
         }
       ]
     },
@@ -749,7 +779,7 @@ export const petChatSdkMindMap: MindMapNode = {
     {
       "id": "-",
       "title": "埋点、远端配置与归因",
-      "summary": "扫描到 13 个 Pod：CocoaLumberjack/Swift、ThinkingSDK、UMCommon、UMDevice、UMAPM、UMABTest、Adjust、Adjust/AdjustGoogleOdm、BDASignalSDK、TikTokBusinessSDK、Firebase/RemoteConfig、Firebase/Analytics、Firebase/Core。",
+      "summary": "扫描到 10 个 Pod：CocoaLumberjack/Swift、ThinkingSDK、GoogleMobileAdsMediationFacebook、Adjust、Adjust/AdjustGoogleOdm、BDASignalSDK、TikTokBusinessSDK、Firebase/RemoteConfig、Firebase/Analytics、Firebase/Core。",
       "source": "Podfile",
       "children": [
         {
@@ -765,26 +795,8 @@ export const petChatSdkMindMap: MindMapNode = {
           "source": "PetChat/Common/Managers/AdjustManager/AdjustManager.swift"
         },
         {
-          "id": "umcommon",
-          "title": "UMCommon",
-          "summary": "在业务源码中检测到 import 或调用入口。",
-          "source": "PetChat/Common/Managers/UMManager/PCUMManager.swift"
-        },
-        {
-          "id": "umdevice",
-          "title": "UMDevice",
-          "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:41"
-        },
-        {
-          "id": "umapm",
-          "title": "UMAPM",
-          "summary": "在业务源码中检测到 import 或调用入口。",
-          "source": "PetChat/Common/Managers/UMManager/PCUMAPMBridge.h"
-        },
-        {
-          "id": "umabtest",
-          "title": "UMABTest",
+          "id": "googlemobileadsmediationfacebook",
+          "title": "GoogleMobileAdsMediationFacebook",
           "summary": "由 Podfile 声明集成。",
           "source": "Podfile:43"
         },
@@ -792,13 +804,13 @@ export const petChatSdkMindMap: MindMapNode = {
           "id": "adjust",
           "title": "Adjust 5.5.0",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:45"
+          "source": "Podfile:46"
         },
         {
           "id": "adjust-adjustgoogleodm",
           "title": "Adjust/AdjustGoogleOdm",
           "summary": "由 Podfile 声明集成。",
-          "source": "Podfile:46"
+          "source": "Podfile:47"
         },
         {
           "id": "bdasignalsdk",
@@ -1046,18 +1058,18 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
   },
   {
     "key": "Promote_Sub_Group",
-    "module": "公共能力",
+    "module": "远端配置",
     "defaultValue": "见解析代码",
     "feature": "买量用户订阅分组配置（JSON 数组字符串）。",
-    "triggerLocation": "未扫描到业务触发点",
+    "triggerLocation": "PetChat/Common/Managers/RemoteConfig/PCRemoteConfigCenter.swift:168",
     "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1401"
   },
   {
     "key": "Organic_Sub_Group",
-    "module": "公共能力",
+    "module": "远端配置",
     "defaultValue": "见解析代码",
     "feature": "自然用户订阅分组配置（JSON 数组字符串）。",
-    "triggerLocation": "未扫描到业务触发点",
+    "triggerLocation": "PetChat/Common/Managers/RemoteConfig/PCRemoteConfigCenter.swift:168",
     "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1409"
   },
   {
@@ -1153,7 +1165,7 @@ export const petChatRemoteParameters: PetChatRemoteParameter[] = [
     "module": "启动",
     "defaultValue": "true",
     "feature": "1.0.9 新版引导页顺序配置（JSON 数组字符串）。",
-    "triggerLocation": "PetChat/Module/Launch/PCLaunchVC.swift:500",
+    "triggerLocation": "PetChat/Module/Launch/PCLaunchVC.swift:501",
     "parseLocation": "PetChat/Common/Managers/RemoteConfig/PCAppRemoteConfig.swift:1607"
   }
 ];
@@ -1235,23 +1247,23 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "ATT_Reject",
     "module": "公共能力",
     "trigger": "e: .adjust, token: \"bn92oo\", key: \"ATT_Success\")) PCReport.report(withEvent: Event(type: .other, key: \"ATT_Success\")) } else { PC…",
-    "location": "PetChat/Common/Tool/PCFileTool.swift:223",
+    "location": "PetChat/Common/Tool/PCFileTool.swift:243",
     "params": "-",
     "target": "Thinking/Firebase"
   },
   {
     "id": "ATT_Show",
     "module": "公共能力",
-    "trigger": "return } hasRequestedTrackingPermission = true let status = ATTrackingManager.trackingAuthorizationStatus switch status { case .n…",
-    "location": "PetChat/Common/Tool/PCFileTool.swift:214",
+    "trigger": "} hasRequestedTrackingPermission = true let status = ATTrackingManager.trackingAuthorizationStatus switch status { case .notDeter…",
+    "location": "PetChat/Common/Tool/PCFileTool.swift:224",
     "params": "-",
-    "target": "Adjust"
+    "target": "Thinking/Firebase"
   },
   {
     "id": "ATT_Success",
     "module": "公共能力",
-    "trigger": "tatus NotificationCenter.default.post(name: .pcTrackingAuthorizationDidChange, object: nil) if status == .authorized { PCReport.r…",
-    "location": "PetChat/Common/Tool/PCFileTool.swift:220, PetChat/Common/Tool/PCFileTool.swift:221",
+    "trigger": "hange, object: nil) PCEngagementCenter.shared.startAfterATT() } if status == .authorized { PCReport.report(withEvent: Event(type:…",
+    "location": "PetChat/Common/Tool/PCFileTool.swift:240, PetChat/Common/Tool/PCFileTool.swift:241",
     "params": "-",
     "target": "Adjust"
   },
@@ -1496,10 +1508,42 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
+    "id": "Sub_Click",
+    "module": "公共能力",
+    "trigger": "nc report( withEvent event: Event, file: StaticString = #fileID, function: StaticString = #function, line: UInt = #line ) { var e…",
+    "location": "PetChat/Common/Tool/PCReportTool.swift:51, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2622, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:783, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:324",
+    "params": "-",
+    "target": "Thinking/Firebase + Adjust"
+  },
+  {
+    "id": "Sub_Close",
+    "module": "公共能力",
+    "trigger": "file: StaticString = #fileID, function: StaticString = #function, line: UInt = #line ) { var event = event switch event.key { cas…",
+    "location": "PetChat/Common/Tool/PCReportTool.swift:52, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2664",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
+    "id": "Sub_Show",
+    "module": "公共能力",
+    "trigger": "- line: 调用行号（默认自动注入） static func report( withEvent event: Event, file: StaticString = #fileID, function: StaticString = #function…",
+    "location": "PetChat/Common/Tool/PCReportTool.swift:51, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2994, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:605",
+    "params": "-",
+    "target": "Thinking/Firebase + Adjust"
+  },
+  {
+    "id": "Sub_Success",
+    "module": "公共能力",
+    "trigger": "function: StaticString = #function, line: UInt = #line ) { var event = event switch event.key { case PCAdjustEventID.subShow.rawV…",
+    "location": "PetChat/Common/Tool/PCReportTool.swift:52, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2699",
+    "params": "-",
+    "target": "Thinking/Firebase"
+  },
+  {
     "id": "animation_timeout",
     "module": "订阅",
     "trigger": "tExposure < 24 * 60 * 60 } /// 上报订阅优惠弹窗动画加载失败。 /// /// - Parameter reason: 失败原因，字段值与飞书埋点表保持一致。 func reportSubOfferPopupAnimationT…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2428",
+    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2463",
     "params": "failReason",
     "target": "Thinking/Firebase"
   },
@@ -1515,7 +1559,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Restore_Fail",
     "module": "订阅",
     "trigger": "eport.report(withEvent: Event(type: .other, key: PCAdjustEventID.restoreSuccess.rawValue)) PCToastTool.show(PCLocal(str: \"vip.res…",
-    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:493, PetChat/Module/VIP/VC/PCVIPBViewController.swift:413, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:534, PetChat/Module/VIP/VC/PCVIPDViewController.swift:456",
+    "location": "PetChat/Module/VIP/VC/PCVIPBViewController.swift:413, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:865, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:534, PetChat/Module/VIP/VC/PCVIPDViewController.swift:456",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1523,7 +1567,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Restore_Success",
     "module": "订阅",
     "trigger": "geWithFailureToastIfNeeded() { return } PCToastTool.showError(message) } } override func vipDidCompleteRestore(success: Bool, mes…",
-    "location": "PetChat/Module/VIP/VC/PCVIPAViewController.swift:488, PetChat/Module/VIP/VC/PCVIPBViewController.swift:408, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:529, PetChat/Module/VIP/VC/PCVIPDViewController.swift:452",
+    "location": "PetChat/Module/VIP/VC/PCVIPBViewController.swift:408, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:860, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:529, PetChat/Module/VIP/VC/PCVIPDViewController.swift:452",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1552,38 +1596,6 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "Sub_Click",
-    "module": "订阅",
-    "trigger": "appendPetTalkAnalyticsParamsIfNeeded(context: context, to: &param) appendSubOfferPopupAnalyticsParamsIfNeeded(to: &param) param.m…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2587, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:783, PetChat/Module/VIP/VC/PCVIPCustomViewController.swift:324",
-    "params": "-",
-    "target": "Thinking/Firebase + Adjust"
-  },
-  {
-    "id": "Sub_Close",
-    "module": "订阅",
-    "trigger": "appendPetTalkAnalyticsParamsIfNeeded(context: context, to: &param) appendSubOfferPopupAnalyticsParamsIfNeeded(to: &param) param.m…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2629",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
-    "id": "Sub_Show",
-    "module": "订阅",
-    "trigger": "o: &param) appendPetTalkAnalyticsParamsIfNeeded(context: context, to: &param) appendSubOfferPopupAnalyticsParamsIfNeeded(to: &par…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2959, PetChat/Module/VIP/VC/PCVIPBaseVC.swift:605",
-    "params": "-",
-    "target": "Thinking/Firebase + Adjust"
-  },
-  {
-    "id": "Sub_Success",
-    "module": "订阅",
-    "trigger": "appendPetTalkAnalyticsParamsIfNeeded(context: context, to: &param) appendSubOfferPopupAnalyticsParamsIfNeeded(to: &param) param.m…",
-    "location": "PetChat/Module/VIP/VC/PCVIPBaseVC.swift:2664",
-    "params": "-",
-    "target": "Thinking/Firebase"
-  },
-  {
     "id": "Click_Bottom_Button",
     "module": "主导航",
     "trigger": "y = 0 tabBar.layer.shadowOffset = .zero tabBar.layer.shadowRadius = 0 tabBar.layer.shadowPath = nil } func handleTabDidSwitch(fro…",
@@ -1595,7 +1607,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Main_Page_Show",
     "module": "主导航",
     "trigger": "isHomeVisible: isVisible, isPaywallPending: isPaywallPending, defaults: .standard) else { return } PCReport.report(withEvent: Eve…",
-    "location": "PetChat/Module/MainTab/PCTabBarController.swift:584",
+    "location": "PetChat/Module/MainTab/PCTabBarController.swift:585",
     "params": "Country",
     "target": "Thinking/Firebase"
   },
@@ -1603,7 +1615,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Page_Show",
     "module": "主导航",
     "trigger": "meter index: 当前展示 tab 的索引。 private func reportPageShow(for index: Int) { guard let pageName = pageShowName(for: index) else { ret…",
-    "location": "PetChat/Module/MainTab/PCTabBarController.swift:594",
+    "location": "PetChat/Module/MainTab/PCTabBarController.swift:595",
     "params": "pageName, time",
     "target": "Thinking/Firebase"
   },
@@ -1659,7 +1671,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "id": "Loading_Show",
     "module": "启动",
     "trigger": "ert.addAction(retryAction) present(alert, animated: true) } override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(a…",
-    "location": "PetChat/Module/Launch/PCLaunchVC.swift:413",
+    "location": "PetChat/Module/Launch/PCLaunchVC.swift:414",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -1688,10 +1700,10 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "Use_Parametert_Fail",
+    "id": "Use_Parametert_HuaweiAGC",
     "module": "远端配置",
-    "trigger": "ParamKey.time.rawValue: seconds] let eventKey: String if let failureReason { param[PCAdjustEventParamKey.platform.rawValue] = pla…",
-    "location": "PetChat/Common/Managers/RemoteConfig/PCRemoteConfigCenter.swift:253",
+    "trigger": "/// 按秒向上取整上报请求耗时和脱敏失败原因。 private func report(_ provider: PCIssueSource, since start: Date, failure: String?) { var params: [Strin…",
+    "location": "PetChat/Common/Managers/RemoteConfig/PCRemoteConfigCenter.swift:182",
     "params": "-",
     "target": "Thinking/Firebase"
   },
@@ -2584,7 +2596,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "Use_Parametert_Firebase",
+    "id": "Use_Parametert_Fail",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
@@ -2592,7 +2604,7 @@ export const petChatAnalyticsEvents: PetChatAnalyticsEvent[] = [
     "target": "Thinking/Firebase"
   },
   {
-    "id": "Use_Parametert_Umeng",
+    "id": "Use_Parametert_Firebase",
     "module": "埋点",
     "trigger": "已定义，未扫描到触发调用。",
     "location": "PetChat/Common/Managers/EventManager/PCAdjustEvents.swift:1",
